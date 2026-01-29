@@ -1312,6 +1312,182 @@ Small button variant for cards.
 }
 
 /* ============================================
+   8I. EVENTS SECTION
+   ============================================
+   Event cards for homepage preview and
+   full events page. Responsive grid layout.
+   ============================================ */
+
+/*
+Events preview section (homepage).
+Light background with centered content.
+*/
+.section-events-preview {
+  background-color: var(--color-white);
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-events-preview h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+/*
+Event grid layout.
+3 columns on desktop, 2 on tablet, 1 on mobile.
+*/
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 1100px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+/*
+Full event grid (events page).
+Same as preview but may have more cards.
+*/
+.event-grid-full {
+  margin-bottom: var(--spacing-lg);
+}
+
+/*
+Individual event card.
+White background with date badge and hover effect.
+*/
+.event-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-light-gray);
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/*
+Event date badge.
+Prominent display of the event date.
+*/
+.event-date-badge {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--spacing-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-day {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.event-month {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/*
+Event content area (title, time, description, button).
+*/
+.event-content {
+  padding: var(--spacing-md);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-content h3 {
+  color: var(--color-primary);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+/*
+Event metadata (time).
+*/
+.event-meta {
+  margin-bottom: var(--spacing-sm);
+}
+
+.event-time {
+  color: var(--color-accent-dark);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/*
+Event description.
+Short text about the event.
+*/
+.event-description {
+  color: var(--color-gray);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing-md);
+  flex: 1;
+}
+
+/*
+Event card button positioning.
+*/
+.event-card .btn-small {
+  align-self: flex-start;
+}
+
+/* ============================================
+   8J. EVENT FILTER SECTION
+   ============================================
+   Category filter buttons for events page.
+   Reuses filter button styles from sermons.
+   ============================================ */
+
+.section-event-filters {
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+  background-color: var(--color-white);
+  text-align: center;
+}
+
+/* ============================================
+   8K. FULL EVENTS SECTION
+   ============================================
+   Events grid on the events.html page.
+   ============================================ */
+
+.section-events-full {
+  background-color: var(--color-off-white);
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-xxl);
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-events-full h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* ============================================
    9. UTILITY CLASSES
    ============================================
    Helpful classes for quick styling.
@@ -1437,6 +1613,12 @@ TABLETS (768px and below)
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
+
+  /* Event grid: 2 columns on tablet */
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
 }
 
 /*
@@ -1505,6 +1687,32 @@ MOBILE PHONES (480px and below)
     font-size: 1rem;
   }
 
+  /* Event grid: 1 column on mobile */
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    flex-direction: row;
+  }
+
+  .event-date-badge {
+    min-width: 80px;
+    padding: var(--spacing-sm);
+  }
+
+  .event-day {
+    font-size: 1.5rem;
+  }
+
+  .event-content h3 {
+    font-size: 1rem;
+  }
+
+  .event-description {
+    font-size: 0.875rem;
+  }
+
   /* Filter buttons wrap on mobile */
   .filter-buttons {
     gap: var(--spacing-xs);
@@ -1546,7 +1754,6 @@ MOBILE PHONES (480px and below)
 
    NEXT STEPS:
    - Add form styles when forms are added
-   - Add card styles for sermons/events
    - Consider adding a mobile hamburger menu
 
    ============================================ */
