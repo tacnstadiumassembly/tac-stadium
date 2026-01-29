@@ -14,13 +14,13 @@ The project was intentionally built without frameworks or complex tooling. Every
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| HTML5 | Semantic page structure |
-| CSS3 | Styling and responsive layout |
-| No JavaScript | Planned for future phases |
-| No CMS | WordPress was completely removed |
-| No Frameworks | Pure HTML/CSS for simplicity |
+| Technology    | Purpose                          |
+| ------------- | -------------------------------- |
+| HTML5         | Semantic page structure          |
+| CSS3          | Styling and responsive layout    |
+| No JavaScript | Planned for future phases        |
+| No CMS        | WordPress was completely removed |
+| No Frameworks | Pure HTML/CSS for simplicity     |
 
 ---
 
@@ -104,6 +104,7 @@ CSS classes are designed to be reused across pages. Common patterns like `.secti
 ### Beginner-Friendly Code Comments
 
 The codebase includes extensive comments explaining:
+
 - What each section does
 - Why certain CSS techniques are used
 - How overlays and positioning work
@@ -113,13 +114,13 @@ The codebase includes extensive comments explaining:
 
 ## Current Status
 
-| Aspect | Status |
-|--------|--------|
-| Project | Active |
-| HTML Structure | Complete |
-| CSS Styling | In Progress |
-| JavaScript | Planned |
-| Content | Placeholder content in place |
+| Aspect         | Status                       |
+| -------------- | ---------------------------- |
+| Project        | Active                       |
+| HTML Structure | Complete                     |
+| CSS Styling    | In Progress                  |
+| JavaScript     | Planned                      |
+| Content        | Placeholder content in place |
 
 ---
 
@@ -160,4 +161,4 @@ This project is for The Apostolic Church Nigeria, Stadium Branch. All rights res
 
 ---
 
-*Last Updated: January 29, 2026*
+_Last Updated: January 29, 2026_
