@@ -26,7 +26,7 @@ The project was intentionally built without frameworks or complex tooling. Every
 
 ## Project Structure
 
-```
+```text
 tac-stadium/
 ├── index.html                 # Homepage
 ├── README.md                  # Project documentation
@@ -161,4 +161,4 @@ This project is for The Apostolic Church Nigeria, Stadium Branch. All rights res
 
 ---
 
-_Last Updated: January 29, 2026_
+Last Updated: January 29, 2026
