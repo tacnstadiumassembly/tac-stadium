@@ -2325,11 +2325,165 @@ MOBILE PHONES (480px and below)
 }
 
 /* ============================================
-   END OF STYLESHEET
+   11. JAVASCRIPT ENHANCEMENT STYLES
    ============================================
+   Styles for JS-powered features.
+   Site still works without these.
+   ============================================ */
 
-   NEXT STEPS:
-   - Add form styles when forms are added
-   - Consider adding a mobile hamburger menu
+/*
+HIDDEN CLASS
+Used by JS to hide filtered items
+*/
+.hidden {
+  display: none !important;
+}
 
+/*
+ERROR MESSAGE
+Validation error text below inputs
+*/
+.error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.error-message::before {
+  content: "⚠";
+}
+
+/*
+INPUT ERROR STATE
+Red border on invalid inputs
+*/
+.input-error {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15) !important;
+}
+
+/*
+SUCCESS MESSAGE
+Confirmation message after form submit
+*/
+.success-message {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: var(--spacing-md);
+  border-radius: 8px;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+  font-weight: 500;
+}
+
+.success-message::before {
+  content: "✓ ";
+}
+
+/*
+MOBILE MENU TOGGLE BUTTON
+Hamburger icon for mobile navigation
+*/
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: var(--color-white);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Hamburger to X animation */
+.mobile-menu-toggle.menu-open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.mobile-menu-toggle.menu-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.menu-open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* Show hamburger only on mobile */
+@media screen and (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  header {
+    position: relative;
+  }
+
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-primary);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+  }
+
+  header nav.nav-open {
+    max-height: 400px;
+  }
+
+  header nav ul {
+    flex-direction: column;
+    padding: var(--spacing-sm);
+  }
+
+  header nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  header nav a {
+    display: block;
+    padding: var(--spacing-sm);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  header nav li:last-child a {
+    border-bottom: none;
+  }
+}
+
+/*
+DISABLED BUTTON STATE
+For submit buttons during processing
+*/
+button:disabled,
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ============================================
+   END OF STYLESHEET
    ============================================ */
