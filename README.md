@@ -14,13 +14,14 @@ The project was intentionally built without frameworks or complex tooling. Every
 
 ## Tech Stack
 
-| Technology    | Purpose                          |
-| ------------- | -------------------------------- |
-| HTML5         | Semantic page structure          |
-| CSS3          | Styling and responsive layout    |
-| No JavaScript | Planned for future phases        |
-| No CMS        | WordPress was completely removed |
-| No Frameworks | Pure HTML/CSS for simplicity     |
+| Technology    | Purpose                           |
+| ------------- | --------------------------------- |
+| HTML5         | Semantic page structure           |
+| CSS3          | Styling and responsive layout     |
+| JavaScript    | Progressive enhancement (vanilla) |
+| Google Fonts  | Lora (headings) + Inter (body)    |
+| No CMS        | WordPress was completely removed  |
+| No Frameworks | Pure HTML/CSS/JS for simplicity   |
 
 ---
 
@@ -45,8 +46,9 @@ tac-stadium/
 │   │   ├── favicon.png        # Browser tab icon
 │   │   ├── favicon.ico        # Legacy favicon
 │   │   └── favicon.svg        # Source favicon
-│   ├── js/                    # JavaScript (empty, planned)
-│   └── fonts/                 # Custom fonts (empty, planned)
+│   ├── js/
+│   │   └── main.js            # Progressive enhancement JS
+│   └── fonts/                 # Custom fonts (empty, using Google Fonts)
 ├── components/                # Reusable HTML snippets (planned)
 ├── data/                      # JSON data files (planned)
 └── docs/                      # Project documentation
@@ -176,6 +178,43 @@ Added lightweight, progressive enhancement JavaScript.
 - JavaScript linked to all 7 pages
 - Site fully works without JS (progressive enhancement)
 
+### Phase 9: Advanced UI & Visual Refinement
+
+Upgraded visual polish with modern, church-appropriate aesthetics.
+
+- Typography improvements:
+  - Added Lora (serif) for headings - elegant, reverent feel
+  - Added Inter (sans-serif) for body text - clean readability
+  - Google Fonts with preconnect optimization
+  - Improved letter-spacing and line-height
+- Readability & contrast fixes:
+  - Increased dark overlay opacity (0.88)
+  - Improved text contrast on dark backgrounds
+  - Added text-shadow for better legibility
+  - Enhanced hero overlay gradient
+- Controlled glassmorphism accents:
+  - Subtle frosted-glass effect on cards
+  - Semi-transparent backgrounds with backdrop blur
+  - Applied to: sermon, event, ministry, giving, contact cards
+  - Glass effect on forms, service time cards, bank details
+- Unified card system:
+  - Consistent border-radius across all cards
+  - Unified hover states and transitions
+  - Smooth elevation on hover
+  - Box-shadow refinements
+- Hero & section polish:
+  - Improved gradient overlays
+  - Clamp() for responsive heading sizes
+  - Soft section transitions
+- Mobile UI improvements:
+  - Larger touch targets (min 48px)
+  - Glass effect on mobile menu
+  - Improved form field spacing
+  - Better card stacking
+- Graceful degradation:
+  - @supports fallback for browsers without backdrop-filter
+  - Solid backgrounds for unsupported browsers
+
 ---
 
 ## Design Principles
@@ -217,13 +256,14 @@ The codebase includes extensive comments explaining:
 
 ## Next Phase
 
-### Phase 9: SEO, Accessibility & Performance
+### Phase 10: SEO, Accessibility & Performance Audit
 
 - Add meta tags for social sharing (Open Graph, Twitter Cards)
-- Improve accessibility (ARIA labels, keyboard navigation)
-- Optimize images for faster loading
+- Improve accessibility (ARIA labels, keyboard navigation audit)
+- Optimize images for faster loading (WebP, lazy loading)
 - Add structured data (JSON-LD) for search engines
 - Performance audit and optimizations
+- Lighthouse score improvements
 
 ---
 

@@ -63,17 +63,27 @@ TABLE OF CONTENTS:
     For the modern dark church aesthetic.
     */
   --color-dark-bg: #1a1a2e; /* Deep navy background */
-  --color-dark-overlay: rgba(26, 26, 46, 0.85); /* Dark overlay for images */
+  --color-dark-overlay: rgba(
+    26,
+    26,
+    46,
+    0.88
+  ); /* Dark overlay for images - increased opacity */
   --color-dark-text: #ffffff; /* White text on dark backgrounds */
-  --color-dark-text-muted: rgba(255, 255, 255, 0.8); /* Slightly faded white */
+  --color-dark-text-muted: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Improved contrast - was 0.8 */
 
   /*
     FONTS
-    Using system fonts for fast loading.
-    Falls back gracefully on all devices.
+    Using Google Fonts for improved typography.
+    Lora for headings (elegant serif), Inter for body (readable sans-serif).
     */
-  --font-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --font-heading: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-primary: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: "Lora", Georgia, "Times New Roman", serif;
 
   /*
     SPACING
@@ -100,6 +110,7 @@ TABLE OF CONTENTS:
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 12px;
+  --radius-xl: 16px;
 
   /*
     SHADOWS
@@ -108,6 +119,27 @@ TABLE OF CONTENTS:
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  /*
+    PHASE 9: GLASSMORPHISM VARIABLES
+    For modern glass-like effects on cards.
+    */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg-dark: rgba(26, 26, 46, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-light: rgba(255, 255, 255, 0.3);
+  --glass-blur: blur(12px);
+  --glass-blur-strong: blur(16px);
+
+  /*
+    PHASE 9: ELEVATION LEVELS
+    Consistent elevation for hover states.
+    */
+  --elevation-1: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --elevation-2: 0 4px 16px rgba(0, 0, 0, 0.1);
+  --elevation-3: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --elevation-hover: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
 /* ============================================
@@ -116,6 +148,13 @@ TABLE OF CONTENTS:
    These remove default browser styling and
    set a consistent foundation.
    ============================================ */
+
+/*
+GOOGLE FONTS IMPORT
+Lora: Elegant serif for headings (church appropriate)
+Inter: Clean, readable sans-serif for body text
+*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 /*
 Box-sizing border-box makes sizing easier.
@@ -2482,6 +2521,586 @@ button:disabled,
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* ============================================
+   12. PHASE 9: ADVANCED UI & GLASSMORPHISM
+   ============================================
+   Premium visual refinements including:
+   - Improved readability & contrast
+   - Glassmorphism accents (controlled use)
+   - Typography enhancements
+   - Card system unification
+   - Hero & section polish
+   - Mobile UI improvements
+   ============================================ */
+
+/* -------------------------------------------
+   12A. TYPOGRAPHY ENHANCEMENTS
+   ------------------------------------------- */
+
+/*
+Improved heading styles with Lora serif font.
+Elegant, church-appropriate typography.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h2 {
+  line-height: 1.3;
+}
+
+/*
+Body text improvements for better readability.
+*/
+p {
+  max-width: 70ch; /* Optimal reading width */
+  line-height: 1.75;
+}
+
+/* -------------------------------------------
+   12B. READABILITY & CONTRAST FIXES
+   ------------------------------------------- */
+
+/*
+Dark section text - improved contrast.
+Ensure all text is clearly readable.
+*/
+.section-dark p,
+.section-dark li {
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/*
+Hero section - stronger overlay for better text visibility.
+*/
+.section-hero-bg::before {
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 46, 0.75) 0%,
+    rgba(26, 26, 46, 0.9) 50%,
+    rgba(26, 26, 46, 0.85) 100%
+  );
+}
+
+/*
+CTA buttons in dark sections - improved visibility.
+*/
+.section-dark .btn,
+.section-dark > a {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-shadow: none;
+}
+
+.section-dark .btn-primary {
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+}
+
+.section-dark .btn-secondary {
+  border-width: 2px;
+  font-weight: 600;
+}
+
+/* -------------------------------------------
+   12C. GLASSMORPHISM EFFECTS
+   ------------------------------------------- */
+
+/*
+Glass card base style.
+Applied to premium cards for modern look.
+Use sparingly - not on everything.
+*/
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+}
+
+/*
+Dark glass variant for dark backgrounds.
+*/
+.glass-card-dark {
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur-strong);
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  border: 1px solid var(--glass-border-light);
+}
+
+/*
+Apply glass effect to sermon cards.
+*/
+.sermon-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--elevation-1);
+}
+
+.sermon-card:hover {
+  box-shadow: var(--elevation-hover);
+  transform: translateY(-8px);
+}
+
+/*
+Apply glass effect to event cards.
+*/
+.event-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--elevation-1);
+}
+
+.event-card:hover {
+  box-shadow: var(--elevation-hover);
+  transform: translateY(-6px);
+}
+
+/*
+Apply glass effect to ministry cards.
+*/
+.ministry-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--elevation-1);
+}
+
+.ministry-card:hover {
+  box-shadow: var(--elevation-hover);
+  transform: translateY(-8px);
+}
+
+/*
+Apply glass effect to giving cards.
+*/
+.giving-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--elevation-1);
+}
+
+.giving-card:hover {
+  box-shadow: var(--elevation-hover);
+  transform: translateY(-8px);
+}
+
+/*
+Apply glass effect to contact info cards.
+*/
+.contact-info-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--elevation-1);
+}
+
+.contact-info-card:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-4px);
+}
+
+/*
+Apply glass effect to form containers.
+*/
+.form-container {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--elevation-2);
+}
+
+/*
+Service time cards - glass on dark background.
+*/
+.service-time-card {
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.service-time-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--glass-border-light);
+}
+
+/*
+Bank details box - glass on dark.
+*/
+.giving-bank-details {
+  background: var(--glass-bg-dark);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+/* -------------------------------------------
+   12D. UNIFIED CARD SYSTEM
+   ------------------------------------------- */
+
+/*
+Common card properties for consistency.
+All cards share the same visual language.
+*/
+.sermon-card,
+.event-card,
+.ministry-card,
+.giving-card,
+.contact-info-card {
+  border-radius: var(--radius-xl);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/*
+Card heading consistency.
+*/
+.sermon-card h3,
+.event-card h3,
+.ministry-card h3,
+.giving-card h3,
+.contact-info-card h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/*
+Card description text consistency.
+*/
+.sermon-card p,
+.event-card p,
+.ministry-card p,
+.giving-card p {
+  color: var(--color-dark-gray);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------
+   12E. HERO & SECTION POLISH
+   ------------------------------------------- */
+
+/*
+Hero section enhancements.
+More impactful presentation.
+*/
+.section-hero-bg h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.15;
+}
+
+.section-hero-bg p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/*
+Section transitions - soft gradients between sections.
+*/
+.section-intro,
+.section-ministries,
+.section-sermons-preview,
+.section-giving {
+  position: relative;
+}
+
+.section-intro::before,
+.section-ministries::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/*
+Page header section improvements.
+*/
+.section-page-header {
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-primary-light) 100%
+  );
+  color: var(--color-white);
+}
+
+.section-page-header h1 {
+  color: var(--color-white);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.section-page-header p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+/*
+Featured/CTA section improvements.
+*/
+.section-featured {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 100%
+  );
+}
+
+.section-featured h2 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.section-featured p {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* -------------------------------------------
+   12F. BUTTON REFINEMENTS
+   ------------------------------------------- */
+
+/*
+Enhanced button styling.
+*/
+.btn {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.35);
+}
+
+.btn-small {
+  font-weight: 500;
+}
+
+/*
+Form submit button enhancements.
+*/
+.btn-submit {
+  font-family: var(--font-primary);
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 15px rgba(26, 26, 46, 0.2);
+}
+
+.btn-submit:hover {
+  box-shadow: 0 6px 20px rgba(26, 26, 46, 0.3);
+}
+
+/* -------------------------------------------
+   12G. INPUT FIELD REFINEMENTS
+   ------------------------------------------- */
+
+/*
+Enhanced form inputs.
+*/
+.form-group input,
+.form-group select,
+.form-group textarea {
+  font-family: var(--font-primary);
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  box-shadow: 0 0 0 4px rgba(26, 26, 46, 0.1);
+}
+
+/* -------------------------------------------
+   12H. MOBILE MENU GLASS EFFECT
+   ------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  header nav {
+    background: rgba(26, 26, 46, 0.98);
+    backdrop-filter: var(--glass-blur-strong);
+    -webkit-backdrop-filter: var(--glass-blur-strong);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  header nav a {
+    font-size: 1rem;
+    padding: var(--spacing-md) var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  header nav a:hover,
+  header nav a:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-accent);
+  }
+}
+
+/* -------------------------------------------
+   12I. MOBILE UI IMPROVEMENTS
+   ------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  /*
+  Improved touch targets for buttons.
+  */
+  .btn,
+  .btn-small,
+  .filter-btn {
+    min-height: 44px;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  /*
+  Card padding adjustments.
+  */
+  .sermon-card,
+  .event-card,
+  .ministry-card,
+  .giving-card {
+    border-radius: var(--radius-lg);
+  }
+
+  /*
+  Form spacing improvements.
+  */
+  .form-container {
+    border-radius: var(--radius-lg);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    min-height: 48px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /*
+  Prevent text overflow on small screens.
+  */
+  h1,
+  h2,
+  h3 {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /*
+  Full-width buttons on mobile.
+  */
+  .btn-primary,
+  .btn-submit {
+    width: 100%;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /*
+  Compact card padding.
+  */
+  .sermon-content,
+  .event-content,
+  .giving-card {
+    padding: var(--spacing-md);
+  }
+
+  /*
+  Hero text size adjustments.
+  */
+  .section-hero-bg h1 {
+    font-size: 1.75rem;
+  }
+
+  .section-hero-bg p {
+    font-size: 1rem;
+  }
+}
+
+/* -------------------------------------------
+   12J. GRACEFUL DEGRADATION
+   ------------------------------------------- */
+
+/*
+Fallback for browsers that don't support backdrop-filter.
+Uses solid backgrounds instead of glass effect.
+*/
+@supports not (backdrop-filter: blur(10px)) {
+  .sermon-card,
+  .event-card,
+  .ministry-card,
+  .giving-card,
+  .contact-info-card,
+  .form-container {
+    background: var(--color-white);
+    border: 1px solid var(--color-light-gray);
+  }
+
+  .service-time-card,
+  .giving-bank-details {
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  header nav {
+    background: var(--color-primary);
+  }
 }
 
 /* ============================================
