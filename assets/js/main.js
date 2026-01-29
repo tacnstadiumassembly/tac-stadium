@@ -12,14 +12,24 @@
  * 4. Form validation (client-side)
  * 5. Smooth scroll for anchor links
  * 6. Double-submit prevention
+ * 7. Page transition animation (Phase 10)
+ * 8. Scroll reveal animations (Phase 10)
  *
  * Created: January 29, 2026
+ * Updated: Phase 10 - Brand UI, Motion & Page Transitions
  * ============================================
  */
 
 // Wait for DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
   "use strict";
+
+  // ============================================
+  // PHASE 10: CHECK FOR REDUCED MOTION PREFERENCE
+  // ============================================
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   // ============================================
   // 1. MOBILE NAVIGATION TOGGLE
@@ -451,6 +461,134 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ============================================
+  // PHASE 10: SCROLL REVEAL ANIMATIONS
+  // ============================================
+  // Fade-up animation for cards and sections on scroll
+
+  function initScrollReveal() {
+    // Skip if user prefers reduced motion
+    if (prefersReducedMotion) return;
+
+    // Select elements to animate
+    const animatableElements = document.querySelectorAll(
+      ".sermon-card, .event-card, .ministry-card, .giving-card, " +
+        ".contact-info-card, .service-time-card, .form-container",
+    );
+
+    // Add animation class to all animatable elements
+    animatableElements.forEach(function (el) {
+      el.classList.add("animate-on-scroll");
+    });
+
+    // Create intersection observer
+    const observerOptions = {
+      root: null, // viewport
+      rootMargin: "0px 0px -50px 0px", // trigger slightly before element is fully visible
+      threshold: 0.1, // 10% of element must be visible
+    };
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // Add visible class with slight delay for stagger effect
+          entry.target.classList.add("is-visible");
+          // Stop observing once animated
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all animatable elements
+    animatableElements.forEach(function (el) {
+      observer.observe(el);
+    });
+
+    // Animate section headings
+    const sectionHeadings = document.querySelectorAll("main section h2");
+    sectionHeadings.forEach(function (heading) {
+      heading.classList.add("section-heading-animate");
+    });
+
+    const headingObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            headingObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    sectionHeadings.forEach(function (heading) {
+      headingObserver.observe(heading);
+    });
+  }
+
+  // ============================================
+  // PHASE 10: PAGE TRANSITION HANDLING
+  // ============================================
+  // Smooth page navigation with fade effect
+
+  function initPageTransitions() {
+    // Skip if user prefers reduced motion
+    if (prefersReducedMotion) return;
+
+    // Get all internal navigation links
+    const internalLinks = document.querySelectorAll(
+      'a[href^="/"]:not([target="_blank"]), ' +
+        'a[href^="./"]:not([target="_blank"]), ' +
+        'a[href^="../"]:not([target="_blank"]), ' +
+        'a:not([href^="http"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"]):not([target="_blank"])',
+    );
+
+    internalLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+
+        // Skip if it's an anchor link or external
+        if (!href || href.startsWith("#") || href.startsWith("http")) return;
+
+        e.preventDefault();
+
+        // Add exit animation class
+        document.body.classList.add("page-exit");
+
+        // Navigate after animation
+        setTimeout(function () {
+          window.location.href = href;
+        }, 200);
+      });
+    });
+  }
+
+  // ============================================
+  // PHASE 10: BUTTON RIPPLE EFFECT (SUBTLE)
+  // ============================================
+  // Adds subtle tactile feedback on button press
+
+  function initButtonFeedback() {
+    const buttons = document.querySelectorAll(".btn, .btn-primary, .btn-small");
+
+    buttons.forEach(function (button) {
+      button.addEventListener("mousedown", function () {
+        this.style.transform = "scale(0.98)";
+      });
+
+      button.addEventListener("mouseup", function () {
+        this.style.transform = "";
+      });
+
+      button.addEventListener("mouseleave", function () {
+        this.style.transform = "";
+      });
+    });
+  }
+
+  // ============================================
   // INITIALIZE ALL FEATURES
   // ============================================
 
@@ -461,6 +599,11 @@ document.addEventListener("DOMContentLoaded", function () {
   initVisitorFormValidation();
   initSmoothScroll();
   initPreventDoubleSubmit();
+
+  // Phase 10 features
+  initScrollReveal();
+  initPageTransitions();
+  initButtonFeedback();
 
   // Log for debugging (remove in production)
   console.log("TAC Stadium JS loaded successfully.");
