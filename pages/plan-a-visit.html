@@ -233,52 +233,102 @@
         ============================================
         VISITOR FORM SECTION
         ============================================
-        Optional form to let us know they're coming
+        Form to let us know they're coming
         ============================================
         -->
-      <section>
-        <h2>Let Us Know You're Coming</h2>
+      <section class="form-section">
+        <div class="form-container">
+          <h2>Plan Your Visit</h2>
+          <p class="form-intro">
+            Let us know you're coming. We'd love to welcome you personally.
+          </p>
 
-        <p>
-          You don't have to, but if you'd like, you can fill out a short form to
-          let us know you're planning to visit. That way, we can be ready to
-          welcome you personally when you arrive.
-        </p>
+          <form action="#" method="post" class="visitor-form">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="visitor-name"
+                >Full Name <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="visitor-name"
+                name="visitor-name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
 
-        <!--
-            PLACEHOLDER FOR VISITOR FORM
+            <!-- Phone Number -->
+            <div class="form-group">
+              <label for="visitor-phone">Phone Number</label>
+              <input
+                type="tel"
+                id="visitor-phone"
+                name="visitor-phone"
+                placeholder="e.g. 08012345678"
+              />
+            </div>
 
-            This form will be added later with proper functionality.
-            Fields needed:
-            - Name (required)
-            - Phone number (required)
-            - Email (optional)
-            - Planned visit date (optional)
-            - Message (optional)
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="visitor-email">Email Address</label>
+              <input
+                type="email"
+                id="visitor-email"
+                name="visitor-email"
+                placeholder="yourname@example.com"
+              />
+            </div>
 
-            Example structure (to be added later):
+            <!-- Visiting With -->
+            <div class="form-group">
+              <label for="visitor-with">Visiting With</label>
+              <select id="visitor-with" name="visitor-with">
+                <option value="">-- Select an option --</option>
+                <option value="alone">Alone</option>
+                <option value="family">Family</option>
+                <option value="friends">Friends</option>
+              </select>
+            </div>
 
-            <form action="#" method="post">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
+            <!-- First Time Visiting -->
+            <div class="form-group">
+              <label>First Time Visiting?</label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="first-time" value="yes" />
+                  <span>Yes</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="first-time" value="no" />
+                  <span>No</span>
+                </label>
+              </div>
+            </div>
 
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required>
+            <!-- Message / Expectations -->
+            <div class="form-group">
+              <label for="visitor-message">Message / Expectations</label>
+              <textarea
+                id="visitor-message"
+                name="visitor-message"
+                rows="4"
+                placeholder="Is there anything you'd like us to know or prepare for?"
+              ></textarea>
+            </div>
 
-                <label for="email">Email (optional)</label>
-                <input type="email" id="email" name="email">
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-submit">
+                Notify the Church
+              </button>
+            </div>
+          </form>
 
-                <label for="date">Planned Visit Date (optional)</label>
-                <input type="date" id="date" name="date">
-
-                <label for="message">Message (optional)</label>
-                <textarea id="message" name="message"></textarea>
-
-                <button type="submit">Let Us Know</button>
-            </form>
-            -->
-
-        <p><em>(A visitor form will be placed here)</em></p>
+          <p class="form-privacy">
+            Your information is private and used only to prepare for your visit.
+          </p>
+        </div>
       </section>
 
       <!--

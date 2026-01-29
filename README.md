@@ -85,6 +85,46 @@ Added structured content sections with responsive layouts.
 - Mobile-responsive grid layouts
 - Hover effects on interactive elements
 
+### Phase 4: Sermons and Media Layout
+
+Built sermon display system with responsive grids.
+
+- Created reusable sermon card component
+- Built responsive sermon grid (3 columns → 2 → 1)
+- Added sermon preview section to homepage (3 cards)
+- Expanded sermons.html with full sermon listing (9 cards)
+- Added category filter UI buttons (All, Sunday Messages, Special Programs)
+- Implemented thumbnail aspect-ratio boxes
+- Styled buttons consistently with hero section
+
+### Phase 5: Events and Programs Layout
+
+Created event display system with visual date badges.
+
+- Built event card component with date badge design
+- Created responsive event grid layout
+- Added events preview section to homepage (3 cards)
+- Expanded events.html with full event listing (8 cards)
+- Added filter buttons (All, Upcoming, Past, Special)
+- Implemented dark CTA section for events page
+- Date badges with month, day, and year display
+
+### Phase 6: Visitor and Contact Forms (UI Only)
+
+Added accessible forms for visitor planning and contact.
+
+- Created visitor form on plan-a-visit.html
+  - Fields: Full Name, Phone, Email, Visiting With dropdown, First Time (radio buttons), Message
+  - Submit button: "Notify the Church"
+  - Privacy reassurance text
+- Created contact form on contact.html
+  - Fields: Full Name, Email, Subject, Message
+  - Submit button: "Send Message"
+  - Contact info cards (Address, Phone, Email, WhatsApp)
+- Form styling with focus states for accessibility
+- Fully responsive form layouts
+- UI only - no backend functionality yet
+
 ---
 
 ## Design Principles
@@ -126,15 +166,12 @@ The codebase includes extensive comments explaining:
 
 ## Next Phase
 
-### Phase 4: Sermons and Media Layout
+### Phase 7: Giving and Donations Page
 
-- Create reusable sermon card component
-- Build responsive sermon grid (3 columns to 1 column)
-- Add sermon preview section to homepage (3 cards)
-- Expand sermons.html with full sermon listing (6-9 cards)
-- Add category filter UI placeholders (All, Sunday Messages, Special Programs)
-- Implement thumbnail aspect-ratio boxes
-- Style buttons consistently with hero section
+- Create donation information section
+- Add bank account details layout
+- Build giving form UI (if applicable)
+- Add testimonials or impact section
 
 ---
 

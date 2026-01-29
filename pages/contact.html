@@ -124,37 +124,37 @@
         Phone, email, WhatsApp
         ============================================
         -->
-      <section>
+      <section class="contact-info-section">
         <h2>Get in Touch</h2>
 
-        <h3>Phone</h3>
-        <p><em>(Phone number will be added here)</em></p>
+        <div class="contact-info-grid">
+          <div class="contact-info-card">
+            <div class="contact-icon">📍</div>
+            <h3>Address</h3>
+            <p>
+              The Apostolic Church Nigeria<br />Stadium Assembly<br />Ogbomosho,
+              Oyo State, Nigeria
+            </p>
+          </div>
 
-        <h3>Email</h3>
-        <p><em>(Email address will be added here)</em></p>
+          <div class="contact-info-card">
+            <div class="contact-icon">📞</div>
+            <h3>Phone</h3>
+            <p>+234 XXX XXX XXXX</p>
+          </div>
 
-        <h3>WhatsApp</h3>
-        <p><em>(WhatsApp number will be added here)</em></p>
-        <p>
-          You can send us a message on WhatsApp for quick questions or to let us
-          know you're planning to visit.
-        </p>
-      </section>
+          <div class="contact-info-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <p>info@tacnstadium.org</p>
+          </div>
 
-      <!--
-        ============================================
-        SERVICE TIMES SECTION
-        ============================================
-        Quick reminder of when we meet
-        ============================================
-        -->
-      <section>
-        <h2>Service Times</h2>
-
-        <ul>
-          <li>Sunday School: 8:00 AM – 9:00 AM</li>
-          <li>Main Service: Immediately after Sunday School</li>
-        </ul>
+          <div class="contact-info-card">
+            <div class="contact-icon">💬</div>
+            <h3>WhatsApp</h3>
+            <p>+234 XXX XXX XXXX</p>
+          </div>
+        </div>
       </section>
 
       <!--
@@ -164,44 +164,70 @@
         Form for sending messages
         ============================================
         -->
-      <section>
-        <h2>Send Us a Message</h2>
+      <section class="form-section">
+        <div class="form-container">
+          <h2>Send Us a Message</h2>
 
-        <p>
-          If you prefer, you can use the form below to send us a message. We'll
-          get back to you as soon as we can.
-        </p>
+          <form action="#" method="post" class="contact-form">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="contact-name"
+                >Full Name <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="contact-name"
+                name="contact-name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
 
-        <!--
-            PLACEHOLDER FOR CONTACT FORM
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="contact-email"
+                >Email Address <span class="required">*</span></label
+              >
+              <input
+                type="email"
+                id="contact-email"
+                name="contact-email"
+                placeholder="yourname@example.com"
+                required
+              />
+            </div>
 
-            This form will be added later with proper functionality.
-            Fields needed:
-            - Name (required)
-            - Email (required)
-            - Phone (optional)
-            - Message (required)
+            <!-- Subject -->
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input
+                type="text"
+                id="contact-subject"
+                name="contact-subject"
+                placeholder="What is this about?"
+              />
+            </div>
 
-            Example structure (to be added later):
+            <!-- Message -->
+            <div class="form-group">
+              <label for="contact-message"
+                >Message <span class="required">*</span></label
+              >
+              <textarea
+                id="contact-message"
+                name="contact-message"
+                rows="5"
+                placeholder="Write your message here..."
+                required
+              ></textarea>
+            </div>
 
-            <form action="#" method="post">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="phone">Phone Number (optional)</label>
-                <input type="tel" id="phone" name="phone">
-
-                <label for="message">Your Message</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            -->
-
-        <p><em>(A contact form will be placed here)</em></p>
+            <!-- Submit Button -->
+            <div class="form-group">
+              <button type="submit" class="btn btn-submit">Send Message</button>
+            </div>
+          </form>
+        </div>
       </section>
 
       <!--

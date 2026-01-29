@@ -1488,6 +1488,262 @@ Event card button positioning.
 }
 
 /* ============================================
+   8L. CONTACT INFO STYLES
+   ============================================
+   Contact information cards grid
+   ============================================ */
+
+.contact-info-section {
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+}
+
+.contact-info-section h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.contact-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contact-info-card {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-info-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-info-card h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.contact-info-card p {
+  color: var(--color-text);
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ============================================
+   8M. FORM STYLES
+   ============================================
+   Visitor form, contact form, and other forms
+   ============================================ */
+
+/*
+FORM SECTION
+Container wrapper for the form
+*/
+.form-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-bg);
+}
+
+/*
+FORM CONTAINER
+Centers and constrains the form width
+*/
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-xl);
+  background-color: var(--color-white);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-container h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+/*
+FORM INTRO TEXT
+Introduction paragraph above the form
+*/
+.form-intro {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.6;
+}
+
+/*
+FORM GROUPS
+Each label + input combination
+*/
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--spacing-xs);
+  font-size: 0.95rem;
+}
+
+/*
+REQUIRED FIELD INDICATOR
+Red asterisk for required fields
+*/
+.required {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/*
+INPUT FIELDS
+Text inputs, email, phone, etc.
+*/
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  font-family: inherit;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Placeholder text styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Focus state for accessibility */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.15);
+}
+
+/*
+SELECT DROPDOWN
+Custom styling for dropdowns
+*/
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+/*
+TEXTAREA
+Multi-line text input
+*/
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/*
+RADIO BUTTON GROUP
+Group of radio buttons (e.g., Yes/No)
+*/
+.radio-group {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xs);
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  font-weight: normal;
+}
+
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+/*
+SUBMIT BUTTON
+Form submission button
+*/
+.btn-submit {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* Focus state for accessibility */
+.btn-submit:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+}
+
+/*
+FORM PRIVACY NOTICE
+Privacy reassurance text below form
+*/
+.form-privacy {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: var(--spacing-md);
+  font-style: italic;
+}
+
+/* ============================================
    9. UTILITY CLASSES
    ============================================
    Helpful classes for quick styling.
@@ -1619,6 +1875,17 @@ TABLETS (768px and below)
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
+
+  /* Contact info grid: 2 columns on tablet */
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Form container smaller padding on tablet */
+  .form-container {
+    padding: var(--spacing-lg);
+    margin: 0 var(--spacing-sm);
+  }
 }
 
 /*
@@ -1721,6 +1988,43 @@ MOBILE PHONES (480px and below)
   .filter-btn {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 0.875rem;
+  }
+
+  /* Contact info grid: 1 column on mobile */
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .contact-info-card {
+    padding: var(--spacing-md);
+  }
+
+  /* Form container adjustments on mobile */
+  .form-container {
+    padding: var(--spacing-md);
+    margin: 0;
+    border-radius: 8px;
+  }
+
+  .form-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 10px 14px;
+  }
+
+  .radio-group {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .btn-submit {
+    padding: 12px 20px;
+    font-size: 1rem;
   }
 
   /* Intro section adjustments */
