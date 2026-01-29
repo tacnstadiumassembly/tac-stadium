@@ -1,0 +1,1285 @@
+/*
+============================================
+TAC STADIUM - MAIN STYLESHEET
+============================================
+This file controls the look and feel of the
+entire Stadium Assembly church website.
+
+Created: January 29, 2026
+
+TABLE OF CONTENTS:
+1. CSS Variables (Colors, Fonts, Spacing)
+2. Reset & Base Styles
+3. Typography
+4. Layout & Container
+5. Header & Navigation
+6. Main Content & Sections
+7. Buttons
+8. Footer
+9. Utility Classes
+10. Mobile Responsive Styles
+============================================
+*/
+
+/* ============================================
+   1. CSS VARIABLES
+   ============================================
+   These are reusable values that we can use
+   throughout the stylesheet. If we want to
+   change a color, we only change it here.
+   ============================================ */
+
+:root {
+  /*
+    PRIMARY COLORS
+    These are the main brand colors for the church.
+    Deep, powerful, and spiritually calming.
+    */
+  --color-primary: #1a1a2e; /* Deep navy - faith, depth */
+  --color-primary-dark: #0f0f1a; /* Darker navy - for hover states */
+  --color-primary-light: #2d2d44; /* Lighter navy - for accents */
+
+  /*
+    ACCENT COLORS
+    Used for highlights and call-to-action elements.
+    */
+  --color-accent: #c9a227; /* Warm gold - hope, glory */
+  --color-accent-dark: #a68520; /* Darker gold - for hover */
+  --color-accent-light: #e6c747; /* Lighter gold - for highlights */
+
+  /*
+    NEUTRAL COLORS
+    For backgrounds, text, and borders.
+    */
+  --color-white: #ffffff;
+  --color-off-white: #f8f9fa; /* Very light gray background */
+  --color-light-gray: #e9ecef; /* Light gray for borders */
+  --color-gray: #6c757d; /* Medium gray for secondary text */
+  --color-dark-gray: #343a40; /* Dark gray for text */
+  --color-black: #212529; /* Near black for headings */
+
+  /*
+    DARK SECTION COLORS
+    For the modern dark church aesthetic.
+    */
+  --color-dark-bg: #1a1a2e; /* Deep navy background */
+  --color-dark-overlay: rgba(26, 26, 46, 0.85); /* Dark overlay for images */
+  --color-dark-text: #ffffff; /* White text on dark backgrounds */
+  --color-dark-text-muted: rgba(255, 255, 255, 0.8); /* Slightly faded white */
+
+  /*
+    FONTS
+    Using system fonts for fast loading.
+    Falls back gracefully on all devices.
+    */
+  --font-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  /*
+    SPACING
+    Consistent spacing throughout the site.
+    */
+  --spacing-xs: 0.5rem; /* 8px */
+  --spacing-sm: 1rem; /* 16px */
+  --spacing-md: 1.5rem; /* 24px */
+  --spacing-lg: 2rem; /* 32px */
+  --spacing-xl: 3rem; /* 48px */
+  --spacing-xxl: 4rem; /* 64px */
+
+  /*
+    MAX WIDTH
+    Keeps content readable on large screens.
+    */
+  --max-width: 1200px;
+  --max-width-narrow: 800px;
+
+  /*
+    BORDER RADIUS
+    Slightly rounded corners for a friendly feel.
+    */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /*
+    SHADOWS
+    Subtle shadows for depth.
+    */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   2. RESET & BASE STYLES
+   ============================================
+   These remove default browser styling and
+   set a consistent foundation.
+   ============================================ */
+
+/*
+Box-sizing border-box makes sizing easier.
+Padding and border are included in the width.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+Remove default margins and paddings.
+This gives us full control over spacing.
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Smooth scrolling when clicking anchor links.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+Base body styles.
+Sets the default font, color, and background.
+*/
+body {
+  font-family: var(--font-primary);
+  font-size: 1rem; /* 16px base size */
+  line-height: 1.6; /* Easy to read line height */
+  color: var(--color-dark-gray);
+  background-color: var(--color-white);
+
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+}
+
+/*
+Make images responsive by default.
+They won't overflow their containers.
+*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+Remove list styles from navigation lists.
+We'll style these ourselves.
+*/
+ul {
+  list-style: none;
+}
+
+/*
+Remove default link underlines.
+We'll add them back where needed.
+*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   3. TYPOGRAPHY
+   ============================================
+   Heading and paragraph styles.
+   Clear hierarchy for easy reading.
+   ============================================ */
+
+/*
+Headings - clear visual hierarchy.
+Each heading is smaller than the one before.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-black);
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 {
+  font-size: 2.5rem; /* 40px */
+  margin-bottom: var(--spacing-md);
+}
+
+h2 {
+  font-size: 2rem; /* 32px */
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: 1.5rem; /* 24px */
+}
+
+h4 {
+  font-size: 1.25rem; /* 20px */
+}
+
+/*
+Paragraphs - comfortable reading.
+Good spacing between paragraphs.
+*/
+p {
+  margin-bottom: var(--spacing-sm);
+  max-width: 70ch; /* 70 characters max for readability */
+}
+
+/*
+Last paragraph in a section doesn't need bottom margin.
+*/
+p:last-child {
+  margin-bottom: 0;
+}
+
+/*
+Lists inside main content.
+Proper indentation and spacing.
+*/
+main ul,
+main ol {
+  margin-bottom: var(--spacing-sm);
+  padding-left: var(--spacing-md);
+}
+
+main li {
+  margin-bottom: var(--spacing-xs);
+}
+
+/*
+Strong and emphasis.
+*/
+strong {
+  font-weight: 600;
+}
+
+em {
+  font-style: italic;
+}
+
+/*
+Address styling (used in contact info).
+*/
+address {
+  font-style: normal;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================
+   4. LAYOUT & CONTAINER
+   ============================================
+   Controls the overall page structure.
+   Centers content and adds consistent padding.
+   ============================================ */
+
+/*
+Container class - centers content.
+Use this on sections to keep content readable.
+*/
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/*
+Narrow container for text-heavy pages.
+*/
+.container-narrow {
+  max-width: var(--max-width-narrow);
+}
+
+/* ============================================
+   5. HEADER & NAVIGATION
+   ============================================
+   The top bar with church name and menu.
+   Appears on every page.
+   Dark themed for modern church look.
+   ============================================ */
+
+/*
+Main header container.
+Fixed at top, always visible.
+Dark background for modern look.
+*/
+header {
+  background-color: var(--color-dark-bg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/*
+Inner header layout.
+Logo on left, nav on right.
+*/
+header > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/*
+Church name / Logo.
+White text on dark header.
+*/
+header > div:first-child > a {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-white);
+  transition: color 0.3s ease;
+}
+
+header > div:first-child > a:hover {
+  color: var(--color-accent);
+}
+
+/*
+Navigation container.
+*/
+header nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/*
+Navigation list.
+Horizontal layout on desktop.
+*/
+header nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  padding-top: var(--spacing-sm);
+}
+
+/*
+Navigation links.
+Light text on dark header.
+*/
+header nav a {
+  display: block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  color: var(--color-dark-text-muted);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: all 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary-light);
+}
+
+/* ============================================
+   6. MAIN CONTENT & SECTIONS
+   ============================================
+   Styling for the main page content.
+   Each section has consistent spacing.
+   ============================================ */
+
+/*
+Main content area.
+Adds vertical spacing from header and footer.
+*/
+main {
+  min-height: calc(100vh - 300px); /* Ensures footer stays at bottom */
+}
+
+/*
+Sections - the building blocks of pages.
+Generous padding for breathing room.
+*/
+main section {
+  padding: var(--spacing-xl) var(--spacing-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/*
+Alternate background for visual interest.
+Every other section gets a light background.
+*/
+main section:nth-child(even) {
+  background-color: var(--color-off-white);
+  max-width: 100%;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Content inside even sections still has max-width */
+main section:nth-child(even) > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+Hero section (first section on home page).
+Larger and more prominent.
+*/
+main section:first-child {
+  padding-top: var(--spacing-xxl);
+  padding-bottom: var(--spacing-xxl);
+  text-align: center;
+}
+
+main section:first-child h1 {
+  font-size: 2.75rem;
+  color: var(--color-primary);
+}
+
+main section:first-child p {
+  font-size: 1.125rem;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing-md);
+}
+
+/*
+Section headings.
+Adds a nice accent underline.
+*/
+main section h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: var(--spacing-lg);
+}
+
+main section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+}
+
+/*
+Lists within sections.
+Better styling for bullet points.
+*/
+main section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main section ul li {
+  position: relative;
+  padding-left: var(--spacing-md);
+  margin-bottom: var(--spacing-xs);
+}
+
+main section ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+/* ============================================
+   7. BUTTONS
+   ============================================
+   Call-to-action buttons.
+   Clear, clickable, and inviting.
+   ============================================ */
+
+/*
+Primary button style.
+Used for main calls-to-action.
+*/
+main section > a,
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: var(--spacing-sm);
+}
+
+main section > a:hover,
+.btn:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/*
+Secondary button style.
+For less prominent actions.
+*/
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/*
+Accent button style.
+For special highlights.
+*/
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-black);
+}
+
+.btn-accent:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* ============================================
+   7B. DARK SECTIONS WITH BACKGROUND IMAGES
+   ============================================
+   Modern dark church aesthetic.
+
+   HOW THIS WORKS:
+   - We use CSS classes to mark sections as "dark"
+   - Dark sections have a deep navy background
+   - Some sections can have background images
+   - We use OVERLAYS to darken images so text is readable
+
+   WHAT IS AN OVERLAY?
+   An overlay is a semi-transparent layer placed on top
+   of a background image. It makes the image darker so
+   that white text can be easily read on top of it.
+
+   We create overlays using the ::before pseudo-element,
+   which is like an invisible layer we position on top
+   of the background.
+   ============================================ */
+
+/*
+DARK SECTION BASE STYLES
+These apply to any section with the "section-dark" class.
+*/
+.section-dark {
+  /* Full width - breaks out of container */
+  max-width: 100%;
+  width: 100%;
+
+  /* Dark background color */
+  background-color: var(--color-dark-bg);
+
+  /* White text for contrast */
+  color: var(--color-dark-text);
+
+  /* Extra vertical padding for impact */
+  padding: var(--spacing-xxl) var(--spacing-md);
+
+  /* Center the text */
+  text-align: center;
+
+  /* Position relative so overlay can be positioned */
+  position: relative;
+}
+
+/*
+Text colors inside dark sections.
+Override the default dark text colors.
+*/
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4 {
+  color: var(--color-white);
+}
+
+.section-dark p {
+  color: var(--color-dark-text-muted);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*
+Gold accent underline for headings in dark sections.
+*/
+.section-dark h2::after {
+  background-color: var(--color-accent);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*
+List styling in dark sections.
+*/
+.section-dark ul li::before {
+  color: var(--color-accent);
+}
+
+/*
+Buttons in dark sections.
+Gold accent color for visibility.
+*/
+.section-dark > a,
+.section-dark .btn {
+  background-color: var(--color-accent);
+  color: var(--color-dark-bg);
+}
+
+.section-dark > a:hover,
+.section-dark .btn:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-dark-bg);
+}
+
+/*
+Hero buttons container.
+Flexbox layout for side-by-side buttons.
+*/
+.hero-buttons {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-buttons .btn {
+  margin-top: 0;
+}
+
+/*
+Primary button (filled) in dark sections.
+*/
+.section-dark .btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-dark-bg);
+  font-weight: 700;
+}
+
+.section-dark .btn-primary:hover {
+  background-color: var(--color-accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+}
+
+/*
+Secondary button (outline) in dark sections.
+*/
+.section-dark .btn-secondary {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.section-dark .btn-secondary:hover {
+  background-color: var(--color-white);
+  color: var(--color-dark-bg);
+}
+
+/* ============================================
+   BACKGROUND IMAGE WITH OVERLAY
+   ============================================
+   For sections that need a background image.
+
+   HOW TO USE:
+   Add the class "section-hero-bg" to a section.
+   The actual image URL is set inline on the HTML
+   element using style="background-image: url(...)".
+
+   The overlay is created with ::before pseudo-element.
+   ============================================ */
+
+.section-hero-bg {
+  /* Background image settings */
+  background-size: cover; /* Image covers entire section */
+  background-position: center; /* Image is centered */
+  background-repeat: no-repeat; /* Image doesn't tile/repeat */
+  background-attachment: scroll; /* Image scrolls with page */
+
+  /* Position for overlay */
+  position: relative;
+
+  /* Extra padding for hero impact */
+  padding: calc(var(--spacing-xxl) * 2) var(--spacing-md);
+}
+
+/*
+THE OVERLAY
+This is the semi-transparent dark layer.
+It sits between the background image and the text.
+*/
+.section-hero-bg::before {
+  /* Required for pseudo-elements to display */
+  content: "";
+
+  /* Position it to cover the entire section */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* The dark semi-transparent color */
+  /* rgba(26, 26, 46, 0.85) means:
+     - 26, 26, 46 = the navy color in RGB
+     - 0.85 = 85% opacity (quite dark)
+  */
+  background-color: var(--color-dark-overlay);
+
+  /* Keep overlay behind the content but above the image */
+  z-index: 1;
+}
+
+/*
+Keep content above the overlay.
+All direct children of the hero section need higher z-index.
+*/
+.section-hero-bg > * {
+  position: relative;
+  z-index: 2;
+}
+
+/*
+Hero section specific styling.
+Larger text for impact.
+*/
+.section-hero-bg h1 {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.section-hero-bg p {
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================
+   FEATURED DARK SECTION
+   ============================================
+   For important sections like "What to Expect"
+   and "Our Mission". Dark background, no image.
+   ============================================ */
+
+.section-featured {
+  background-color: var(--color-primary-light);
+  padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE - DARK SECTIONS
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  .section-hero-bg {
+    padding: var(--spacing-xxl) var(--spacing-sm);
+    background-attachment: scroll; /* Better for mobile */
+  }
+
+  .section-hero-bg h1 {
+    font-size: 2rem;
+  }
+
+  .section-hero-bg p {
+    font-size: 1rem;
+  }
+
+  .section-dark {
+    padding: var(--spacing-xl) var(--spacing-sm);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .section-hero-bg h1 {
+    font-size: 1.75rem;
+  }
+}
+
+/* ============================================
+   8. FOOTER
+   ============================================
+   Bottom section with church info and links.
+   Appears on every page.
+   ============================================ */
+
+/*
+Footer container.
+Dark background for contrast.
+*/
+footer {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: var(--spacing-xl) var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+/*
+Footer content layout.
+Multiple columns on desktop.
+*/
+footer > div,
+footer > nav,
+footer > p {
+  max-width: var(--max-width);
+  margin: 0 auto var(--spacing-md);
+  text-align: center;
+}
+
+/*
+Footer church name.
+*/
+footer > div p:first-child {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+footer > div p:last-child {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+/*
+Footer navigation.
+*/
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+footer nav a {
+  color: rgba(255, 255, 255, 0.9);
+  padding: var(--spacing-xs);
+  transition: color 0.3s ease;
+}
+
+footer nav a:hover {
+  color: var(--color-accent);
+}
+
+/*
+Footer copyright.
+*/
+footer > p:last-child {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   8B. INTRO SECTION
+   ============================================
+   Welcome section with centered text.
+   Light background for contrast after hero.
+   ============================================ */
+
+.section-intro {
+  background-color: var(--color-white);
+  text-align: center;
+  padding: var(--spacing-xxl) var(--spacing-md);
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-intro h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-intro p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--color-dark-gray);
+}
+
+/* ============================================
+   8C. MINISTRIES SECTION
+   ============================================
+   Responsive grid of ministry cards.
+   Hover effects for interactivity.
+   ============================================ */
+
+.section-ministries {
+  background-color: var(--color-off-white);
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.section-ministries h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+}
+
+/*
+Ministry cards grid layout.
+2x2 on desktop, 1 column on mobile.
+*/
+.ministry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/*
+Individual ministry card.
+*/
+.ministry-card {
+  background-color: var(--color-white);
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.ministry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/*
+Ministry icon container.
+SVG icons with accent color.
+*/
+.ministry-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto var(--spacing-md);
+  color: var(--color-accent);
+}
+
+.ministry-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ministry-card h3 {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.ministry-card p {
+  color: var(--color-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   8D. SERVICE TIMES SECTION
+   ============================================
+   Dark section with service information.
+   Grid layout for times and location.
+   ============================================ */
+
+.section-service-times {
+  text-align: center;
+}
+
+.section-service-times h2 {
+  margin-bottom: var(--spacing-xl);
+}
+
+/*
+Service times grid layout.
+3 columns on desktop, stacked on mobile.
+*/
+.service-times-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+  max-width: 900px;
+  margin: 0 auto var(--spacing-xl);
+}
+
+/*
+Individual service time card.
+*/
+.service-time-card {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
+  transition: background-color 0.3s ease;
+}
+
+.service-time-card:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/*
+Service icon (emoji).
+Large display for visibility.
+*/
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.service-time-card h3 {
+  color: var(--color-white);
+  font-size: 1.125rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.service-time-card p {
+  color: var(--color-accent-light);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   9. UTILITY CLASSES
+   ============================================
+   Helpful classes for quick styling.
+   ============================================ */
+
+/* Text alignment */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Spacing utilities */
+.mt-0 {
+  margin-top: 0;
+}
+.mt-1 {
+  margin-top: var(--spacing-sm);
+}
+.mt-2 {
+  margin-top: var(--spacing-md);
+}
+.mt-3 {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-1 {
+  margin-bottom: var(--spacing-sm);
+}
+.mb-2 {
+  margin-bottom: var(--spacing-md);
+}
+.mb-3 {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Hide elements (for accessibility) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================
+   10. MOBILE RESPONSIVE STYLES
+   ============================================
+   Adjustments for tablets and phones.
+   Mobile-first would be ideal, but this
+   approach is easier for beginners.
+   ============================================ */
+
+/*
+TABLETS (768px and below)
+*/
+@media screen and (max-width: 768px) {
+  /* Smaller headings on tablet */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  /* Hero section adjustments */
+  main section:first-child {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+  }
+
+  main section:first-child h1 {
+    font-size: 2rem;
+  }
+
+  /* Smaller section padding */
+  main section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  /* Stack navigation */
+  header nav ul {
+    gap: 0;
+  }
+
+  header nav a {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }
+
+  /* Ministry grid: 2 columns on tablet */
+  .ministry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  /* Service times grid: stack on tablet */
+  .service-times-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+}
+
+/*
+MOBILE PHONES (480px and below)
+*/
+@media screen and (max-width: 480px) {
+  /* Even smaller headings on phone */
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  main section:first-child h1 {
+    font-size: 1.75rem;
+  }
+
+  main section:first-child p {
+    font-size: 1rem;
+  }
+
+  /* Church name smaller on mobile */
+  header > div:first-child > a {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  /* Navigation becomes more compact */
+  header nav ul {
+    justify-content: center;
+  }
+
+  header nav a {
+    padding: var(--spacing-xs);
+    font-size: 0.85rem;
+  }
+
+  /* Buttons full width on mobile */
+  main section > a,
+  .btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Ministry grid: 1 column on mobile */
+  .ministry-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ministry-card {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  /* Intro section adjustments */
+  .section-intro p {
+    font-size: 1rem;
+  }
+
+  /* Service time cards smaller padding */
+  .service-time-card {
+    padding: var(--spacing-md);
+  }
+
+  .service-icon {
+    font-size: 2rem;
+  }
+
+  /* Footer adjustments */
+  footer {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
+  footer nav ul {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+}
+
+/* ============================================
+   END OF STYLESHEET
+   ============================================
+
+   NEXT STEPS:
+   - Add form styles when forms are added
+   - Add card styles for sermons/events
+   - Consider adding a mobile hamburger menu
+
+   ============================================ */

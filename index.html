@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--
+    ============================================
+    TAC STADIUM - HOME PAGE
+    ============================================
+    This is the main entry point of the website.
+    It's the first page visitors see.
+
+    Created: January 29, 2026
+    ============================================
+    -->
+
+    <!-- Character encoding - ensures special characters display correctly -->
+    <meta charset="UTF-8" />
+
+    <!-- Makes the website work well on phones and tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Page title - appears in the browser tab -->
+    <title>Home | The Apostolic Church Nigeria – Stadium Assembly</title>
+
+    <!-- Description for search engines like Google -->
+    <meta
+      name="description"
+      content="Welcome to The Apostolic Church Nigeria – Stadium Assembly in Ogbomosho, Oyo State. Join us for Sunday worship services."
+    />
+    <!-- Favicon - TACN church icon -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body>
+    <!--
+    ============================================
+    HEADER SECTION
+    ============================================
+    Contains: Church name and navigation menu
+    Appears at the top of every page
+    ============================================
+    -->
+    <header>
+      <!-- Church name / Logo area -->
+      <div>
+        <a href="index.html">
+          The Apostolic Church Nigeria – Stadium Assembly
+        </a>
+      </div>
+
+      <!-- Navigation menu -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/sermons.html">Sermons</a></li>
+          <li><a href="pages/events.html">Events</a></li>
+          <li><a href="pages/plan-a-visit.html">Plan a Visit</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--
+    ============================================
+    MAIN CONTENT
+    ============================================
+    Everything between header and footer
+    ============================================
+    -->
+    <main>
+      <!--
+        ============================================
+        HERO SECTION
+        ============================================
+        The first thing visitors see.
+        Big welcome message and main call-to-action.
+        Uses dark background with overlay for modern look.
+        ============================================
+        -->
+      <section
+        class="section-dark section-hero-bg"
+        style="
+          background-image: url(&quot;assets/images/hero-worship.jpg&quot;);
+        "
+      >
+        <h1>A Place to Belong. A Family to Grow.</h1>
+
+        <p>
+          We are a Christ-centered church committed to worship, discipleship,
+          and community. Join us as we experience the transforming presence of
+          God together.
+        </p>
+
+        <!-- Hero buttons -->
+        <div class="hero-buttons">
+          <a href="pages/plan-a-visit.html" class="btn btn-primary"
+            >Plan Your Visit</a
+          >
+          <a href="pages/sermons.html" class="btn btn-secondary"
+            >Watch Sermons</a
+          >
+        </div>
+      </section>
+
+      <!--
+        ============================================
+        WELCOME / ABOUT INTRO SECTION
+        ============================================
+        Brief introduction to TACN.
+        Light background, centered text.
+        ============================================
+        -->
+      <section class="section-intro">
+        <h2>Welcome to The Apostolic Church Nigeria (TACN)</h2>
+        <p>
+          The Apostolic Church Nigeria is a Bible-believing church dedicated to
+          raising spiritually grounded believers through sound doctrine, prayer,
+          worship, and love. We exist to preach the gospel of Jesus Christ and
+          build a community of faith where lives are transformed.
+        </p>
+      </section>
+
+      <!--
+        ============================================
+        MINISTRIES SECTION
+        ============================================
+        Core ministries of the church.
+        Responsive grid layout with cards.
+        ============================================
+        -->
+      <section class="section-ministries">
+        <h2>Our Ministries</h2>
+
+        <div class="ministry-grid">
+          <!-- Worship Ministry Card -->
+          <div class="ministry-card">
+            <div class="ministry-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M9 18V5l12-2v13"></path>
+                <circle cx="6" cy="18" r="3"></circle>
+                <circle cx="18" cy="16" r="3"></circle>
+              </svg>
+            </div>
+            <h3>Worship Ministry</h3>
+            <p>
+              Leading the church into God's presence through praise, worship,
+              and music.
+            </p>
+          </div>
+
+          <!-- Youth Ministry Card -->
+          <div class="ministry-card">
+            <div class="ministry-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h3>Youth Ministry</h3>
+            <p>
+              Raising a generation of young believers rooted in faith, purpose,
+              and discipline.
+            </p>
+          </div>
+
+          <!-- Women Ministry Card -->
+          <div class="ministry-card">
+            <div class="ministry-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
+            </div>
+            <h3>Women Ministry</h3>
+            <p>
+              Empowering women to grow spiritually and live Christ-centered
+              lives.
+            </p>
+          </div>
+
+          <!-- Men Ministry Card -->
+          <div class="ministry-card">
+            <div class="ministry-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                ></polygon>
+              </svg>
+            </div>
+            <h3>Men Ministry</h3>
+            <p>
+              Building godly men with strong leadership, faith, and integrity.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!--
+        ============================================
+        SERVICE TIMES & LOCATION SECTION
+        ============================================
+        When and where the church meets.
+        Critical information for visitors.
+        ============================================
+        -->
+      <section class="section-dark section-service-times">
+        <h2>Service Times &amp; Location</h2>
+
+        <div class="service-times-grid">
+          <!-- Sunday Service -->
+          <div class="service-time-card">
+            <div class="service-icon">🕘</div>
+            <h3>Sunday Worship Service</h3>
+            <p>9:00 AM – 12:00 PM</p>
+          </div>
+
+          <!-- Midweek Service -->
+          <div class="service-time-card">
+            <div class="service-icon">🕔</div>
+            <h3>Midweek Service</h3>
+            <p>Wednesday – 5:00 PM</p>
+          </div>
+
+          <!-- Location -->
+          <div class="service-time-card">
+            <div class="service-icon">📍</div>
+            <h3>Location</h3>
+            <p>TACN Stadium Branch, Nigeria</p>
+          </div>
+        </div>
+
+        <a href="pages/contact.html" class="btn btn-primary">Get Directions</a>
+      </section>
+
+      <!--
+        ============================================
+        SERMONS PREVIEW SECTION
+        ============================================
+        Encourages visitors to watch a sermon.
+        Links to the full Sermons page.
+        ============================================
+        -->
+      <section>
+        <h2>Listen and Learn</h2>
+
+        <p>
+          We believe that God speaks through His Word. Every Sunday, our
+          services include a message from the Bible — practical, encouraging,
+          and relevant to everyday life.
+        </p>
+
+        <p>
+          If you've never been to our church before, listening to a sermon is a
+          great way to get a feel for who we are and what we teach.
+        </p>
+
+        <a href="pages/sermons.html">Watch Sermons</a>
+      </section>
+
+      <!--
+        ============================================
+        VISIT INVITATION SECTION
+        ============================================
+        Final encouragement to visit.
+        Reinforces the main goal of the website.
+        Dark section with background image for impact.
+        ============================================
+        -->
+      <section
+        class="section-dark section-hero-bg"
+        style="
+          background-image: url(&quot;assets/images/church-interior.jpg&quot;);
+        "
+      >
+        <h2>Ready to Visit?</h2>
+
+        <p>
+          We'd love to meet you. Learn what to expect, see where we're located,
+          and let us know you're coming so we can welcome you personally.
+        </p>
+
+        <a href="pages/plan-a-visit.html">Plan Your Visit</a>
+      </section>
+    </main>
+
+    <!--
+    ============================================
+    FOOTER SECTION
+    ============================================
+    Contains: Church info, quick links, copyright
+    Appears at the bottom of every page
+    ============================================
+    -->
+    <footer>
+      <!-- Church name and location -->
+      <div>
+        <p>The Apostolic Church Nigeria – Stadium Assembly</p>
+        <p>Ogbomosho, Oyo State, Nigeria</p>
+      </div>
+
+      <!-- Quick links -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/plan-a-visit.html">Plan a Visit</a></li>
+          <li><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Copyright notice -->
+      <p>
+        © 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
+        reserved.
+      </p>
+    </footer>
+
+    <!-- JavaScript will be linked here later -->
+    <!-- <script src="assets/js/main.js"></script> -->
+  </body>
+</html>
