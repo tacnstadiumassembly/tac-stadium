@@ -1744,6 +1744,226 @@ Privacy reassurance text below form
 }
 
 /* ============================================
+   8N. GIVING SECTION STYLES
+   ============================================
+   Styles for giving/donations sections
+   ============================================ */
+
+/*
+GIVING SECTION
+Container for giving content
+*/
+.section-giving {
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+  background-color: var(--color-off-white);
+}
+
+.section-giving h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-giving .section-subtitle {
+  color: var(--color-gray);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+  line-height: 1.6;
+}
+
+/*
+GIVING GRID
+Responsive grid for giving cards
+*/
+.giving-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-lg);
+  max-width: var(--max-width);
+  margin: 0 auto var(--spacing-xl);
+}
+
+/* 3-column grid for homepage preview */
+.giving-grid-preview {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+}
+
+/*
+GIVING CARD
+Individual giving option card
+*/
+.giving-card {
+  background-color: var(--color-white);
+  border-radius: 12px;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.giving-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/*
+GIVING ICON
+SVG icon container
+*/
+.giving-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-off-white);
+  border-radius: 50%;
+  color: var(--color-primary);
+}
+
+.giving-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.giving-card h3 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.25rem;
+}
+
+.giving-card p {
+  color: var(--color-gray);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+}
+
+.giving-card .btn-small {
+  display: inline-block;
+  margin-top: auto;
+}
+
+/*
+GIVING INTRO SECTION
+Encouragement text section
+*/
+.section-giving-intro {
+  padding: var(--spacing-xxl) var(--spacing-md);
+  background-color: var(--color-white);
+}
+
+.giving-intro-content {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.giving-intro-content h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.giving-intro-content p {
+  color: var(--color-dark-gray);
+  line-height: 1.8;
+  margin-bottom: var(--spacing-md);
+}
+
+/*
+GIVING INFO SECTION (Bank Details)
+Dark section with bank information
+*/
+.section-giving-info {
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+}
+
+.section-giving-info h2 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-giving-info .section-subtitle {
+  color: var(--color-dark-text-muted);
+  margin-bottom: var(--spacing-xl);
+}
+
+/*
+BANK DETAILS BOX
+Container for bank information
+*/
+.giving-bank-details {
+  max-width: 500px;
+  margin: 0 auto var(--spacing-xl);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  text-align: left;
+}
+
+.bank-detail-item {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bank-detail-item:last-child {
+  border-bottom: none;
+}
+
+.bank-label {
+  font-weight: 600;
+  color: var(--color-dark-text-muted);
+}
+
+.bank-value {
+  color: var(--color-dark-text);
+  font-weight: 500;
+}
+
+/*
+GIVING DISCLAIMER
+Warning/notice text
+*/
+.giving-disclaimer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  background-color: rgba(255, 193, 7, 0.15);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  border-radius: 8px;
+  color: var(--color-dark-text);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/*
+GIVING CTA SECTION
+Call to action section
+*/
+.section-giving-cta {
+  padding: var(--spacing-xxl) var(--spacing-md);
+  text-align: center;
+  background-color: var(--color-off-white);
+}
+
+.section-giving-cta h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-giving-cta p {
+  color: var(--color-gray);
+  max-width: 500px;
+  margin: 0 auto var(--spacing-lg);
+  line-height: 1.6;
+}
+
+/* ============================================
    9. UTILITY CLASSES
    ============================================
    Helpful classes for quick styling.
@@ -1886,6 +2106,29 @@ TABLETS (768px and below)
     padding: var(--spacing-lg);
     margin: 0 var(--spacing-sm);
   }
+
+  /* Giving grid: 2 columns on tablet */
+  .giving-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .giving-grid-preview {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .giving-card {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+
+  .giving-bank-details {
+    margin: 0 var(--spacing-sm) var(--spacing-xl);
+  }
+
+  .bank-detail-item {
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
 }
 
 /*
@@ -2025,6 +2268,35 @@ MOBILE PHONES (480px and below)
   .btn-submit {
     padding: 12px 20px;
     font-size: 1rem;
+  }
+
+  /* Giving grid: 1 column on mobile */
+  .giving-grid,
+  .giving-grid-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .giving-card {
+    padding: var(--spacing-lg);
+  }
+
+  .giving-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .giving-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .giving-bank-details {
+    padding: var(--spacing-md);
+  }
+
+  .giving-disclaimer {
+    font-size: 0.85rem;
+    padding: var(--spacing-sm);
   }
 
   /* Intro section adjustments */
