@@ -777,10 +777,30 @@ Major media and social engagement upgrade for the church website. No UI redesign
 
 ---
 
+---
+
+
+## Phase 17 — Admin Editable Content System
+
+**✅ JSON-DRIVEN SERMONS, EVENTS, SERVICE TIMES, CONTACT INFO COMPLETE**
+
+- **JSON Data Layer:**
+  - All sermons, events, service times, and contact info are now loaded from editable JSON files in `/assets/data/`.
+  - No-code content updates: church workers can update content by editing JSON, no HTML changes needed.
+
+- **Dynamic JS Rendering:**
+  - `main.js` loads and renders all sermon and event cards, service times, and contact info from JSON.
+  - Template functions (`renderSermonCard`, `renderEventCard`) generate accessible, styled cards.
+  - Loading state animation (slide-down fade) shown while content loads.
+
+- **Accessibility:**
+  - All JS-rendered content includes aria-labels, semantic headings, and readable text colors.
+
+- **No UI Redesign:**
+  - Maintains all color, glassmorphism, contrast, and animation rules from previous phases.
 
 ---
 
-## Phase 18 — Sermon Search + Calendar
 
 **✅ LIVE SERMON SEARCH, CATEGORY FILTERS, EVENT CALENDAR VIEW COMPLETE**
 
