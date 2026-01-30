@@ -34,7 +34,7 @@ TABLE OF CONTENTS:
      PHASE 10.3: FINAL LOCKED COLOR SYSTEM
      ============================================
      HARD RESET - Readability-first design.
-     
+
      🔒 LOCKED COLORS (DO NOT CHANGE):
      - Faith Blue: #1f3c88 (headers, footers, nav)
      - Soft Sky Blue: #4f7cff (gradients, highlights)
@@ -42,7 +42,7 @@ TABLE OF CONTENTS:
      - Pure White: #ffffff (light backgrounds)
      - Deep Charcoal: #1f2933 (ALL body text)
      - Soft Gray: #4b5563 (secondary text only)
-     
+
      ⚠️ RULES:
      - Text NEVER on raw gradients
      - Body text = #1f2933 ONLY (no gray body text)
@@ -255,13 +255,15 @@ html {
 /*
 Base body styles.
 Sets the default font, color, and background.
+Phase 10.4: Body text = #1f2933 (Deep Charcoal) ONLY
 */
 body {
   font-family: var(--font-primary);
   font-size: 1rem; /* 16px base size */
-  line-height: 1.6; /* Easy to read line height */
-  color: var(--color-dark-gray);
+  line-height: 1.65; /* Easy to read line height - increased */
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   background-color: var(--color-white);
+  font-weight: 400; /* Minimum font weight for body */
 
   /* Prevent horizontal scrolling */
   overflow-x: hidden;
@@ -348,10 +350,14 @@ h4 {
 /*
 Paragraphs - comfortable reading.
 Good spacing between paragraphs.
+Phase 10.4: Enforced Deep Charcoal #1f2933 for all body text.
 */
 p {
   margin-bottom: var(--spacing-sm);
   max-width: 70ch; /* 70 characters max for readability */
+  color: #1f2933; /* Deep Charcoal - LOCKED */
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 /*
@@ -430,11 +436,11 @@ Narrow container for text-heavy pages.
 /*
 Main header container.
 Fixed at top, always visible.
-Phase 10.3: Gradient background for premium look.
+Phase 10.4: Applied gradient with locked Faith Blue colors.
 */
 header {
-  background: var(--gradient-primary);
-  box-shadow: var(--shadow-md);
+  background: var(--gradient-header);
+  box-shadow: 0 4px 20px rgba(31, 60, 136, 0.15);
   padding: var(--spacing-sm) var(--spacing-md);
   position: sticky;
   top: 0;
@@ -562,7 +568,7 @@ main section:first-child {
 
 main section:first-child h1 {
   font-size: 2.75rem;
-  color: var(--color-primary);
+  color: #ffffff; /* White on gradient/dark hero */
 }
 
 main section:first-child p {
@@ -576,11 +582,13 @@ main section:first-child p {
 /*
 Section headings.
 Adds a nice accent underline.
+Phase 10.4: Apostolic Red underline.
 */
 main section h2 {
   position: relative;
   display: inline-block;
   margin-bottom: var(--spacing-lg);
+  color: #1f3c88; /* Faith Blue - LOCKED */
 }
 
 main section h2::after {
@@ -590,7 +598,7 @@ main section h2::after {
   left: 0;
   width: 50px;
   height: 3px;
-  background-color: var(--color-accent);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
   border-radius: 2px;
 }
 
@@ -613,7 +621,7 @@ main section ul li::before {
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   font-weight: bold;
 }
 
@@ -627,13 +635,14 @@ main section ul li::before {
 /*
 Primary button style.
 Used for main calls-to-action.
+Phase 10.4: Apostolic Red #9b1c1c for CTAs.
 */
 main section > a,
 .btn {
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-lg);
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: #1f3c88; /* Faith Blue - LOCKED */
+  color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
   border: none;
@@ -645,9 +654,22 @@ main section > a,
 
 main section > a:hover,
 .btn:hover {
-  background-color: var(--color-primary-dark);
+  background-color: #162c66;
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/*
+Primary button - Apostolic Red for CTAs.
+*/
+.btn-primary {
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #b52a2a;
+  box-shadow: 0 6px 20px rgba(155, 28, 28, 0.35);
 }
 
 /*
@@ -656,26 +678,26 @@ For less prominent actions.
 */
 .btn-secondary {
   background-color: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
+  border: 2px solid #1f3c88;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: #1f3c88;
+  color: #ffffff;
 }
 
 /*
 Accent button style.
-For special highlights.
+For special highlights - Apostolic Red.
 */
 .btn-accent {
-  background-color: var(--color-accent);
-  color: var(--color-black);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
 }
 
 .btn-accent:hover {
-  background-color: var(--color-accent-dark);
+  background-color: #7f1818;
 }
 
 /* ============================================
@@ -702,18 +724,18 @@ For special highlights.
 /*
 DARK SECTION BASE STYLES
 These apply to any section with the "section-dark" class.
-Phase 10.3: Uses gradient background.
+Phase 10.4: Uses locked Faith Blue gradient.
 */
 .section-dark {
   /* Full width - breaks out of container */
   max-width: 100%;
   width: 100%;
 
-  /* Phase 10.3: Gradient background */
-  background: var(--gradient-cta);
+  /* Phase 10.4: Gradient background with locked colors */
+  background: linear-gradient(180deg, #1f3c88 0%, #2a4a9e 100%);
 
-  /* White text for contrast */
-  color: var(--color-dark-text);
+  /* White text for contrast - PURE WHITE */
+  color: #ffffff;
 
   /* Extra vertical padding for impact */
   padding: var(--spacing-xxl) var(--spacing-md);
@@ -727,27 +749,30 @@ Phase 10.3: Uses gradient background.
 
 /*
 Text colors inside dark sections.
-Override the default dark text colors.
+Phase 10.4: Pure white text on gradient backgrounds.
 */
 .section-dark h1,
 .section-dark h2,
 .section-dark h3,
 .section-dark h4 {
-  color: var(--color-white);
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section-dark p {
-  color: var(--color-dark-text-muted);
+  color: #ffffff; /* Pure white - NOT muted */
   max-width: 60ch;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.7;
+  font-weight: 400;
 }
 
 /*
-Gold accent underline for headings in dark sections.
+Apostolic Red accent underline for headings in dark sections.
 */
 .section-dark h2::after {
-  background-color: var(--color-accent);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -756,23 +781,25 @@ Gold accent underline for headings in dark sections.
 List styling in dark sections.
 */
 .section-dark ul li::before {
-  color: var(--color-accent);
+  color: #9b1c1c; /* Apostolic Red - LOCKED */
 }
 
 /*
 Buttons in dark sections.
-Gold accent color for visibility.
+Phase 10.4: Apostolic Red #9b1c1c for CTAs.
 */
 .section-dark > a,
 .section-dark .btn {
-  background-color: var(--color-accent);
-  color: var(--color-dark-bg);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .section-dark > a:hover,
 .section-dark .btn:hover {
-  background-color: var(--color-accent-light);
-  color: var(--color-dark-bg);
+  background-color: #b52a2a;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(155, 28, 28, 0.35);
 }
 
 /*
@@ -795,17 +822,19 @@ Flexbox layout for side-by-side buttons.
 
 /*
 Primary button (filled) in dark sections.
+Phase 10.4: Apostolic Red #9b1c1c for CTAs.
 */
 .section-dark .btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-dark-bg);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
   font-weight: 700;
+  border: none;
 }
 
 .section-dark .btn-primary:hover {
-  background-color: var(--color-accent-light);
+  background-color: #b52a2a;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+  box-shadow: 0 6px 20px rgba(155, 28, 28, 0.4);
 }
 
 /*
@@ -813,13 +842,13 @@ Secondary button (outline) in dark sections.
 */
 .section-dark .btn-secondary {
   background-color: transparent;
-  color: var(--color-white);
-  border: 2px solid var(--color-white);
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 
 .section-dark .btn-secondary:hover {
-  background-color: var(--color-white);
-  color: var(--color-dark-bg);
+  background-color: #ffffff;
+  color: #1f3c88; /* Faith Blue */
 }
 
 /* ============================================
@@ -853,7 +882,7 @@ Secondary button (outline) in dark sections.
 THE OVERLAY
 This is the semi-transparent gradient layer.
 It sits between the background image and the text.
-Phase 10.3: Gradient overlay for ABSOLUTE text readability.
+Phase 10.4: Faith Blue gradient overlay - READABLE text guaranteed.
 */
 .section-hero-bg::before {
   /* Required for pseudo-elements to display */
@@ -866,8 +895,13 @@ Phase 10.3: Gradient overlay for ABSOLUTE text readability.
   right: 0;
   bottom: 0;
 
-  /* Phase 10.3: Gradient overlay - readable text guaranteed */
-  background: var(--overlay-hero);
+  /* Phase 10.4: Solid Faith Blue overlay for readability */
+  background: linear-gradient(
+    180deg,
+    rgba(31, 60, 136, 0.92) 0%,
+    rgba(31, 60, 136, 0.88) 50%,
+    rgba(31, 60, 136, 0.85) 100%
+  );
 
   /* Keep overlay behind the content but above the image */
   z-index: 1;
@@ -885,16 +919,20 @@ All direct children of the hero section need higher z-index.
 /*
 Hero section specific styling.
 Larger text for impact.
+Phase 10.4: White text on gradient - maximum contrast.
 */
 .section-hero-bg h1 {
   font-size: 3rem;
   margin-bottom: var(--spacing-md);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
 }
 
 .section-hero-bg p {
   font-size: 1.25rem;
   margin-bottom: var(--spacing-md);
+  color: #ffffff;
+  line-height: 1.7;
 }
 
 /* ============================================
@@ -902,11 +940,13 @@ Larger text for impact.
    ============================================
    For important sections like "What to Expect"
    and "Our Mission". Dark background, no image.
+   Phase 10.4: Uses locked Faith Blue gradient.
    ============================================ */
 
 .section-featured {
-  background: var(--gradient-cta);
+  background: linear-gradient(135deg, #1f3c88 0%, #2a4a9e 100%);
   padding: var(--spacing-xxl) var(--spacing-md);
+  color: #ffffff;
 }
 
 /* ============================================
@@ -947,11 +987,11 @@ Larger text for impact.
 
 /*
 Footer container.
-Phase 10.3: Gradient background for premium look.
+Phase 10.4: Gradient background with locked Faith Blue colors.
 */
 footer {
-  background: var(--gradient-footer);
-  color: var(--color-white);
+  background: linear-gradient(180deg, #2a4a9e 0%, #1f3c88 100%);
+  color: #ffffff;
   padding: var(--spacing-xl) var(--spacing-md);
   margin-top: var(--spacing-xl);
 }
@@ -1007,7 +1047,7 @@ Footer copyright.
 */
 footer > p:last-child {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0;
   padding-top: var(--spacing-md);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -1029,7 +1069,7 @@ footer > p:last-child {
 }
 
 .section-intro h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-md);
 }
 
@@ -1039,7 +1079,8 @@ footer > p:last-child {
   margin-right: auto;
   font-size: 1.125rem;
   line-height: 1.8;
-  color: var(--color-dark-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
+  font-weight: 400;
 }
 
 /* ============================================
@@ -1058,7 +1099,7 @@ footer > p:last-child {
 }
 
 .section-ministries h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-xl);
 }
 
@@ -1095,13 +1136,13 @@ Individual ministry card.
 
 /*
 Ministry icon container.
-SVG icons with accent color.
+SVG icons with Apostolic Red accent.
 */
 .ministry-icon {
   width: 60px;
   height: 60px;
   margin: 0 auto var(--spacing-md);
-  color: var(--color-accent);
+  color: #9b1c1c; /* Apostolic Red - LOCKED */
 }
 
 .ministry-icon svg {
@@ -1110,16 +1151,17 @@ SVG icons with accent color.
 }
 
 .ministry-card h3 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   font-size: 1.25rem;
   margin-bottom: var(--spacing-sm);
 }
 
 .ministry-card p {
-  color: var(--color-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED (NOT gray) */
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 0;
+  font-weight: 400;
 }
 
 /* ============================================
@@ -1173,13 +1215,13 @@ Large display for visibility.
 }
 
 .service-time-card h3 {
-  color: var(--color-white);
+  color: #ffffff;
   font-size: 1.125rem;
   margin-bottom: var(--spacing-xs);
 }
 
 .service-time-card p {
-  color: var(--color-accent-light);
+  color: #ffffff; /* Pure white - visible */
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0;
@@ -1205,17 +1247,19 @@ Light background with centered content.
 }
 
 .section-sermons-preview h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-sm);
 }
 
 /*
 Section subtitle - secondary text below h2.
+Phase 10.4: Uses Soft Gray #4b5563 for secondary text.
 */
 .section-subtitle {
-  color: var(--color-gray);
+  color: #4b5563; /* Soft Gray - LOCKED (secondary text only) */
   font-size: 1.125rem;
   margin-bottom: var(--spacing-xl);
+  line-height: 1.65;
 }
 
 /*
@@ -1304,7 +1348,7 @@ Sermon content area (title, meta, button).
 }
 
 .sermon-content h3 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   font-size: 1.125rem;
   margin-bottom: var(--spacing-xs);
   line-height: 1.4;
@@ -1321,45 +1365,72 @@ Sermon metadata (preacher, date).
 }
 
 .sermon-preacher {
-  color: var(--color-dark-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   font-size: 0.875rem;
   font-weight: 500;
 }
 
 .sermon-date {
-  color: var(--color-gray);
+  color: #4b5563; /* Soft Gray - LOCKED (secondary text only) */
   font-size: 0.8125rem;
 }
 
 /*
 Small button variant for cards.
+Phase 10.4: Uses Apostolic Red for CTAs.
 */
 .btn-small {
   padding: var(--spacing-xs) var(--spacing-md);
   font-size: 0.875rem;
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
+}
+
+.btn-small:hover {
+  background-color: #b52a2a;
 }
 
 /* ============================================
    8F. PAGE HEADER SECTION
    ============================================
    Header section for inner pages.
+   Phase 10.4: Gradient background with glass overlay.
    ============================================ */
 
 .section-page-header {
   text-align: center;
   padding: var(--spacing-xl) var(--spacing-md);
-  background-color: var(--color-white);
+  background: linear-gradient(180deg, #1f3c88 0%, #4f7cff 100%);
+  position: relative;
+}
+
+/* Solid overlay for text readability */
+.section-page-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(31, 60, 136, 0.88);
+  z-index: 1;
+}
+
+.section-page-header > * {
+  position: relative;
+  z-index: 2;
 }
 
 .section-page-header h1 {
-  color: var(--color-primary);
+  color: #ffffff;
   margin-bottom: var(--spacing-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .section-page-header p {
   max-width: 700px;
   margin: 0 auto;
-  color: var(--color-dark-gray);
+  color: #ffffff;
   font-size: 1.125rem;
   line-height: 1.7;
 }
@@ -1387,7 +1458,7 @@ Small button variant for cards.
 .filter-btn {
   padding: var(--spacing-xs) var(--spacing-md);
   background-color: var(--color-off-white);
-  color: var(--color-dark-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   border: 1px solid var(--color-light-gray);
   border-radius: var(--radius-md);
   font-size: 0.9375rem;
@@ -1397,15 +1468,15 @@ Small button variant for cards.
 }
 
 .filter-btn:hover {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
+  background-color: #1f3c88; /* Faith Blue - LOCKED */
+  color: #ffffff;
+  border-color: #1f3c88;
 }
 
 .filter-btn.active {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
+  border-color: #9b1c1c;
 }
 
 /* ============================================
@@ -1423,7 +1494,7 @@ Small button variant for cards.
 }
 
 .section-sermons-full h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-xl);
 }
 
@@ -1447,7 +1518,7 @@ Light background with centered content.
 }
 
 .section-events-preview h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-sm);
 }
 
@@ -1497,16 +1568,18 @@ White background with date badge and hover effect.
 /*
 Event date badge.
 Prominent display of the event date.
+Phase 10.4: Uses Apostolic Red #9b1c1c for badges.
 */
 .event-date-badge {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background: linear-gradient(135deg, #9b1c1c 0%, #7f1818 100%);
+  color: #ffffff;
   padding: var(--spacing-md);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 3px 10px rgba(155, 28, 28, 0.25);
 }
 
 .event-day {
@@ -1533,7 +1606,7 @@ Event content area (title, time, description, button).
 }
 
 .event-content h3 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   font-size: 1.125rem;
   margin-bottom: var(--spacing-xs);
   line-height: 1.4;
@@ -1547,7 +1620,7 @@ Event metadata (time).
 }
 
 .event-time {
-  color: var(--color-accent-dark);
+  color: #9b1c1c; /* Apostolic Red - LOCKED */
   font-size: 0.875rem;
   font-weight: 600;
 }
@@ -1555,13 +1628,15 @@ Event metadata (time).
 /*
 Event description.
 Short text about the event.
+Phase 10.4: Deep Charcoal for readability.
 */
 .event-description {
-  color: var(--color-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED (NOT gray) */
   font-size: 0.9375rem;
-  line-height: 1.5;
+  line-height: 1.65;
   margin-bottom: var(--spacing-md);
   flex: 1;
+  font-weight: 400;
 }
 
 /*
@@ -1599,7 +1674,7 @@ Event card button positioning.
 }
 
 .section-events-full h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-xl);
 }
 
@@ -1615,7 +1690,7 @@ Event card button positioning.
 }
 
 .contact-info-section h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-xl);
 }
 
@@ -1646,16 +1721,17 @@ Event card button positioning.
 }
 
 .contact-info-card h3 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-sm);
   font-size: 1.1rem;
 }
 
 .contact-info-card p {
-  color: var(--color-text);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   margin: 0;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.65;
+  font-weight: 400;
 }
 
 /* ============================================
@@ -1687,7 +1763,7 @@ Centers and constrains the form width
 }
 
 .form-container h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-md);
   text-align: center;
 }
@@ -1714,7 +1790,7 @@ Each label + input combination
 .form-group label {
   display: block;
   font-weight: 600;
-  color: var(--color-text);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   margin-bottom: var(--spacing-xs);
   font-size: 0.95rem;
 }
@@ -1816,14 +1892,15 @@ Group of radio buttons (e.g., Yes/No)
 /*
 SUBMIT BUTTON
 Form submission button
+Phase 10.4: Faith Blue primary action.
 */
 .btn-submit {
   width: 100%;
   padding: 14px 24px;
   font-size: 1.1rem;
   font-weight: 600;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: #1f3c88; /* Faith Blue - LOCKED */
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -1833,7 +1910,7 @@ Form submission button
 }
 
 .btn-submit:hover {
-  background-color: var(--color-primary-dark);
+  background-color: #162c66;
   transform: translateY(-2px);
 }
 
@@ -1844,7 +1921,7 @@ Form submission button
 /* Focus state for accessibility */
 .btn-submit:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+  box-shadow: 0 0 0 3px rgba(31, 60, 136, 0.3);
 }
 
 /*
@@ -1876,15 +1953,15 @@ Container for giving content
 }
 
 .section-giving h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-sm);
 }
 
 .section-giving .section-subtitle {
-  color: var(--color-gray);
+  color: #4b5563; /* Soft Gray - LOCKED (secondary text) */
   max-width: 600px;
   margin: 0 auto var(--spacing-xl);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /*
@@ -1928,6 +2005,7 @@ Individual giving option card
 /*
 GIVING ICON
 SVG icon container
+Phase 10.4: Faith Blue icon.
 */
 .giving-icon {
   width: 80px;
@@ -1938,7 +2016,7 @@ SVG icon container
   justify-content: center;
   background-color: var(--color-off-white);
   border-radius: 50%;
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
 }
 
 .giving-icon svg {
@@ -1947,15 +2025,16 @@ SVG icon container
 }
 
 .giving-card h3 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-sm);
   font-size: 1.25rem;
 }
 
 .giving-card p {
-  color: var(--color-gray);
-  line-height: 1.6;
+  color: #1f2933; /* Deep Charcoal - LOCKED (NOT gray) */
+  line-height: 1.65;
   margin-bottom: var(--spacing-md);
+  font-weight: 400;
 }
 
 .giving-card .btn-small {
@@ -1979,14 +2058,15 @@ Encouragement text section
 }
 
 .giving-intro-content h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-lg);
 }
 
 .giving-intro-content p {
-  color: var(--color-dark-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   line-height: 1.8;
   margin-bottom: var(--spacing-md);
+  font-weight: 400;
 }
 
 /*
@@ -2068,15 +2148,15 @@ Call to action section
 }
 
 .section-giving-cta h2 {
-  color: var(--color-primary);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   margin-bottom: var(--spacing-md);
 }
 
 .section-giving-cta p {
-  color: var(--color-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   max-width: 500px;
   margin: 0 auto var(--spacing-lg);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 /* ============================================
@@ -2670,13 +2750,14 @@ Ensure all text is clearly readable.
 
 /*
 Hero section - stronger overlay for better text visibility.
+Phase 10.4: Faith Blue overlay - LOCKED.
 */
 .section-hero-bg::before {
   background: linear-gradient(
     180deg,
-    rgba(26, 26, 46, 0.75) 0%,
-    rgba(26, 26, 46, 0.9) 50%,
-    rgba(26, 26, 46, 0.85) 100%
+    rgba(31, 60, 136, 0.92) 0%,
+    rgba(31, 60, 136, 0.88) 50%,
+    rgba(31, 60, 136, 0.85) 100%
   );
 }
 
@@ -2691,7 +2772,7 @@ CTA buttons in dark sections - improved visibility.
 }
 
 .section-dark .btn-primary {
-  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 4px 15px rgba(155, 28, 28, 0.3); /* Apostolic Red glow */
 }
 
 .section-dark .btn-secondary {
@@ -2994,11 +3075,11 @@ Enhanced button styling.
 }
 
 .btn-primary {
-  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.25);
+  box-shadow: 0 4px 15px rgba(155, 28, 28, 0.25); /* Apostolic Red glow */
 }
 
 .btn-primary:hover {
-  box-shadow: 0 6px 20px rgba(201, 162, 39, 0.35);
+  box-shadow: 0 6px 20px rgba(155, 28, 28, 0.35); /* Apostolic Red glow */
 }
 
 .btn-small {
@@ -3007,15 +3088,16 @@ Enhanced button styling.
 
 /*
 Form submit button enhancements.
+Phase 10.4: Faith Blue for form submissions.
 */
 .btn-submit {
   font-family: var(--font-primary);
   letter-spacing: 0.02em;
-  box-shadow: 0 4px 15px rgba(26, 26, 46, 0.2);
+  box-shadow: 0 4px 15px rgba(31, 60, 136, 0.2); /* Faith Blue glow */
 }
 
 .btn-submit:hover {
-  box-shadow: 0 6px 20px rgba(26, 26, 46, 0.3);
+  box-shadow: 0 6px 20px rgba(31, 60, 136, 0.3); /* Faith Blue glow */
 }
 
 /* -------------------------------------------
@@ -3036,7 +3118,7 @@ Enhanced form inputs.
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  box-shadow: 0 0 0 4px rgba(26, 26, 46, 0.1);
+  box-shadow: 0 0 0 4px rgba(31, 60, 136, 0.12); /* Faith Blue glow */
 }
 
 /* -------------------------------------------
@@ -3045,7 +3127,7 @@ Enhanced form inputs.
 
 @media screen and (max-width: 768px) {
   header nav {
-    background: rgba(26, 26, 46, 0.98);
+    background: rgba(31, 60, 136, 0.98); /* Faith Blue - LOCKED */
     backdrop-filter: var(--glass-blur-strong);
     -webkit-backdrop-filter: var(--glass-blur-strong);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -3181,13 +3263,14 @@ Uses solid backgrounds instead of glass effect.
 }
 
 /* ============================================
-   SECTION 13: PHASE 10.3 - GRADIENT-DRIVEN
-   APOSTOLIC UI REFINEMENT
+   SECTION 13: PHASE 10.4 - FULL UI APPLICATION
+   & READABILITY ENFORCEMENT
    ============================================
-   Gradient-first visual identity
-   Absolute text readability priority
-   High-opacity glassmorphism
-   Calm, spiritual animations
+   Gradient system fully applied
+   Text contrast audit completed
+   Glassmorphism finalized (0.97 opacity)
+   Motion & page transitions polished
+   Mobile & accessibility pass
    ============================================ */
 
 /* -------------------------------------------
@@ -3197,12 +3280,12 @@ Uses solid backgrounds instead of glass effect.
 /*
 Page enter animation.
 Content gracefully descends - like turning a book page.
-Small distance, slow easing, no loaders.
+Phase 10.4: 12-16px translateY, no loader/spinner.
 */
 @keyframes pageEnter {
   from {
     opacity: 0;
-    transform: translateY(-15px);
+    transform: translateY(-14px); /* Phase 10.4: 12-16px range */
   }
   to {
     opacity: 1;
@@ -3342,70 +3425,70 @@ Card inner content subtle scale.
 }
 
 /* -------------------------------------------
-   13E. BUTTON ANIMATIONS - MUTED WINE RED
+   13E. BUTTON ANIMATIONS - APOSTOLIC RED
    ------------------------------------------- */
 
 /*
-Primary button with muted wine red.
-Calm, not aggressive. Subtle glow on hover.
+Primary button with Apostolic Red.
+CTA buttons with subtle glow on hover.
 */
 .btn-primary {
-  background-color: var(--color-accent);
-  color: var(--color-white);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
   font-weight: 600;
   border: none;
   position: relative;
   overflow: hidden;
   transition: all var(--transition-normal);
-  box-shadow: 0 3px 12px var(--color-accent-glow);
+  box-shadow: 0 3px 12px rgba(155, 28, 28, 0.25);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-accent-dark);
+  background-color: #b52a2a;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px var(--color-accent-glow);
+  box-shadow: 0 6px 18px rgba(155, 28, 28, 0.35);
 }
 
 .btn-primary:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px var(--color-accent-glow);
+  box-shadow: 0 2px 8px rgba(155, 28, 28, 0.25);
 }
 
 /*
 Focus state for accessibility.
 */
 .btn-primary:focus {
-  outline: 3px solid rgba(166, 61, 61, 0.25);
+  outline: 3px solid rgba(155, 28, 28, 0.25);
   outline-offset: 2px;
 }
 
 /*
-Filter buttons with active wine red state.
+Filter buttons with active Apostolic Red state.
 */
 .filter-btn.active {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  border-color: var(--color-accent);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
+  border-color: #9b1c1c;
 }
 
 .filter-btn:hover:not(.active) {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  border-color: #1f3c88; /* Faith Blue */
+  color: #1f3c88;
 }
 
 /*
 Submit button styling.
 */
 .btn-submit {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: #1f3c88; /* Faith Blue - LOCKED */
+  color: #ffffff;
   transition: all var(--transition-normal);
 }
 
 .btn-submit:hover {
-  background-color: var(--color-primary-dark);
+  background-color: #162c66;
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(45, 74, 111, 0.25);
+  box-shadow: 0 5px 15px rgba(31, 60, 136, 0.25);
 }
 
 /* -------------------------------------------
@@ -3473,16 +3556,16 @@ Bank details - solid background for clarity.
 }
 
 /* -------------------------------------------
-   13G. TEXT READABILITY - PRIORITY #1
+   13G. TEXT READABILITY - PRIORITY #1 (PHASE 10.4)
    ------------------------------------------- */
 
 /*
 Hero section text - MAXIMUM CLARITY.
-White text on lighter blue overlay.
-No squinting required.
+White text on Faith Blue overlay.
+No squinting required - elderly-friendly.
 */
 .section-hero-bg h1 {
-  color: var(--color-white);
+  color: #ffffff;
   text-shadow:
     0 2px 4px rgba(0, 0, 0, 0.3),
     0 4px 12px rgba(0, 0, 0, 0.15);
@@ -3491,10 +3574,11 @@ No squinting required.
 }
 
 .section-hero-bg p {
-  color: var(--color-white);
+  color: #ffffff;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   font-size: 1.2rem;
   line-height: 1.7;
+  font-weight: 400;
 }
 
 /*
@@ -3502,26 +3586,27 @@ Dark section text - READABLE AT A GLANCE.
 */
 .section-dark h2,
 .section-dark h3 {
-  color: var(--color-white);
+  color: #ffffff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .section-dark p,
 .section-dark li {
-  color: var(--color-dark-text-muted);
+  color: #ffffff; /* Pure white - NOT muted */
   line-height: 1.7;
+  font-weight: 400;
 }
 
 /*
 Card text on white/glass backgrounds.
-Charcoal text, NOT pure black.
+Deep Charcoal #1f2933, NOT gray.
 */
 .sermon-card h4,
 .event-card h4,
 .ministry-card h3,
 .giving-card h3,
 .contact-info-card h4 {
-  color: var(--color-black);
+  color: #1f3c88; /* Faith Blue - LOCKED */
   font-weight: 600;
 }
 
@@ -3530,17 +3615,18 @@ Charcoal text, NOT pure black.
 .ministry-card p,
 .giving-card p,
 .contact-info-card p {
-  color: var(--color-dark-gray);
+  color: #1f2933; /* Deep Charcoal - LOCKED */
   line-height: 1.65;
+  font-weight: 400;
 }
 
 /*
 Card metadata (dates, categories).
-NOT too light - still readable.
+Soft Gray #4b5563 - still readable.
 */
 .sermon-meta,
 .event-category {
-  color: var(--color-gray);
+  color: #4b5563; /* Soft Gray - LOCKED */
   font-weight: 500;
 }
 
@@ -3549,38 +3635,43 @@ Links on dark backgrounds.
 */
 .section-dark a,
 footer a {
-  color: var(--color-white);
+  color: #ffffff;
   transition: color var(--transition-fast);
 }
 
 .section-dark a:hover,
 footer a:hover {
-  color: var(--color-accent-light);
+  color: #b52a2a; /* Apostolic Red light */
 }
 
 /*
 Navigation text - CLEAR VISIBILITY.
 */
 header nav a {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.97);
   font-weight: 500;
 }
 
 header nav a:hover {
-  color: var(--color-white);
+  color: #ffffff;
   background-color: rgba(255, 255, 255, 0.12);
 }
 
 /* -------------------------------------------
-   13H. HERO OVERLAY - GRADIENT FOR READABILITY
+   13H. HERO OVERLAY - FAITH BLUE FOR READABILITY
    ------------------------------------------- */
 
 /*
-Phase 10.3: Gradient overlay ensures perfect text visibility.
+Phase 10.4: Faith Blue gradient overlay.
 Text NEVER directly on raw image/gradient.
 */
 .section-hero-bg::before {
-  background: var(--overlay-hero);
+  background: linear-gradient(
+    180deg,
+    rgba(31, 60, 136, 0.92) 0%,
+    rgba(31, 60, 136, 0.88) 50%,
+    rgba(31, 60, 136, 0.85) 100%
+  );
 }
 
 /* -------------------------------------------
@@ -3821,79 +3912,78 @@ Hamburger to X animation.
 }
 
 /* -------------------------------------------
-   13M. FOOTER - READABLE ON SOFT BLUE
+   13M. FOOTER - FAITH BLUE GRADIENT
    ------------------------------------------- */
 
 /*
-Footer with soft royal blue.
+Footer with Faith Blue gradient.
+Phase 10.4: Readable white text.
 */
 footer {
-  background-color: var(--color-primary-dark);
-  color: var(--color-white);
+  background: linear-gradient(180deg, #2a4a9e 0%, #1f3c88 100%);
+  color: #ffffff;
 }
 
 footer p,
 footer address {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.97);
   line-height: 1.7;
 }
 
 footer a {
-  color: var(--color-white);
+  color: #ffffff;
   transition: color var(--transition-fast);
 }
 
 footer a:hover {
-  color: var(--color-accent-light);
+  color: #b52a2a; /* Apostolic Red light */
 }
 
 /* -------------------------------------------
-   13N. DATE BADGE - MUTED WINE RED
+   13N. DATE BADGE - APOSTOLIC RED
    ------------------------------------------- */
 
 /*
-Event date badges with muted wine red.
+Event date badges with Apostolic Red.
+Phase 10.4: Visible and vibrant.
 */
 .event-date-badge {
-  background: linear-gradient(
-    135deg,
-    var(--color-accent) 0%,
-    var(--color-accent-dark) 100%
-  );
-  color: var(--color-white);
-  box-shadow: 0 3px 10px var(--color-accent-glow);
+  background: linear-gradient(135deg, #9b1c1c 0%, #7f1818 100%);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(155, 28, 28, 0.25);
 }
 
 .event-date-badge .month {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(255, 255, 255, 0.97);
   font-weight: 500;
 }
 
 .event-date-badge .day {
-  color: var(--color-white);
+  color: #ffffff;
   font-weight: 700;
 }
 
 .event-date-badge .year {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* -------------------------------------------
-   13O. SMALL BUTTON - MUTED WINE RED
+   13O. SMALL BUTTON - APOSTOLIC RED
    ------------------------------------------- */
 
 /*
-Small wine red buttons for "Watch" / "Listen".
+Small Apostolic Red buttons for "Watch" / "Listen".
+Phase 10.4: CTAs always use Apostolic Red.
 */
 .btn-small {
-  background-color: var(--color-accent);
-  color: var(--color-white);
+  background-color: #9b1c1c; /* Apostolic Red - LOCKED */
+  color: #ffffff;
   font-weight: 500;
   transition: all var(--transition-fast);
 }
 
 .btn-small:hover {
-  background-color: var(--color-accent-dark);
+  background-color: #b52a2a;
   transform: translateY(-1px);
 }
 
