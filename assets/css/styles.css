@@ -31,37 +31,45 @@ TABLE OF CONTENTS:
 
 :root {
   /* ============================================
-     PHASE 10.3: GRADIENT-DRIVEN APOSTOLIC BRAND
+     PHASE 10.3: FINAL LOCKED COLOR SYSTEM
      ============================================
-     A modern gradient-first color system with
-     ABSOLUTE TEXT READABILITY as priority #1.
-
-     Gradient Direction:
-     Heaven Blue → Royal Blue → Subtle Crimson Tint
-
-     Rules:
-     - NO text directly on raw gradients
-     - All text on solid/semi-solid surfaces
-     - Glass opacity: 0.96-0.98 minimum
-     - Blur: 6-10px MAX for readability
+     HARD RESET - Readability-first design.
+     
+     🔒 LOCKED COLORS (DO NOT CHANGE):
+     - Faith Blue: #1f3c88 (headers, footers, nav)
+     - Soft Sky Blue: #4f7cff (gradients, highlights)
+     - Apostolic Red: #9b1c1c (CTAs, buttons ONLY)
+     - Pure White: #ffffff (light backgrounds)
+     - Deep Charcoal: #1f2933 (ALL body text)
+     - Soft Gray: #4b5563 (secondary text only)
+     
+     ⚠️ RULES:
+     - Text NEVER on raw gradients
+     - Body text = #1f2933 ONLY (no gray body text)
+     - Line height >= 1.6 everywhere
+     - Glass opacity = 0.97 minimum
      ============================================ */
 
   /*
-    PRIMARY GRADIENT COLORS
-    Heaven Blue → Royal Apostolic Blue
-    Used for: Hero, Headers, CTA, Footer
+    🔵 PRIMARY BLUE - FAITH BLUE
+    Used for: Headers, footers, navigation, gradients
     */
-  --gradient-start: #4a90c2; /* Heaven blue - light, peaceful */
-  --gradient-mid: #2d5a87; /* Royal apostolic blue - authority */
-  --gradient-end: #1e3a5f; /* Deep royal blue - grounding */
-  --gradient-warm: #8b4a5c; /* Subtle crimson tint - warmth/depth */
+  --color-primary: #1f3c88; /* Faith Blue - main brand */
+  --color-primary-dark: #162c66; /* Darker - hover states */
+  --color-primary-light: #4f7cff; /* Soft Sky Blue - gradients */
+  --color-primary-soft: #2a4a9e; /* Softer variant */
 
   /*
-    PRIMARY GRADIENT DEFINITIONS
-    Smooth, spiritual, premium feel
+    🌈 GRADIENT DEFINITIONS
+    Top → Bottom: Faith Blue → Soft Sky Blue → White
+    Calm, spiritual, premium feel
     */
+  --gradient-start: #1f3c88; /* Faith Blue */
+  --gradient-mid: #4f7cff; /* Soft Sky Blue */
+  --gradient-end: #ffffff; /* White */
+
   --gradient-primary: linear-gradient(
-    135deg,
+    180deg,
     var(--gradient-start) 0%,
     var(--gradient-mid) 50%,
     var(--gradient-end) 100%
@@ -69,86 +77,78 @@ TABLE OF CONTENTS:
   --gradient-hero: linear-gradient(
     180deg,
     var(--gradient-start) 0%,
-    var(--gradient-mid) 60%,
-    var(--gradient-end) 100%
+    var(--gradient-mid) 70%,
+    rgba(255, 255, 255, 0.9) 100%
+  );
+  --gradient-header: linear-gradient(
+    135deg,
+    var(--gradient-start) 0%,
+    #2a4a9e 100%
   );
   --gradient-footer: linear-gradient(
     180deg,
-    var(--gradient-mid) 0%,
-    var(--gradient-end) 100%
+    #2a4a9e 0%,
+    var(--gradient-start) 100%
   );
   --gradient-cta: linear-gradient(
     135deg,
-    var(--gradient-mid) 0%,
-    var(--gradient-end) 100%
+    var(--gradient-start) 0%,
+    #2a4a9e 100%
   );
 
   /*
-    TEXT OVERLAY GRADIENTS
-    Semi-solid overlays for text readability
-    NEVER place text on raw gradients
+    📖 TEXT OVERLAYS - READABILITY GUARANTEED
+    Semi-solid surfaces for text - NEVER raw gradient
     */
   --overlay-hero: linear-gradient(
     180deg,
-    rgba(30, 58, 95, 0.85) 0%,
-    rgba(30, 58, 95, 0.92) 50%,
-    rgba(30, 58, 95, 0.95) 100%
+    rgba(31, 60, 136, 0.92) 0%,
+    rgba(31, 60, 136, 0.88) 50%,
+    rgba(31, 60, 136, 0.85) 100%
   );
-  --overlay-dark: rgba(30, 58, 95, 0.9);
-  --overlay-light: rgba(255, 255, 255, 0.95);
+  --overlay-dark: rgba(31, 60, 136, 0.92);
+  --overlay-light: rgba(255, 255, 255, 0.97);
 
   /*
-    FLAT COLORS (FOR NON-GRADIENT AREAS)
+    🔴 APOSTOLIC RED - SACRED ACCENT
+    Used ONLY for: CTAs, buttons, active states
+    ⚠️ Do NOT use for text or backgrounds
     */
-  --color-primary: #2d5a87; /* Royal apostolic blue */
-  --color-primary-dark: #1e3a5f; /* Deep royal blue */
-  --color-primary-light: #4a90c2; /* Heaven blue */
-  --color-primary-soft: #3d6a97; /* Softer variant */
+  --color-accent: #9b1c1c; /* Apostolic Red - sacred accent */
+  --color-accent-dark: #7f1818; /* Darker - hover */
+  --color-accent-light: #b52a2a; /* Lighter - highlights */
+  --color-accent-glow: rgba(155, 28, 28, 0.3); /* Button glow */
 
   /*
-    APOSTOLIC RED ACCENT (SPARINGLY)
-    Warm crimson - buttons, active states, emphasis only
+    ⚪ NEUTRAL COLORS - HIGH CONTRAST
+    Body text: Deep Charcoal #1f2933 ONLY
+    NO gray body text allowed
     */
-  --color-accent: #a64b4b; /* Warm crimson - calm emphasis */
-  --color-accent-dark: #8b3d3d; /* Darker crimson - hover */
-  --color-accent-light: #c26565; /* Lighter crimson - highlights */
-  --color-accent-glow: rgba(166, 75, 75, 0.25); /* Soft crimson glow */
+  --color-white: #ffffff; /* Pure White */
+  --color-off-white: #f9fafb; /* Very light gray */
+  --color-cream: #fafbfc; /* Card surfaces */
+  --color-light-gray: #e5e7eb; /* Borders only */
+  --color-gray: #4b5563; /* Secondary/muted text ONLY */
+  --color-dark-gray: #1f2933; /* Deep Charcoal - ALL body text */
+  --color-black: #111827; /* Near-black - headings */
 
   /*
-    NEUTRAL COLORS - HIGH CONTRAST TEXT
-    Body text: Dark charcoal (NOT gray)
-    Headings: Near-black but soft
+    🌙 TEXT ON DARK/GRADIENT AREAS
+    Pure white - maximum contrast
     */
-  --color-white: #ffffff;
-  --color-off-white: #f8fafc; /* Clean off-white for cards */
-  --color-cream: #fafbfd; /* Warm white for glass surfaces */
-  --color-light-gray: #e8ecf2; /* Light gray for borders */
-  --color-gray: #64748b; /* Medium slate - metadata only */
-  --color-dark-gray: #1e293b; /* Dark charcoal - body text */
-  --color-black: #0f172a; /* Near-black - headings */
-
-  /*
-    TEXT ON GRADIENT/DARK AREAS
-    Near-white with high opacity - NEVER faint
-    */
-  --color-dark-bg: var(--gradient-mid);
+  --color-dark-bg: var(--color-primary);
   --color-dark-overlay: var(--overlay-dark);
   --color-dark-text: #ffffff; /* Pure white */
-  --color-dark-text-muted: rgba(
-    255,
-    255,
-    255,
-    0.98
-  ); /* Near-white, very readable */
+  --color-dark-text-muted: #ffffff; /* Also pure white - NO faint text */
 
   /*
-    FONTS
+    📝 FONTS
     */
   --font-primary: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --font-heading: "Lora", Georgia, "Times New Roman", serif;
 
   /*
-    SPACING
+    📏 SPACING
     */
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
@@ -158,13 +158,13 @@ TABLE OF CONTENTS:
   --spacing-xxl: 4rem;
 
   /*
-    MAX WIDTH
+    📐 MAX WIDTH
     */
   --max-width: 1200px;
   --max-width-narrow: 800px;
 
   /*
-    BORDER RADIUS
+    🔘 BORDER RADIUS
     */
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -172,44 +172,44 @@ TABLE OF CONTENTS:
   --radius-xl: 16px;
 
   /*
-    SHADOWS - SOFT & PREMIUM
+    🌑 SHADOWS
     */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 8px rgba(15, 23, 42, 0.07);
-  --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.09);
-  --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.11);
+  --shadow-sm: 0 1px 3px rgba(17, 24, 39, 0.06);
+  --shadow-md: 0 4px 8px rgba(17, 24, 39, 0.08);
+  --shadow-lg: 0 10px 25px rgba(17, 24, 39, 0.1);
+  --shadow-xl: 0 20px 40px rgba(17, 24, 39, 0.12);
 
   /*
-    PHASE 10.3: READABLE GLASSMORPHISM
-    Very high opacity - clarity over aesthetics
-    Low blur - text must be crystal clear
+    ✨ GLASSMORPHISM - CONTROLLED & SAFE
+    Opacity: 0.97 minimum
+    Blur: 6-8px MAX
     */
-  --glass-bg: rgba(255, 255, 255, 0.97); /* Near-solid white */
-  --glass-bg-dark: rgba(30, 58, 95, 0.94); /* High opacity blue */
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-border-light: rgba(255, 255, 255, 0.6);
-  --glass-border-inner: rgba(255, 255, 255, 0.25);
-  --glass-blur: blur(8px); /* Low blur for readability */
-  --glass-blur-strong: blur(10px);
+  --glass-bg: rgba(255, 255, 255, 0.97);
+  --glass-bg-dark: rgba(31, 60, 136, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-border-light: rgba(255, 255, 255, 0.7);
+  --glass-border-inner: rgba(255, 255, 255, 0.3);
+  --glass-blur: blur(6px);
+  --glass-blur-strong: blur(8px);
 
   /*
-    ELEVATION LEVELS
+    📊 ELEVATION LEVELS
     */
-  --elevation-1: 0 2px 6px rgba(15, 23, 42, 0.04);
-  --elevation-2: 0 4px 12px rgba(15, 23, 42, 0.06);
-  --elevation-3: 0 8px 24px rgba(15, 23, 42, 0.08);
-  --elevation-hover: 0 10px 30px rgba(15, 23, 42, 0.1);
+  --elevation-1: 0 2px 6px rgba(17, 24, 39, 0.04);
+  --elevation-2: 0 4px 12px rgba(17, 24, 39, 0.06);
+  --elevation-3: 0 8px 24px rgba(17, 24, 39, 0.08);
+  --elevation-hover: 0 10px 30px rgba(17, 24, 39, 0.1);
 
   /*
-    ANIMATION TIMING - CALM & SPIRITUAL
-    Slow, gentle, reverent motion
+    🎬 ANIMATION TIMING - SUBTLE & HOLY
+    0.6-0.8s, ease-out, no bounce
     */
   --transition-fast: 0.25s ease-out;
   --transition-normal: 0.4s ease-out;
   --transition-slow: 0.6s ease-out;
   --transition-gentle: 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  --animation-duration: 0.8s;
-  --animation-stagger: 0.12s;
+  --animation-duration: 0.7s;
+  --animation-stagger: 0.1s;
 }
 
 /* ============================================
