@@ -674,7 +674,6 @@ The codebase includes extensive comments explaining:
 
 ---
 
-
 ## Phase 14 — Readability Enforcement Patch
 
 **✅ GLOBAL TEXT READABILITY PATCH APPLIED**
@@ -742,3 +741,30 @@ This project is for The Apostolic Church Nigeria, Stadium Branch. All rights res
 ---
 
 Last Updated: January 30, 2026 (Phase 13 Complete)
+
+---
+
+## Phase 15 — Forced Contrast Override
+
+**✅ GLOBAL TEXT CONTRAST ENFORCEMENT APPLIED**
+
+Strict, global override to guarantee text readability on all backgrounds. No UI redesign or palette change—readability only.
+
+- **Global Text Color Enforcement:**
+  - All body, paragraph, card, form, and label text is now forced to #1f2933 (Deep Charcoal) everywhere except dark/hero/header/footer.
+  - Headings (h1–h4) in all sections use Faith Blue (`var(--faith-blue)`).
+  - White text (`#fff`/`white`/`inherit`) is allowed ONLY in hero, header, footer, and dark sections.
+
+- **Card & Glass Readability Fix:**
+  - All glass, card, and form containers force #1f2933 text and remove text-shadow for clarity.
+  - No more white/inherit text on light or glass backgrounds.
+
+- **Button & Form Field Enforcement:**
+  - Primary buttons: white text on red/blue background
+  - Secondary buttons: Faith Blue text on white background
+  - Form fields: #1f2933 text, #fff background
+
+- **No Layout or Palette Changes:**
+  - No redesign, no color palette changes, no UI shifts. Strictly readability and accessibility.
+
+---

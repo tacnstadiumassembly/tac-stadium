@@ -5040,3 +5040,83 @@ Fallback for browsers without backdrop-filter.
 /* ============================================
    END OF STYLESHEET
    ============================================ */
+
+/* ============================================
+   PHASE 15: FORCED CONTRAST OVERRIDE
+   ============================================
+   Global text color enforcement for full readability.
+   No UI redesign, no palette change. Strictly text color fixes.
+*/
+
+/* 1. GLOBAL BODY TEXT LOCK */
+body,
+p,
+li,
+span,
+small,
+label,
+input,
+textarea,
+select {
+  color: #1f2933 !important;
+}
+
+/* 2. GLASS + CARD TEXT FIX */
+.glass,
+.card,
+.sermon-card,
+.event-card,
+.giving-card,
+.contact-card,
+.ministry-card,
+.form-container {
+  color: #1f2933 !important;
+}
+
+.glass p,
+.card p,
+.sermon-card p,
+.event-card p,
+.giving-card p {
+  color: #1f2933 !important;
+}
+
+/* 3. HEADINGS ON LIGHT SECTIONS */
+section h1,
+section h2,
+section h3,
+section h4 {
+  color: var(--faith-blue) !important;
+}
+
+/* 4. KEEP WHITE TEXT ONLY WHERE SAFE */
+.hero,
+.site-header,
+.site-footer,
+.dark-section {
+  color: #ffffff !important;
+}
+
+.hero h1,
+.hero h2,
+.site-footer p,
+.site-footer a {
+  color: #ffffff !important;
+}
+
+/* 6. FORM FIELD TEXT FIX */
+input,
+textarea,
+select {
+  background: #ffffff;
+  color: #1f2933 !important;
+}
+
+/* 7. BUTTON TEXT SAFETY */
+.btn-primary {
+  color: #ffffff !important;
+}
+
+.btn-secondary {
+  color: var(--faith-blue) !important;
+}
