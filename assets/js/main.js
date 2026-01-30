@@ -1,132 +1,334 @@
-  // ========== PHASE 20: PRAYER & TESTIMONY SUBMISSION SYSTEM ========== //
+// ========== PHASE 21: MEMBERS PORTAL & MINISTRY RESOURCES ========== //
+// Resource data (placeholder, can be moved to JSON later)
+const ministryResources = [
+  {
+    id: 1,
+    title: "Bible Study Guide: Romans",
+    desc: "A 12-week guide for in-depth study of the Book of Romans.",
+    category: "bible",
+    link: "#"
+  },
+  {
+    id: 2,
+    title: "Workers Manual 2026",
+    desc: "Official manual for church workers and leaders.",
+    category: "workers",
+    link: "#"
+  },
+  {
+    id: 3,
+    title: "Choir Rehearsal Materials Q1",
+    desc: "Sheet music and practice tracks for choir members.",
+    category: "choir",
+    link: "#"
+  },
+  {
+    id: 4,
+    title: "Youth Study: Faith Foundations",
+    desc: "Youth-focused study resource on Christian foundations.",
+    category: "youth",
+    link: "#"
+  },
+  {
+    id: 5,
+    title: "Convention Materials 2025",
+    desc: "All handouts and guides for the annual convention.",
+    category: "conventions",
+    link: "#"
+  },
+  {
+    id: 6,
+    title: "Bible Study Guide: Acts",
+    desc: "A 10-week guide for the Book of Acts.",
+    category: "bible",
+    link: "#"
+  },
+  {
+    id: 7,
+    title: "Workers Orientation Handbook",
+    desc: "Quick-start guide for new church workers.",
+    category: "workers",
+    link: "#"
+  },
+  {
+    id: 8,
+    title: "Youth Study: Living for Christ",
+    desc: "Discussion guide for youth fellowship.",
+    category: "youth",
+    link: "#"
+  },
+];
 
-  function handlePrayerForm() {
-    const form = document.getElementById('prayerForm');
-    if (!form) return;
-    const successDiv = document.getElementById('prayerSuccess');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Validate
-      const category = form.prayerCategory.value;
-      const message = form.prayerMessage.value.trim();
-      const urgency = form.prayerUrgency.value;
-      const consent = form.prayerConsent.checked;
-      let valid = true;
-      if (!category) valid = false;
-      if (!message || message.length < 10) valid = false;
-      if (!urgency) valid = false;
-      if (!consent) valid = false;
-      if (!valid) {
-        showFormError(form, 'Please fill all required fields and give consent.');
-        return;
-      }
-      // Store in localStorage queue
-      const queue = JSON.parse(localStorage.getItem('prayerQueue') || '[]');
-      queue.push({
-        name: form.prayerName.value,
-        email: form.prayerEmail.value,
-        category,
-        message,
-        urgency,
-        consent,
-        date: new Date().toISOString()
-      });
-      localStorage.setItem('prayerQueue', JSON.stringify(queue));
-      // Show success
-      showFormSuccess(successDiv, 'Your prayer request has been received. Our prayer team will pray for you.');
-      form.reset();
-    });
-    // Animate card on scroll
-    fadeUpOnScroll(form);
-  }
+function renderResourceCard(resource) {
+  return `
+    <article class="glass-card resource-card animate-on-scroll" data-category="${resource.category}" tabindex="0" aria-label="${resource.title}">
+      <h3 style="margin-bottom:0.5rem; color:var(--faith-blue); font-size:1.1rem;">${resource.title}</h3>
+      <p style="margin-bottom:1rem; color:#1f2933;">${resource.desc}</p>
+      <button class="btn btn-primary resource-preview-btn" data-id="${resource.id}" aria-label="Preview resource: ${resource.title}">Preview & Download</button>
+    </article>
+  `;
+}
 
-  function handleTestimonyForm() {
-    const form = document.getElementById('testimonyForm');
-    if (!form) return;
-    const successDiv = document.getElementById('testimonySuccess');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Validate
-      const name = form.testimonyName.value.trim();
-      const email = form.testimonyEmail.value.trim();
-      const title = form.testimonyTitle.value.trim();
-      const message = form.testimonyMessage.value.trim();
-      const consent = form.testimonyConsent.checked;
-      let valid = true;
-      if (!name) valid = false;
-      if (!email) valid = false;
-      if (!title) valid = false;
-      if (!message || message.length < 10) valid = false;
-      if (!consent) valid = false;
-      if (!valid) {
-        showFormError(form, 'Please fill all required fields and give permission to publish.');
-        return;
-      }
-      // Store in localStorage queue
-      const queue = JSON.parse(localStorage.getItem('testimonyQueue') || '[]');
-      queue.push({
-        name,
-        email,
-        title,
-        message,
-        consent,
-        date: new Date().toISOString()
-      });
-      localStorage.setItem('testimonyQueue', JSON.stringify(queue));
-      // Show success
-      showFormSuccess(successDiv, 'Thank you for sharing your testimony! It may be published after review.');
-      form.reset();
-    });
-    // Animate card on scroll
-    fadeUpOnScroll(form);
-  }
-
-  // Helper: show animated success message
-  function showFormSuccess(div, msg) {
-    if (!div) return;
-    div.textContent = msg;
-    div.style.display = 'block';
-    div.style.opacity = 0;
-    div.style.transform = 'translateY(24px)';
+function renderResourceGrid(filter) {
+  const grid = document.getElementById("resourceGrid");
+  if (!grid) return;
+  let filtered =
+    filter === "all"
+      ? ministryResources
+      : ministryResources.filter((r) => r.category === filter);
+  grid.innerHTML =
+    filtered.length > 0
+      ? filtered.map(renderResourceCard).join("")
+      : '<div style="color:#b91c1c; text-align:center;">No resources found.</div>';
+  // Animate in
+  grid.querySelectorAll(".resource-card").forEach((card, i) => {
+    card.style.opacity = 0;
+    card.style.transform = "translateY(24px)";
     setTimeout(() => {
-      div.style.transition = 'opacity 0.5s, transform 0.5s';
-      div.style.opacity = 1;
-      div.style.transform = 'translateY(0)';
+      card.style.transition = "opacity 0.5s, transform 0.5s";
+      card.style.opacity = 1;
+      card.style.transform = "translateY(0)";
+    }, 100 + i * 80);
+  });
+}
+
+function initResourceFilters() {
+  const filterBtns = document.querySelectorAll(".resource-filters .filter-btn");
+  if (!filterBtns.length) return;
+  filterBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      filterBtns.forEach((b) => b.classList.remove("active"));
+      this.classList.add("active");
+      const filter = this.getAttribute("data-filter");
+      renderResourceGrid(filter);
+    });
+  });
+}
+
+function createResourceModal() {
+  const modal = document.getElementById("resourceModal");
+  if (!modal) return;
+  const titleEl = document.getElementById("modalTitle");
+  const descEl = document.getElementById("modalDesc");
+  const downloadBtn = document.getElementById("modalDownload");
+  let lastFocused = null;
+
+  function openModal(resource) {
+    modal.style.display = "block";
+    setTimeout(() => {
+      modal.classList.add("modal-visible");
+      modal.setAttribute("aria-expanded", "true");
+      modal.focus();
     }, 10);
+    titleEl.textContent = resource.title;
+    descEl.textContent = resource.desc;
+    downloadBtn.href = resource.link;
+    lastFocused = document.activeElement;
+    // Focus trap
+    trapFocus(modal);
+  }
+
+  function closeModal() {
+    modal.classList.remove("modal-visible");
+    modal.setAttribute("aria-expanded", "false");
     setTimeout(() => {
-      div.style.opacity = 0;
-      div.style.transform = 'translateY(24px)';
-      setTimeout(() => { div.style.display = 'none'; }, 500);
-    }, 5000);
+      modal.style.display = "none";
+      if (lastFocused) lastFocused.focus();
+    }, 250);
   }
 
-  // Helper: show error (simple alert for now)
-  function showFormError(form, msg) {
-    alert(msg);
-  }
+  // Open modal on card button click
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("resource-preview-btn")) {
+      const id = parseInt(e.target.getAttribute("data-id"));
+      const resource = ministryResources.find((r) => r.id === id);
+      if (resource) openModal(resource);
+    }
+    if (e.target.classList.contains("modal-close")) {
+      closeModal();
+    }
+  });
+  // Keyboard: ESC closes modal
+  document.addEventListener("keydown", function (e) {
+    if (modal.style.display === "block" && e.key === "Escape") {
+      closeModal();
+    }
+  });
+  // Click outside modal-content closes
+  modal.addEventListener("mousedown", function (e) {
+    if (e.target === modal) closeModal();
+  });
+}
 
-  // Helper: fade-up animation on scroll
-  function fadeUpOnScroll(el) {
-    if (!el) return;
-    el.classList.add('animate-on-scroll');
-    el.style.opacity = 0;
-    el.style.transform = 'translateY(24px)';
-    function reveal() {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 40) {
-        el.style.transition = 'opacity 0.5s, transform 0.5s';
-        el.style.opacity = 1;
-        el.style.transform = 'translateY(0)';
-        window.removeEventListener('scroll', reveal);
+// Focus trap for modal accessibility
+function trapFocus(modal) {
+  const focusable = modal.querySelectorAll(
+    'a, button, textarea, input, select, [tabindex]:not([tabindex="-1"])',
+  );
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  modal.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab") return;
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
       }
     }
-    window.addEventListener('scroll', reveal);
-    reveal();
-  }
+  });
+}
 
-  // Init forms if present
-  handlePrayerForm();
-  handleTestimonyForm();
+// Init Members Portal features if on members.html
+if (document.getElementById("resourceGrid")) {
+  renderResourceGrid("all");
+  initResourceFilters();
+  createResourceModal();
+}
+// ========== PHASE 20: PRAYER & TESTIMONY SUBMISSION SYSTEM ========== //
+
+function handlePrayerForm() {
+  const form = document.getElementById("prayerForm");
+  if (!form) return;
+  const successDiv = document.getElementById("prayerSuccess");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    // Validate
+    const category = form.prayerCategory.value;
+    const message = form.prayerMessage.value.trim();
+    const urgency = form.prayerUrgency.value;
+    const consent = form.prayerConsent.checked;
+    let valid = true;
+    if (!category) valid = false;
+    if (!message || message.length < 10) valid = false;
+    if (!urgency) valid = false;
+    if (!consent) valid = false;
+    if (!valid) {
+      showFormError(form, "Please fill all required fields and give consent.");
+      return;
+    }
+    // Store in localStorage queue
+    const queue = JSON.parse(localStorage.getItem("prayerQueue") || "[]");
+    queue.push({
+      name: form.prayerName.value,
+      email: form.prayerEmail.value,
+      category,
+      message,
+      urgency,
+      consent,
+      date: new Date().toISOString(),
+    });
+    localStorage.setItem("prayerQueue", JSON.stringify(queue));
+    // Show success
+    showFormSuccess(
+      successDiv,
+      "Your prayer request has been received. Our prayer team will pray for you.",
+    );
+    form.reset();
+  });
+  // Animate card on scroll
+  fadeUpOnScroll(form);
+}
+
+function handleTestimonyForm() {
+  const form = document.getElementById("testimonyForm");
+  if (!form) return;
+  const successDiv = document.getElementById("testimonySuccess");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    // Validate
+    const name = form.testimonyName.value.trim();
+    const email = form.testimonyEmail.value.trim();
+    const title = form.testimonyTitle.value.trim();
+    const message = form.testimonyMessage.value.trim();
+    const consent = form.testimonyConsent.checked;
+    let valid = true;
+    if (!name) valid = false;
+    if (!email) valid = false;
+    if (!title) valid = false;
+    if (!message || message.length < 10) valid = false;
+    if (!consent) valid = false;
+    if (!valid) {
+      showFormError(
+        form,
+        "Please fill all required fields and give permission to publish.",
+      );
+      return;
+    }
+    // Store in localStorage queue
+    const queue = JSON.parse(localStorage.getItem("testimonyQueue") || "[]");
+    queue.push({
+      name,
+      email,
+      title,
+      message,
+      consent,
+      date: new Date().toISOString(),
+    });
+    localStorage.setItem("testimonyQueue", JSON.stringify(queue));
+    // Show success
+    showFormSuccess(
+      successDiv,
+      "Thank you for sharing your testimony! It may be published after review.",
+    );
+    form.reset();
+  });
+  // Animate card on scroll
+  fadeUpOnScroll(form);
+}
+
+// Helper: show animated success message
+function showFormSuccess(div, msg) {
+  if (!div) return;
+  div.textContent = msg;
+  div.style.display = "block";
+  div.style.opacity = 0;
+  div.style.transform = "translateY(24px)";
+  setTimeout(() => {
+    div.style.transition = "opacity 0.5s, transform 0.5s";
+    div.style.opacity = 1;
+    div.style.transform = "translateY(0)";
+  }, 10);
+  setTimeout(() => {
+    div.style.opacity = 0;
+    div.style.transform = "translateY(24px)";
+    setTimeout(() => {
+      div.style.display = "none";
+    }, 500);
+  }, 5000);
+}
+
+// Helper: show error (simple alert for now)
+function showFormError(form, msg) {
+  alert(msg);
+}
+
+// Helper: fade-up animation on scroll
+function fadeUpOnScroll(el) {
+  if (!el) return;
+  el.classList.add("animate-on-scroll");
+  el.style.opacity = 0;
+  el.style.transform = "translateY(24px)";
+  function reveal() {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 40) {
+      el.style.transition = "opacity 0.5s, transform 0.5s";
+      el.style.opacity = 1;
+      el.style.transform = "translateY(0)";
+      window.removeEventListener("scroll", reveal);
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  reveal();
+}
+
+// Init forms if present
+handlePrayerForm();
+handleTestimonyForm();
 /**
  * ============================================
  * TAC STADIUM - MAIN JAVASCRIPT FILE

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Members Portal | Apostolic Church Stadium Assembly</title>
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- ...existing nav... -->
+      <a href="/pages/members.html" class="active">Members Portal</a>
+      <!-- ...existing nav... -->
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <h1><span aria-hidden="true">⛪</span> Members Portal</h1>
+      <p>This area provides ministry resources for members and workers.</p>
+    </section>
+    <section class="glass-card notice-card" style="margin-bottom:2rem;">
+      <strong>Restricted Access Notice</strong><br>
+      This section is intended for church members. Resources may require leadership permission.
+    </section>
+    <section class="resource-filters" aria-label="Resource Category Filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="bible">Bible Study</button>
+      <button class="filter-btn" data-filter="workers">Workers</button>
+      <button class="filter-btn" data-filter="choir">Choir</button>
+      <button class="filter-btn" data-filter="youth">Youth</button>
+      <button class="filter-btn" data-filter="conventions">Conventions</button>
+    </section>
+    <section class="resource-grid" id="resourceGrid">
+      <!-- Cards rendered by JS -->
+    </section>
+    <div id="resourceModal" class="modal" role="dialog" aria-modal="true" aria-expanded="false" tabindex="-1" style="display:none;">
+      <div class="modal-content glass-card" tabindex="0">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+        <a id="modalDownload" href="#" class="btn" download>Download</a>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- ...existing footer... -->
+    <a href="/pages/members.html">Members Portal</a>
+    <!-- ...existing footer... -->
+  </footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

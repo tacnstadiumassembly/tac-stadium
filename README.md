@@ -1,3 +1,21 @@
+### Phase 21: Members Portal & Ministry Resources
+
+- Created `pages/members.html` with hero, intro, and glass-card grid for ministry resources.
+- Added resource cards for:
+  - Bible Study Guides
+  - Workers Manuals
+  - Choir Materials
+  - Youth Study Resources
+  - Convention Materials
+- Implemented category filter buttons (All, Bible Study, Workers, Choir, Youth, Conventions) with JavaScript filtering (like sermons/events).
+- Added a glass notice card: "Restricted Access Notice" for members-only resources.
+- Each card includes title, description, and a download button (placeholder link).
+- Clicking a card opens a modal preview (title, description, download button) with fade-up animation.
+- Modal accessibility: `role="dialog"`, `aria-expanded`, focus trap, ESC closes, click outside closes.
+- Cards animate in with fade-up stagger; modal slides from bottom.
+- Navigation updated: "Members Portal" link in header and footer of all relevant pages.
+- All color, gradient, readability, glass, and animation rules strictly enforced.
+- Resource data is placeholder (can be moved to JSON later).
 # TACN Stadium Branch Website
 
 A clean, static HTML/CSS website for The Apostolic Church Nigeria (TACN), Stadium Branch. This project prioritizes clarity, accessibility, and simplicity — making it easy to maintain and beginner-friendly to understand.
@@ -859,7 +877,6 @@ Last Updated: January 30, 2026 (Phase 19 Complete)
 Last Updated: January 30, 2026 (Phase 18 Complete)
 
 ---
-
 
 ## Phase 20 — Prayer & Testimony Submission System
 
