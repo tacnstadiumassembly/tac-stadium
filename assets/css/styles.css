@@ -4146,5 +4146,174 @@ Fallback for browsers without backdrop-filter.
 }
 
 /* ============================================
+   14. SOCIAL MEDIA STYLES
+   ============================================
+   Elegant, non-distracting social icons
+   for header, footer, and content sections.
+   ============================================ */
+
+/* -------------------------------------------
+   14A. SOCIAL ICON LINKS (HEADER & FOOTER)
+   ------------------------------------------- */
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Header social icons - desktop only */
+.header-social {
+  display: none;
+}
+
+@media screen and (min-width: 769px) {
+  .header-social {
+    display: flex;
+    margin-left: auto;
+  }
+}
+
+/* Footer social icons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-md) 0;
+}
+
+.footer-social .social-icon {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-social .social-icon:hover {
+  background: var(--apostolic-red);
+}
+
+/* -------------------------------------------
+   14B. STAY CONNECTED SECTION
+   ------------------------------------------- */
+
+.section-social-connect {
+  background: linear-gradient(
+    135deg,
+    var(--faith-blue) 0%,
+    var(--soft-sky-blue) 100%
+  );
+  color: #ffffff;
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.section-social-connect h2 {
+  color: #ffffff;
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-social-connect p {
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-md);
+  font-size: 1.1rem;
+}
+
+.social-links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.social-link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 16px 24px;
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.social-link-card:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.social-link-card svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.social-link-card span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* -------------------------------------------
+   14C. YOUTUBE CTA (SERMONS PAGE)
+   ------------------------------------------- */
+
+.section-youtube-cta {
+  background: linear-gradient(135deg, var(--faith-blue) 0%, #2a4a9e 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-lg) 0;
+  border-radius: 16px;
+}
+
+.section-youtube-cta h3 {
+  color: #ffffff;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+}
+
+.section-youtube-cta p {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: var(--spacing-md);
+}
+
+.section-youtube-cta .btn-primary {
+  background: var(--apostolic-red);
+  border-color: var(--apostolic-red);
+}
+
+.section-youtube-cta .btn-primary:hover {
+  background: #7a1616;
+  border-color: #7a1616;
+}
+
+/* ============================================
    END OF STYLESHEET
    ============================================ */

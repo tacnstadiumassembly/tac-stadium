@@ -473,6 +473,79 @@ Populated all pages with authentic church content and added tasteful, church-app
   - Text meaning never relies on emojis alone
   - SEO structure unchanged
 
+### Phase 13: Social Media Integration & Engagement UI
+
+**✅ SOCIAL PRESENCE & OUTREACH COMPLETE**
+
+Integrated official social media platforms with elegant, non-intrusive design.
+
+- **🌐 Social Media Platforms Integrated**:
+  - YouTube: `https://www.youtube.com/@tacn.stadium`
+  - Facebook: `https://web.facebook.com/people/The-Apostolic-Church-Nigeria-Stadium-Assembly/61587235559564/`
+
+- **🎨 Header Social Icons (Desktop Only)**:
+  - SVG icons for YouTube and Facebook
+  - Positioned after navigation menu
+  - Hidden on mobile (< 769px) for clean mobile nav
+  - Subtle glassmorphism hover effect
+  - Hover color change to Apostolic Red
+
+- **🦶 Footer Social Icons (All Devices)**:
+  - Same SVG icons as header
+  - Centered placement after quick links
+  - Visible on all screen sizes
+  - Consistent hover styling
+
+- **❤️ Stay Connected Section (Homepage)**:
+  - Gradient background matching site design
+  - Two social link cards with glassmorphism effect
+  - "Watch Sermons & Services" (YouTube link)
+  - "Join Our Church Community" (Facebook link)
+  - Heart emoji with aria-hidden for accessibility
+
+- **📖 YouTube CTA Section (Sermons Page)**:
+  - Dedicated call-to-action block after sermon grid
+  - Gradient background with overlay
+  - Apostolic Red CTA button
+  - Scripture emoji with aria-hidden
+
+- **📍 Contact Page Social Links Updated**:
+  - Replaced "(coming soon)" placeholders with real links
+  - Facebook and YouTube links now active
+  - Clean, accessible link formatting
+
+- **🎨 New CSS Styles Added (Section 14)**:
+  - `.social-icons` - Flexbox container with 8px gap
+  - `.social-icon` - 36px round icons with transitions
+  - `.header-social` - Desktop-only visibility
+  - `.footer-social` - Centered, all-device display
+  - `.section-social-connect` - Gradient section styling
+  - `.social-link-card` - Glassmorphism social cards
+  - `.section-youtube-cta` - YouTube CTA block styling
+
+- **♿ Accessibility Features**:
+  - All social links have `aria-label` descriptions
+  - `target="_blank"` with `rel="noopener noreferrer"` for security
+  - Icons use inline SVG (no external dependencies)
+  - Decorative emojis wrapped in `aria-hidden="true"`
+
+- **🎯 Design Philosophy**:
+  - "Invitation, not noise" approach
+  - No embedded widgets (performance-first)
+  - Icons only, elegant and minimal
+  - Consistent with established brand colors
+  - Respects existing color system (LOCKED)
+
+- **📄 Pages Updated**:
+  - index.html ✅ (header, footer, Stay Connected section)
+  - pages/about.html ✅ (header, footer)
+  - pages/sermons.html ✅ (header, footer, YouTube CTA)
+  - pages/events.html ✅ (header, footer)
+  - pages/giving.html ✅ (header, footer)
+  - pages/plan-a-visit.html ✅ (header, footer)
+  - pages/contact.html ✅ (header, footer, social links section)
+  - assets/css/styles.css ✅ (Section 14 added)
+
 ---
 
 ## Design Principles
@@ -502,31 +575,32 @@ The codebase includes extensive comments explaining:
 
 ## Current Status
 
-| Aspect         | Status                            |
-| -------------- | --------------------------------- |
-| Project        | Active                            |
-| HTML Structure | Complete                          |
-| CSS Styling    | Complete                          |
-| JavaScript     | Complete (progressive)            |
-| UI/UX/Brand    | ✅ COMPLETE & STABLE (Phase 10.4) |
-| SEO            | ✅ COMPLETE (Phase 11)            |
-| Accessibility  | ✅ WCAG 2.1 AA (Phase 11)         |
-| Performance    | ✅ OPTIMIZED (Phase 11)           |
-| Content        | ✅ COMPLETE (Phase 12)            |
-| Emoji System   | ✅ APPROVED (Phase 12)            |
+| Aspect           | Status                            |
+| ---------------- | --------------------------------- |
+| Project          | Active                            |
+| HTML Structure   | Complete                          |
+| CSS Styling      | Complete                          |
+| JavaScript       | Complete (progressive)            |
+| UI/UX/Brand      | ✅ COMPLETE & STABLE (Phase 10.4) |
+| SEO              | ✅ COMPLETE (Phase 11)            |
+| Accessibility    | ✅ WCAG 2.1 AA (Phase 11)         |
+| Performance      | ✅ OPTIMIZED (Phase 11)           |
+| Content          | ✅ COMPLETE (Phase 12)            |
+| Emoji System     | ✅ APPROVED (Phase 12)            |
+| Social Media     | ✅ COMPLETE (Phase 13)            |
 
 ---
 
 ## Next Phase
 
-### Phase 13: Media & Backend Integration
+### Phase 14: Media & Backend Integration
 
 - Add real photos of the church and congregation
 - Optimize images (WebP format, lazy loading)
 - Add structured data (JSON-LD) for search engines
 - Connect contact/visitor forms to backend
 - Final Lighthouse audit and score improvements
-- Social media links integration
+- Instagram integration (when available)
 
 ---
 
@@ -553,4 +627,4 @@ This project is for The Apostolic Church Nigeria, Stadium Branch. All rights res
 
 ---
 
-Last Updated: January 30, 2026 (Phase 12 Complete)
+Last Updated: January 30, 2026 (Phase 13 Complete)
