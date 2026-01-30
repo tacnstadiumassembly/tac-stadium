@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prayer Requests | The Apostolic Church Nigeria – Stadium Assembly</title>
+    <link rel="stylesheet" href="../assets/css/styles.css" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
+      <div>
+        <a href="../index.html" aria-label="TACN Stadium Assembly - Home">
+          The Apostolic Church Nigeria – Stadium Assembly
+        </a>
+      </div>
+      <nav role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="sermons.html">Sermons</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="plan-a-visit.html">Plan a Visit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="prayer.html" aria-current="page">Prayer Requests</a></li>
+          <li><a href="testimony.html">Testimonies</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main id="main-content" role="main">
+      <section class="section-page-header section-dark section-hero-bg" aria-label="Prayer Requests">
+        <h1><span aria-hidden="true">🙏</span> Prayer Requests</h1>
+        <p>We are honored to pray with you. Share your request confidentially.</p>
+      </section>
+      <section class="form-section">
+        <form id="prayerForm" class="glass-card" autocomplete="off" style="max-width:480px;margin:2rem auto 0;">
+          <div class="form-group">
+            <label for="prayerName">Name</label>
+            <input type="text" id="prayerName" name="name" />
+          </div>
+          <div class="form-group">
+            <label for="prayerEmail">Email</label>
+            <input type="email" id="prayerEmail" name="email" />
+          </div>
+          <div class="form-group">
+            <label for="prayerCategory">Prayer Category <span aria-hidden="true" style="color:#b91c1c;">*</span></label>
+            <select id="prayerCategory" name="category" required>
+              <option value="">Select a category</option>
+              <option value="healing">Healing</option>
+              <option value="family">Family</option>
+              <option value="provision">Provision</option>
+              <option value="guidance">Guidance</option>
+              <option value="thanksgiving">Thanksgiving</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prayerMessage">Request Message <span aria-hidden="true" style="color:#b91c1c;">*</span></label>
+            <textarea id="prayerMessage" name="message" required minlength="10" style="min-height:120px;"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="prayerUrgency">Urgency Level <span aria-hidden="true" style="color:#b91c1c;">*</span></label>
+            <select id="prayerUrgency" name="urgency" required>
+              <option value="normal">Normal</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prayerConsent" style="display:inline;">
+              <input type="checkbox" id="prayerConsent" name="consent" required />
+              I consent to have my request shared with the prayer team.
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1rem;">Submit Prayer Request</button>
+          <div id="prayerSuccess" class="success-message" aria-live="polite" style="display:none;"></div>
+        </form>
+      </section>
+    </main>
+    <footer role="contentinfo">
+      <nav aria-label="Footer navigation">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="giving.html">Giving</a></li>
+          <li><a href="plan-a-visit.html">Plan a Visit</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="prayer.html">Prayer Requests</a></li>
+          <li><a href="testimony.html">Testimonies</a></li>
+        </ul>
+      </nav>
+      <p style="margin-top:1rem;">&copy; 2026 The Apostolic Church Nigeria – Stadium Assembly</p>
+    </footer>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

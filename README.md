@@ -800,7 +800,6 @@ Major media and social engagement upgrade for the church website. No UI redesign
 
 ---
 
-
 ## Phase 19 — Notice Board & Announcements
 
 **✅ JSON-DRIVEN CHURCH NOTICES, PRIORITY ALERT BANNER, ACCESSIBLE NOTICE BOARD COMPLETE**
@@ -861,7 +860,33 @@ Last Updated: January 30, 2026 (Phase 18 Complete)
 
 ---
 
-## Phase 15 — Forced Contrast Override
+
+## Phase 20 — Prayer & Testimony Submission System
+
+**✅ PRAYER REQUEST & TESTIMONY SUBMISSION SYSTEM COMPLETE**
+
+- **Prayer Request Page:**
+  - New page for submitting prayer requests with category, urgency, and consent fields.
+  - Accessible form, required fields marked, and aria-live success message.
+
+- **Testimony Submission Page:**
+  - New page for sharing testimonies with permission to publish.
+  - Accessible, required fields, and aria-live feedback.
+
+- **Local Queue System:**
+  - Submissions are stored in localStorage queues (`prayerQueue[]`, `testimonyQueue[]`) for admin review.
+  - Placeholder `submissions.json` structure included.
+
+- **Success Feedback Animations:**
+  - Form cards fade-up on scroll.
+  - Success messages slide in and auto-dismiss.
+
+- **No UI Redesign:**
+  - All color, glassmorphism, contrast, and animation rules strictly maintained.
+
+---
+
+Last Updated: January 30, 2026 (Phase 20 Complete)
 
 **✅ GLOBAL TEXT CONTRAST ENFORCEMENT APPLIED**
 

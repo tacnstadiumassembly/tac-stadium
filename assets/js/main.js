@@ -1,3 +1,132 @@
+  // ========== PHASE 20: PRAYER & TESTIMONY SUBMISSION SYSTEM ========== //
+
+  function handlePrayerForm() {
+    const form = document.getElementById('prayerForm');
+    if (!form) return;
+    const successDiv = document.getElementById('prayerSuccess');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Validate
+      const category = form.prayerCategory.value;
+      const message = form.prayerMessage.value.trim();
+      const urgency = form.prayerUrgency.value;
+      const consent = form.prayerConsent.checked;
+      let valid = true;
+      if (!category) valid = false;
+      if (!message || message.length < 10) valid = false;
+      if (!urgency) valid = false;
+      if (!consent) valid = false;
+      if (!valid) {
+        showFormError(form, 'Please fill all required fields and give consent.');
+        return;
+      }
+      // Store in localStorage queue
+      const queue = JSON.parse(localStorage.getItem('prayerQueue') || '[]');
+      queue.push({
+        name: form.prayerName.value,
+        email: form.prayerEmail.value,
+        category,
+        message,
+        urgency,
+        consent,
+        date: new Date().toISOString()
+      });
+      localStorage.setItem('prayerQueue', JSON.stringify(queue));
+      // Show success
+      showFormSuccess(successDiv, 'Your prayer request has been received. Our prayer team will pray for you.');
+      form.reset();
+    });
+    // Animate card on scroll
+    fadeUpOnScroll(form);
+  }
+
+  function handleTestimonyForm() {
+    const form = document.getElementById('testimonyForm');
+    if (!form) return;
+    const successDiv = document.getElementById('testimonySuccess');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Validate
+      const name = form.testimonyName.value.trim();
+      const email = form.testimonyEmail.value.trim();
+      const title = form.testimonyTitle.value.trim();
+      const message = form.testimonyMessage.value.trim();
+      const consent = form.testimonyConsent.checked;
+      let valid = true;
+      if (!name) valid = false;
+      if (!email) valid = false;
+      if (!title) valid = false;
+      if (!message || message.length < 10) valid = false;
+      if (!consent) valid = false;
+      if (!valid) {
+        showFormError(form, 'Please fill all required fields and give permission to publish.');
+        return;
+      }
+      // Store in localStorage queue
+      const queue = JSON.parse(localStorage.getItem('testimonyQueue') || '[]');
+      queue.push({
+        name,
+        email,
+        title,
+        message,
+        consent,
+        date: new Date().toISOString()
+      });
+      localStorage.setItem('testimonyQueue', JSON.stringify(queue));
+      // Show success
+      showFormSuccess(successDiv, 'Thank you for sharing your testimony! It may be published after review.');
+      form.reset();
+    });
+    // Animate card on scroll
+    fadeUpOnScroll(form);
+  }
+
+  // Helper: show animated success message
+  function showFormSuccess(div, msg) {
+    if (!div) return;
+    div.textContent = msg;
+    div.style.display = 'block';
+    div.style.opacity = 0;
+    div.style.transform = 'translateY(24px)';
+    setTimeout(() => {
+      div.style.transition = 'opacity 0.5s, transform 0.5s';
+      div.style.opacity = 1;
+      div.style.transform = 'translateY(0)';
+    }, 10);
+    setTimeout(() => {
+      div.style.opacity = 0;
+      div.style.transform = 'translateY(24px)';
+      setTimeout(() => { div.style.display = 'none'; }, 500);
+    }, 5000);
+  }
+
+  // Helper: show error (simple alert for now)
+  function showFormError(form, msg) {
+    alert(msg);
+  }
+
+  // Helper: fade-up animation on scroll
+  function fadeUpOnScroll(el) {
+    if (!el) return;
+    el.classList.add('animate-on-scroll');
+    el.style.opacity = 0;
+    el.style.transform = 'translateY(24px)';
+    function reveal() {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 40) {
+        el.style.transition = 'opacity 0.5s, transform 0.5s';
+        el.style.opacity = 1;
+        el.style.transform = 'translateY(0)';
+        window.removeEventListener('scroll', reveal);
+      }
+    }
+    window.addEventListener('scroll', reveal);
+    reveal();
+  }
+
+  // Init forms if present
+  handlePrayerForm();
+  handleTestimonyForm();
 /**
  * ============================================
  * TAC STADIUM - MAIN JAVASCRIPT FILE
@@ -874,85 +1003,93 @@ document.addEventListener("DOMContentLoaded", function () {
   )
     loadChurchInfo();
 
-
   // ========== PHASE 19: NOTICE BOARD & ANNOUNCEMENTS ========== //
 
   function fetchAnnouncements() {
-    fetch('assets/data/announcements.json')
-      .then(r => r.json())
-      .then(data => {
+    fetch("assets/data/announcements.json")
+      .then((r) => r.json())
+      .then((data) => {
         renderNotices(data);
         showPriorityAlert(data);
       });
   }
 
   function renderNotices(data) {
-    const container = document.getElementById('noticeList');
+    const container = document.getElementById("noticeList");
     if (!container) return;
     // Sort: high priority first, then by date desc
-    const sorted = [...data].sort((a, b) => {
-      if (a.priority === 'high' && b.priority !== 'high') return -1;
-      if (b.priority === 'high' && a.priority !== 'high') return 1;
-      return new Date(b.date) - new Date(a.date);
-    }).slice(0, 5);
-    container.innerHTML = sorted.map(notice => `
+    const sorted = [...data]
+      .sort((a, b) => {
+        if (a.priority === "high" && b.priority !== "high") return -1;
+        if (b.priority === "high" && a.priority !== "high") return 1;
+        return new Date(b.date) - new Date(a.date);
+      })
+      .slice(0, 5);
+    container.innerHTML = sorted
+      .map(
+        (notice) => `
       <article class="glass-card notice-card animate-on-scroll" aria-label="${notice.title}" style="margin-bottom:1.5rem; padding:1.25rem 1rem; border-radius:12px; background:rgba(255,255,255,0.97); color:#1f2933; box-shadow:0 2px 12px rgba(31,60,136,0.08);">
         <h3 style="margin-bottom:0.5rem; color:var(--faith-blue); font-size:1.15rem;">${notice.title}</h3>
-        <time datetime="${notice.date}" style="display:block; font-size:0.95rem; color:#4b5563; margin-bottom:0.5rem;">${new Date(notice.date).toLocaleDateString('en-NG', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        <time datetime="${notice.date}" style="display:block; font-size:0.95rem; color:#4b5563; margin-bottom:0.5rem;">${new Date(notice.date).toLocaleDateString("en-NG", { year: "numeric", month: "long", day: "numeric" })}</time>
         <p style="margin-bottom:0;">${notice.message}</p>
       </article>
-    `).join('');
+    `,
+      )
+      .join("");
     // Animate in
-    container.querySelectorAll('.notice-card').forEach((card, i) => {
+    container.querySelectorAll(".notice-card").forEach((card, i) => {
       card.style.opacity = 0;
-      card.style.transform = 'translateY(24px)';
-      setTimeout(() => {
-        card.style.transition = 'opacity 0.5s, transform 0.5s';
-        card.style.opacity = 1;
-        card.style.transform = 'translateY(0)';
-      }, 100 + i * 80);
+      card.style.transform = "translateY(24px)";
+      setTimeout(
+        () => {
+          card.style.transition = "opacity 0.5s, transform 0.5s";
+          card.style.opacity = 1;
+          card.style.transform = "translateY(0)";
+        },
+        100 + i * 80,
+      );
     });
   }
 
   function showPriorityAlert(data) {
     if (!Array.isArray(data)) return;
-    const high = data.find(n => n.priority === 'high');
+    const high = data.find((n) => n.priority === "high");
     if (!high) return;
-    if (localStorage.getItem('alertBannerDismissed') === high.date) return;
+    if (localStorage.getItem("alertBannerDismissed") === high.date) return;
     // Create banner
-    const banner = document.createElement('div');
-    banner.className = 'alert-banner';
-    banner.setAttribute('role', 'alert');
-    banner.style.position = 'fixed';
-    banner.style.top = '0';
-    banner.style.left = '0';
-    banner.style.width = '100%';
-    banner.style.background = 'linear-gradient(90deg,#b91c1c,#4f7cff)';
-    banner.style.color = '#fff';
-    banner.style.fontWeight = 'bold';
-    banner.style.fontSize = '1.1rem';
-    banner.style.zIndex = '9999';
-    banner.style.padding = '1rem 2rem 1rem 1.5rem';
-    banner.style.display = 'flex';
-    banner.style.justifyContent = 'space-between';
-    banner.style.alignItems = 'center';
-    banner.style.boxShadow = '0 2px 12px rgba(31,60,136,0.12)';
-    banner.style.transform = 'translateY(-100%)';
-    banner.style.transition = 'transform 0.5s';
+    const banner = document.createElement("div");
+    banner.className = "alert-banner";
+    banner.setAttribute("role", "alert");
+    banner.style.position = "fixed";
+    banner.style.top = "0";
+    banner.style.left = "0";
+    banner.style.width = "100%";
+    banner.style.background = "linear-gradient(90deg,#b91c1c,#4f7cff)";
+    banner.style.color = "#fff";
+    banner.style.fontWeight = "bold";
+    banner.style.fontSize = "1.1rem";
+    banner.style.zIndex = "9999";
+    banner.style.padding = "1rem 2rem 1rem 1.5rem";
+    banner.style.display = "flex";
+    banner.style.justifyContent = "space-between";
+    banner.style.alignItems = "center";
+    banner.style.boxShadow = "0 2px 12px rgba(31,60,136,0.12)";
+    banner.style.transform = "translateY(-100%)";
+    banner.style.transition = "transform 0.5s";
     banner.innerHTML = `<span>Important Church Notice: ${high.title} — ${high.message}</span><button aria-label="Dismiss notice" style="background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;margin-left:2rem;">&times;</button>`;
     document.body.appendChild(banner);
     setTimeout(() => {
-      banner.style.transform = 'translateY(0)';
+      banner.style.transform = "translateY(0)";
     }, 50);
-    banner.querySelector('button').onclick = function() {
-      banner.style.transform = 'translateY(-100%)';
-      localStorage.setItem('alertBannerDismissed', high.date);
+    banner.querySelector("button").onclick = function () {
+      banner.style.transform = "translateY(-100%)";
+      localStorage.setItem("alertBannerDismissed", high.date);
       setTimeout(() => banner.remove(), 500);
     };
   }
 
   // Init announcements on homepage only
-  if (document.getElementById('notice-board')) fetchAnnouncements();
+  if (document.getElementById("notice-board")) fetchAnnouncements();
 
   // Log for debugging (remove in production)
   console.log("TAC Stadium JS loaded successfully.");
