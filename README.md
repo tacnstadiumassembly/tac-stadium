@@ -777,7 +777,38 @@ Major media and social engagement upgrade for the church website. No UI redesign
 
 ---
 
-Last Updated: June 2026 (Phase 16 Complete)
+
+---
+
+## Phase 18 — Sermon Search + Calendar
+
+**✅ LIVE SERMON SEARCH, CATEGORY FILTERS, EVENT CALENDAR VIEW COMPLETE**
+
+- **Sermon Search System:**
+  - Search input and category dropdown added to sermons page.
+  - Live search and filter by title or preacher, powered by JSON data.
+  - Results update instantly with smooth fade-in animation.
+  - Accessible: search field labeled, results in aria-live region.
+
+- **Event Calendar System:**
+  - Month-view calendar grid on events page, keyboard accessible.
+  - Event badges on dates with events.
+  - Click or press Enter/Space on a date to show events for that day below.
+  - Slide-down reveal animation for calendar and event list.
+
+- **Accessibility:**
+  - All controls and results are keyboard accessible.
+  - aria-labels and aria-live regions used throughout.
+
+- **Performance:**
+  - Uses existing JSON data only, no new libraries.
+
+- **No UI Redesign:**
+  - Maintains all color, glassmorphism, contrast, and animation rules from previous phases.
+
+---
+
+Last Updated: January 30, 2026 (Phase 18 Complete)
 
 ---
 

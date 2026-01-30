@@ -1,0 +1,11 @@
+{
+  "pastor": "Pastor Bode Akinyemi",
+  "address": "Stadium Road, Ogbomosho",
+  "serviceTimes": {
+    "sundaySchool": "8:00 AM",
+    "mainService": "9:00 AM",
+    "midweek": "Wednesday 5:00 PM"
+  },
+  "phone": "+234 XXX XXX XXXX",
+  "email": "info@tacnstadiumassembly.org"
+}

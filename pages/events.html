@@ -164,130 +164,23 @@
         </p>
       </section>
 
+
       <!--
         ============================================
-        EVENT FILTER SECTION
+        EVENT CALENDAR SECTION
         ============================================
-        Category filter buttons (UI only, no JS yet)
+        Calendar grid for month view, keyboard accessible
         ============================================
         -->
-      <section class="section-event-filters">
-        <div class="filter-buttons">
-          <button class="filter-btn active">All Events</button>
-          <button class="filter-btn">Sunday Services</button>
-          <button class="filter-btn">Special Programs</button>
-          <button class="filter-btn">Conventions</button>
-        </div>
+      <section class="section-event-calendar" aria-label="Event Calendar" style="margin-bottom:2rem;">
+        <div id="eventCalendar" tabindex="0" aria-label="Church event calendar" style="outline:none;"></div>
       </section>
 
       <!--
         ============================================
-        EVENTS GRID SECTION
-        ============================================
-        Full listing of all church events
-        ============================================
-        -->
-      <section class="section-events-full">
-        <h2><span aria-hidden="true">⛪</span> Upcoming Events</h2>
-
-        <div class="event-grid event-grid-full">
-          <!-- Event Card 1 -->
-          <article class="event-card" data-category="sunday services">
-            <div class="event-date-badge">
-              <span class="event-day">02</span>
-              <span class="event-month">Feb</span>
-            </div>
-            <div class="event-content">
-              <h3>Sunday Thanksgiving Service</h3>
-              <p class="event-meta">
-                <span class="event-time">9:00 AM - 12:00 PM</span>
-              </p>
-              <p class="event-description">
-                A special service of praise and thanksgiving to God for His
-                faithfulness throughout the month.
-              </p>
-              <a href="#" class="btn btn-small">View Details</a>
-            </div>
-          </article>
-
-          <!-- Event Card 2 -->
-          <article class="event-card" data-category="special programs">
-            <div class="event-date-badge">
-              <span class="event-day">14</span>
-              <span class="event-month">Feb</span>
-            </div>
-            <div class="event-content">
-              <h3>Youth Fellowship Night</h3>
-              <p class="event-meta">
-                <span class="event-time">5:00 PM - 7:00 PM</span>
-              </p>
-              <p class="event-description">
-                An evening of worship, games, and fellowship for young believers
-                ages 13-30.
-              </p>
-              <a href="#" class="btn btn-small">View Details</a>
-            </div>
-          </article>
-
-          <!-- Event Card 3 -->
-          <article class="event-card" data-category="special programs">
-            <div class="event-date-badge">
-              <span class="event-day">23</span>
-              <span class="event-month">Feb</span>
-            </div>
-            <div class="event-content">
-              <h3>Prayer & Fasting Week</h3>
-              <p class="event-meta">
-                <span class="event-time">6:00 AM Daily</span>
-              </p>
-              <p class="event-description">
-                Join us for a week of consecration, prayer, and seeking God's
-                face together.
-              </p>
-              <a href="#" class="btn btn-small">View Details</a>
-            </div>
-          </article>
-
-          <!-- Event Card 4 -->
-          <article class="event-card" data-category="special programs">
-            <div class="event-date-badge">
-              <span class="event-day">08</span>
-              <span class="event-month">Mar</span>
-            </div>
-            <div class="event-content">
-              <h3>Women's Day Celebration</h3>
-              <p class="event-meta">
-                <span class="event-time">9:00 AM - 2:00 PM</span>
-              </p>
-              <p class="event-description">
-                Celebrating the women of our church with worship, testimonies,
-                and fellowship.
-              </p>
-              <a href="#" class="btn btn-small">View Details</a>
-            </div>
-          </article>
-
-          <!-- Event Card 5 -->
-          <article class="event-card" data-category="special programs">
-            <div class="event-date-badge">
-              <span class="event-day">15</span>
-              <span class="event-month">Mar</span>
-            </div>
-            <div class="event-content">
-              <h3>Men's Fellowship Breakfast</h3>
-              <p class="event-meta">
-                <span class="event-time">7:00 AM - 9:00 AM</span>
-              </p>
-              <p class="event-description">
-                A morning of fellowship, food, and encouragement for the men of
-                the church.
-              </p>
-              <a href="#" class="btn btn-small">View Details</a>
-            </div>
-          </article>
-
-          <!-- Event Card 6 -->
-          <article class="event-card" data-category="special programs">
+        <section class="section-events-full">
+          <h2><span aria-hidden="true">⛪</span> Upcoming Events</h2>
+          <div class="event-grid event-grid-full" aria-live="polite"></div>
             <div class="event-date-badge">
               <span class="event-day">22</span>
               <span class="event-month">Mar</span>

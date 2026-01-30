@@ -234,19 +234,24 @@
         </div>
       </section>
 
+
       <!--
         ============================================
-        SERMON FILTER SECTION
+        SERMON SEARCH & FILTER SECTION
         ============================================
-        Category filter buttons (UI only, no JS yet)
+        Search input and category dropdown for filtering sermons
         ============================================
         -->
-      <section class="section-sermon-filters">
-        <div class="filter-buttons">
-          <button class="filter-btn active">All</button>
-          <button class="filter-btn">Sunday Messages</button>
-          <button class="filter-btn">Special Programs</button>
-        </div>
+      <section class="section-sermon-filters" style="margin-bottom:2rem;">
+        <form id="sermonSearchForm" role="search" aria-label="Search sermons" style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center; justify-content: flex-start;">
+          <input type="search" id="sermonSearch" placeholder="Search sermons by title or preacher" aria-label="Search sermons" style="flex:2; min-width:220px; padding:0.5rem 1rem; font-size:1rem; border-radius:6px; border:1px solid #d1d5db;" autocomplete="off" />
+          <select id="sermonCategory" aria-label="Filter by category" style="flex:1; min-width:140px; padding:0.5rem 1rem; font-size:1rem; border-radius:6px; border:1px solid #d1d5db;">
+            <option value="all">All</option>
+            <option value="sunday">Sunday</option>
+            <option value="midweek">Midweek</option>
+            <option value="special">Special</option>
+          </select>
+        </form>
       </section>
 
       <!--
@@ -289,70 +294,10 @@
                   allowfullscreen
                 ></iframe>
               </div>
-              <div class="sermon-media-buttons">
-                <a
-                  href="https://www.youtube.com/@tacn.stadium"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn-media btn-watch"
-                  aria-label="Watch sermon"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                  Watch
-                </a>
-                <a
-                  href="#"
-                  class="btn-media btn-listen"
-                  aria-label="Listen to sermon"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                      d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
-                    />
-                  </svg>
-                  Listen
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Sermon Card 2 -->
-          <article class="sermon-card" data-category="sunday messages">
-            <div class="sermon-thumbnail">
-              <div class="sermon-thumbnail-placeholder">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                >
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-              </div>
-            </div>
-            <div class="sermon-content">
-              <h3>The Power of Prayer</h3>
-              <p class="sermon-meta">
-                <span class="sermon-preacher">Elder Samuel Okonkwo</span>
-                <span class="sermon-date">January 19, 2026</span>
-              </p>
-              <div class="sermon-video">
-                <iframe
-                  src="https://www.youtube.com/embed?listType=user_uploads&list=tacn.stadium"
-                  title="Sermon video player"
-                  loading="lazy"
-                  allowfullscreen
-                ></iframe>
-              </div>
-              <div class="sermon-media-buttons">
-                <a
-                  href="https://www.youtube.com/@tacn.stadium"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn-media btn-watch"
+              <section class="section-sermons-full">
+                <h2><span aria-hidden="true">🙏</span> Recent Sermons</h2>
+                <div id="sermonResults" class="sermon-grid sermon-grid-full" aria-live="polite"></div>
+              </section>
                   aria-label="Watch sermon"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor">

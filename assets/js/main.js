@@ -605,6 +605,226 @@ document.addEventListener("DOMContentLoaded", function () {
   initPageTransitions();
   initButtonFeedback();
 
+
+  // ========== PHASE 18: SERMON SEARCH & EVENT CALENDAR ========== //
+
+  // Sermon search/filter system
+  let allSermons = [];
+  function filterSermons() {
+    const search = (document.getElementById('sermonSearch')?.value || '').toLowerCase();
+    const cat = (document.getElementById('sermonCategory')?.value || 'all');
+    let filtered = allSermons.filter(sermon => {
+      const matchCat = cat === 'all' || (sermon.category && sermon.category.toLowerCase() === cat);
+      const matchSearch =
+        !search ||
+        (sermon.title && sermon.title.toLowerCase().includes(search)) ||
+        (sermon.preacher && sermon.preacher.toLowerCase().includes(search));
+      return matchCat && matchSearch;
+    });
+    const grid = document.getElementById('sermonResults') || document.querySelector('.sermon-grid-full');
+    if (!grid) return;
+    showLoadingState(grid);
+    setTimeout(() => {
+      grid.innerHTML = filtered.length
+        ? filtered.map(renderSermonCard).join('')
+        : '<div style="color:#b91c1c; text-align:center;">No sermons found.</div>';
+      // Animate in
+      grid.querySelectorAll('.sermon-card').forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(24px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.5s, transform 0.5s';
+          card.style.opacity = 1;
+          card.style.transform = 'translateY(0)';
+        }, 50);
+      });
+    }, 200);
+  }
+
+  function searchSermons() {
+    document.getElementById('sermonSearch')?.addEventListener('input', filterSermons);
+    document.getElementById('sermonCategory')?.addEventListener('change', filterSermons);
+  }
+
+  // Patch loadSermons to store all sermons and trigger filter
+  const origLoadSermons = loadSermons;
+  loadSermons = function() {
+    const grid = document.getElementById('sermonResults') || document.querySelector('.sermon-grid-full');
+    if (!grid) return;
+    showLoadingState(grid);
+    fetch('../assets/data/sermons.json')
+      .then(r => r.json())
+      .then(data => {
+        allSermons = data;
+        filterSermons();
+      })
+      .catch(() => {
+        grid.innerHTML = '<div style="color:#b91c1c; text-align:center;">Failed to load sermons.</div>';
+      });
+  };
+
+  // Event calendar system
+  let allEvents = [];
+  function renderCalendar(month, year) {
+    const calendar = document.getElementById('eventCalendar');
+    if (!calendar) return;
+    // Clear
+    calendar.innerHTML = '';
+    // Header
+    const monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    const header = document.createElement('div');
+    header.className = 'calendar-header';
+    header.style.display = 'flex';
+    header.style.justifyContent = 'space-between';
+    header.style.alignItems = 'center';
+    header.style.marginBottom = '1rem';
+    header.innerHTML = `
+      <button id="prevMonth" aria-label="Previous month" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&#8592;</button>
+      <span style="font-weight:bold;font-size:1.2rem;">${monthNames[month]} ${year}</span>
+      <button id="nextMonth" aria-label="Next month" style="background:none;border:none;font-size:1.5rem;cursor:pointer;">&#8594;</button>
+    `;
+    calendar.appendChild(header);
+    // Days grid
+    const grid = document.createElement('div');
+    grid.className = 'calendar-grid';
+    grid.style.display = 'grid';
+    grid.style.gridTemplateColumns = 'repeat(7,1fr)';
+    grid.style.gap = '0.25rem';
+    grid.style.marginBottom = '1rem';
+    // Weekday headers
+    ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].forEach(d => {
+      const wd = document.createElement('div');
+      wd.textContent = d;
+      wd.style.fontWeight = 'bold';
+      wd.style.textAlign = 'center';
+      grid.appendChild(wd);
+    });
+    // Dates
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month+1, 0).getDate();
+    let dayNum = 1;
+    for (let i=0; i<42; i++) {
+      const cell = document.createElement('button');
+      cell.type = 'button';
+      cell.tabIndex = 0;
+      cell.setAttribute('aria-label', `Day ${dayNum} ${monthNames[month]} ${year}`);
+      cell.style.background = '#fff';
+      cell.style.border = '1px solid #e5e7eb';
+      cell.style.borderRadius = '6px';
+      cell.style.minHeight = '2.2em';
+      cell.style.font = 'inherit';
+      cell.style.cursor = 'pointer';
+      cell.style.transition = 'background 0.2s';
+      cell.style.outline = 'none';
+      if (i >= firstDay && dayNum <= daysInMonth) {
+        cell.textContent = dayNum;
+        // Badge if event exists
+        const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(dayNum).padStart(2,'0')}`;
+        const hasEvent = allEvents.some(ev => ev.date === dateStr);
+        if (hasEvent) {
+          const badge = document.createElement('span');
+          badge.textContent = '•';
+          badge.style.color = '#b91c1c';
+          badge.style.marginLeft = '0.25em';
+          badge.setAttribute('aria-label', 'Event');
+          cell.appendChild(badge);
+        }
+        cell.addEventListener('click', () => showEventsForDate(dateStr));
+        cell.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { showEventsForDate(dateStr); } });
+      } else {
+        cell.textContent = '';
+        cell.disabled = true;
+        cell.style.background = 'transparent';
+        cell.style.border = 'none';
+        cell.tabIndex = -1;
+      }
+      grid.appendChild(cell);
+      if (i >= firstDay && dayNum <= daysInMonth) dayNum++;
+    }
+    calendar.appendChild(grid);
+    // Navigation
+    header.querySelector('#prevMonth').onclick = () => {
+      let m = month-1, y = year;
+      if (m < 0) { m = 11; y--; }
+      renderCalendar(m, y);
+    };
+    header.querySelector('#nextMonth').onclick = () => {
+      let m = month+1, y = year;
+      if (m > 11) { m = 0; y++; }
+      renderCalendar(m, y);
+    };
+    // Animate in
+    calendar.style.opacity = 0;
+    calendar.style.transform = 'translateY(-16px)';
+    setTimeout(() => {
+      calendar.style.transition = 'opacity 0.5s, transform 0.5s';
+      calendar.style.opacity = 1;
+      calendar.style.transform = 'translateY(0)';
+    }, 10);
+  }
+
+  function showEventsForDate(dateStr) {
+    const grid = document.querySelector('.event-grid-full');
+    if (!grid) return;
+    showLoadingState(grid);
+    setTimeout(() => {
+      const events = allEvents.filter(ev => ev.date === dateStr);
+      grid.innerHTML = events.length
+        ? events.map(renderEventCard).join('')
+        : '<div style="color:#b91c1c; text-align:center;">No events for this date.</div>';
+      // Animate in
+      grid.querySelectorAll('.event-card').forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(24px)';
+        setTimeout(() => {
+          card.style.transition = 'opacity 0.5s, transform 0.5s';
+          card.style.opacity = 1;
+          card.style.transform = 'translateY(0)';
+        }, 50);
+      });
+    }, 200);
+  }
+
+  // Patch loadEvents to store all events and render calendar
+  const origLoadEvents = loadEvents;
+  loadEvents = function() {
+    const grid = document.querySelector('.event-grid-full');
+    if (!grid) return;
+    showLoadingState(grid);
+    fetch('../assets/data/events.json')
+      .then(r => r.json())
+      .then(data => {
+        allEvents = data;
+        // Default: show all events for current month
+        const now = new Date();
+        renderCalendar(now.getMonth(), now.getFullYear());
+        grid.innerHTML = allEvents.length
+          ? allEvents.map(renderEventCard).join('')
+          : '<div style="color:#b91c1c; text-align:center;">No events found.</div>';
+        // Animate in
+        grid.querySelectorAll('.event-card').forEach(card => {
+          card.style.opacity = 0;
+          card.style.transform = 'translateY(24px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.5s, transform 0.5s';
+            card.style.opacity = 1;
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        });
+      })
+      .catch(() => {
+        grid.innerHTML = '<div style="color:#b91c1c; text-align:center;">Failed to load events.</div>';
+      });
+  };
+
+  // Init search/filter listeners after DOM
+  if (document.getElementById('sermonSearch') || document.getElementById('sermonCategory')) searchSermons();
+
+  // Phase 17/18: JSON content loaders
+  if (document.querySelector('.sermon-grid-full')) loadSermons();
+  if (document.querySelector('.event-grid-full')) loadEvents();
+  if (document.querySelector('.service-time-sunday') || document.querySelector('.church-phone')) loadChurchInfo();
+
   // Log for debugging (remove in production)
   console.log("TAC Stadium JS loaded successfully.");
 });
