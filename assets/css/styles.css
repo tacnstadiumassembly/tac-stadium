@@ -1,4 +1,26 @@
 /* ============================================
+   PHASE 16: SERMON MEDIA INTEGRATION
+   ============================================
+   Responsive video containers for sermon embeds
+   ============================================ */
+
+.sermon-video {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  margin-bottom: 1.5rem;
+}
+
+.sermon-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  background: #000;
+}
+/* ============================================
    PHASE 14: GLOBAL TEXT READABILITY ENFORCEMENT PATCH
    ============================================
    Enforces strict text color rules for readability on all backgrounds.

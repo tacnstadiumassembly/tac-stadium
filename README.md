@@ -740,7 +740,44 @@ This project is for The Apostolic Church Nigeria, Stadium Branch. All rights res
 
 ---
 
-Last Updated: January 30, 2026 (Phase 13 Complete)
+---
+
+## Phase 16 — Sermon Media Integration + Social Embeds
+
+**✅ YOUTUBE EMBEDS, LATEST SERMON, LIVESTREAM, SOCIAL STRIP COMPLETE**
+
+Major media and social engagement upgrade for the church website. No UI redesign or color changes—purely functional and accessible enhancements.
+
+- **YouTube Sermon Embeds:**
+  - All sermon cards on `pages/sermons.html` now feature embedded YouTube videos in a responsive container.
+  - Each iframe uses `.sermon-video` class and has `title="Sermon video player"` for accessibility.
+
+- **Latest Sermon Section (Homepage):**
+  - Added a "Latest Sermon" section to `index.html` with a featured YouTube embed and a button to view all sermons.
+
+- **Live Stream Preview (Homepage):**
+  - Added a "Join Us Live" section with a button linking to the YouTube live stream.
+
+- **Social Media Strip:**
+  - New "Follow Us & Stay Connected" strip above the footer on all major pages (including homepage and contact page).
+  - Prominent YouTube and Facebook buttons, styled for accessibility and contrast.
+
+- **Responsive Video CSS:**
+  - `.sermon-video` and `.sermon-video iframe` classes added to `assets/css/styles.css` for fully responsive video containers.
+
+- **Accessibility:**
+  - All embedded iframes have descriptive `title` attributes.
+  - Social and media buttons use `aria-label` and proper contrast.
+
+- **README & Documentation:**
+  - This section documents all Phase 16 changes for future reference.
+
+- **No Visual Redesign:**
+  - Maintains glassmorphism, color, and contrast system from previous phases.
+
+---
+
+Last Updated: June 2026 (Phase 16 Complete)
 
 ---
 

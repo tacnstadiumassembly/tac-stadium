@@ -246,41 +246,50 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M9 18V5l12-2v13"></path>
-                <circle cx="6" cy="18" r="3"></circle>
-                <circle cx="18" cy="16" r="3"></circle>
-              </svg>
-            </div>
-            <h3>Worship Ministry</h3>
-            <p>
-              Leading the church into God's presence through praise, worship,
-              and music.
-            </p>
-          </div>
-
-          <!-- Youth Ministry Card -->
-          <div class="ministry-card">
             <div class="ministry-icon">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
+
+                <!-- HERO SECTION ...existing code... -->
+                <section
+                  class="section-dark section-hero-bg"
+                  aria-label="Welcome to Stadium Assembly"
+                  style="background-image: url('assets/images/hero-worship.jpg');"
+                >
+                  <h1>A Place to Belong. A Family to Grow.</h1>
+                  <p>
+                    <span aria-hidden="true">🔔</span> We are a Christ-centered church
+                    committed to worship, discipleship, and community. Join us as we
+                    experience the transforming presence of God together.
+                  </p>
+                  <div class="hero-buttons">
+                    <a href="pages/plan-a-visit.html" class="btn btn-primary">Plan Your Visit</a>
+                    <a href="pages/sermons.html" class="btn btn-secondary">Watch Sermons</a>
+                  </div>
+                </section>
+
+                <!-- LATEST SERMON FEATURED BLOCK -->
+                <section class="section-featured-sermon" aria-label="Latest Sermon">
+                  <h2><span aria-hidden="true">📖</span> Latest Message</h2>
+                  <p class="section-subtitle">Be blessed by the most recent sermon.</p>
+                  <div class="sermon-video">
+                    <iframe
+                      src="https://www.youtube.com/embed?listType=user_uploads&list=tacn.stadium"
+                      title="Sermon video player"
+                      loading="lazy"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                  <div style="text-align:center; margin-top: 1.5rem;">
+                    <a
+                      href="https://www.youtube.com/@tacn.stadium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn btn-primary"
+                      aria-label="Watch more sermons on YouTube"
+                    >
+                      Watch More on YouTube &rarr;
+                    </a>
+                  </div>
+                </section>
             </div>
             <h3>Youth Ministry</h3>
             <p>
@@ -335,6 +344,23 @@
               Building godly men with strong leadership, faith, and integrity.
             </p>
           </div>
+        </div>
+      </section>
+
+      <!-- LIVE STREAM PREVIEW SECTION -->
+      <section class="section-livestream" aria-label="Live Stream Preview">
+        <h2><span aria-hidden="true">🎥</span> Join Us Live</h2>
+        <p>Join our services live when we stream worship and teaching.</p>
+        <div style="text-align:center; margin-top: 1.5rem;">
+          <a
+            href="https://www.youtube.com/@tacn.stadium"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-livestream"
+            aria-label="Watch live service on YouTube"
+          >
+            Watch Live Service
+          </a>
         </div>
       </section>
 
@@ -907,6 +933,23 @@
         </div>
       </section>
     </main>
+
+    <!--
+    ============================================
+    SOCIAL MEDIA STRIP (FOLLOW US)
+    ============================================
+    -->
+    <section class="section-social-strip" aria-label="Follow Us & Stay Connected" style="background: linear-gradient(90deg, #1f3c88 0%, #4f7cff 100%); color: #fff; text-align: center; padding: 2.5rem 1rem 2rem;">
+      <h2 style="margin-bottom: 0.5rem; font-size: 1.5rem;">Follow Us &amp; Stay Connected</h2>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+        <a href="https://www.youtube.com/@tacn.stadium" target="_blank" rel="noopener noreferrer" class="btn btn-youtube" aria-label="Watch Sermons on YouTube" style="background: #c4302b; color: #fff; min-width: 180px;">
+          YouTube &mdash; Watch Sermons
+        </a>
+        <a href="https://web.facebook.com/people/The-Apostolic-Church-Nigeria-Stadium-Assembly/61587235559564/" target="_blank" rel="noopener noreferrer" class="btn btn-facebook" aria-label="Church Updates on Facebook" style="background: #1877f2; color: #fff; min-width: 180px;">
+          Facebook &mdash; Church Updates
+        </a>
+      </div>
+    </section>
 
     <!--
     ============================================
