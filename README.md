@@ -779,7 +779,6 @@ Major media and social engagement upgrade for the church website. No UI redesign
 
 ---
 
-
 ## Phase 17 — Admin Editable Content System
 
 **✅ JSON-DRIVEN SERMONS, EVENTS, SERVICE TIMES, CONTACT INFO COMPLETE**
@@ -802,7 +801,37 @@ Major media and social engagement upgrade for the church website. No UI redesign
 ---
 
 
-**✅ LIVE SERMON SEARCH, CATEGORY FILTERS, EVENT CALENDAR VIEW COMPLETE**
+## Phase 19 — Notice Board & Announcements
+
+**✅ JSON-DRIVEN CHURCH NOTICES, PRIORITY ALERT BANNER, ACCESSIBLE NOTICE BOARD COMPLETE**
+
+- **Announcements Data File:**
+  - All church notices and announcements are now loaded from editable JSON file `/assets/data/announcements.json`.
+  - Priority, type, and message fields allow flexible updates.
+
+- **Notice Board Section:**
+  - Homepage displays up to 5 latest notices below the hero section.
+  - Cards use glassmorphism, deep charcoal text, and fade-up animation.
+  - Notices sorted by priority and date (newest first, high priority pinned).
+
+- **Top Alert Banner:**
+  - High priority notices show a dismissible alert banner at the top of the homepage.
+  - Banner uses slide-down animation and remembers dismissal with localStorage.
+  - Accessible: role="alert" and keyboard dismiss.
+
+- **Accessibility:**
+  - All notices use semantic article elements and <time> tags for dates.
+  - Alert banner uses role="alert" and is keyboard accessible.
+
+- **Performance:**
+  - Uses JSON fetch only, no libraries, and reuses existing animation classes.
+
+- **No UI Redesign:**
+  - Maintains all color, glassmorphism, contrast, and animation rules from previous phases.
+
+---
+
+Last Updated: January 30, 2026 (Phase 19 Complete)
 
 - **Sermon Search System:**
   - Search input and category dropdown added to sermons page.

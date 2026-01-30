@@ -874,6 +874,86 @@ document.addEventListener("DOMContentLoaded", function () {
   )
     loadChurchInfo();
 
+
+  // ========== PHASE 19: NOTICE BOARD & ANNOUNCEMENTS ========== //
+
+  function fetchAnnouncements() {
+    fetch('assets/data/announcements.json')
+      .then(r => r.json())
+      .then(data => {
+        renderNotices(data);
+        showPriorityAlert(data);
+      });
+  }
+
+  function renderNotices(data) {
+    const container = document.getElementById('noticeList');
+    if (!container) return;
+    // Sort: high priority first, then by date desc
+    const sorted = [...data].sort((a, b) => {
+      if (a.priority === 'high' && b.priority !== 'high') return -1;
+      if (b.priority === 'high' && a.priority !== 'high') return 1;
+      return new Date(b.date) - new Date(a.date);
+    }).slice(0, 5);
+    container.innerHTML = sorted.map(notice => `
+      <article class="glass-card notice-card animate-on-scroll" aria-label="${notice.title}" style="margin-bottom:1.5rem; padding:1.25rem 1rem; border-radius:12px; background:rgba(255,255,255,0.97); color:#1f2933; box-shadow:0 2px 12px rgba(31,60,136,0.08);">
+        <h3 style="margin-bottom:0.5rem; color:var(--faith-blue); font-size:1.15rem;">${notice.title}</h3>
+        <time datetime="${notice.date}" style="display:block; font-size:0.95rem; color:#4b5563; margin-bottom:0.5rem;">${new Date(notice.date).toLocaleDateString('en-NG', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+        <p style="margin-bottom:0;">${notice.message}</p>
+      </article>
+    `).join('');
+    // Animate in
+    container.querySelectorAll('.notice-card').forEach((card, i) => {
+      card.style.opacity = 0;
+      card.style.transform = 'translateY(24px)';
+      setTimeout(() => {
+        card.style.transition = 'opacity 0.5s, transform 0.5s';
+        card.style.opacity = 1;
+        card.style.transform = 'translateY(0)';
+      }, 100 + i * 80);
+    });
+  }
+
+  function showPriorityAlert(data) {
+    if (!Array.isArray(data)) return;
+    const high = data.find(n => n.priority === 'high');
+    if (!high) return;
+    if (localStorage.getItem('alertBannerDismissed') === high.date) return;
+    // Create banner
+    const banner = document.createElement('div');
+    banner.className = 'alert-banner';
+    banner.setAttribute('role', 'alert');
+    banner.style.position = 'fixed';
+    banner.style.top = '0';
+    banner.style.left = '0';
+    banner.style.width = '100%';
+    banner.style.background = 'linear-gradient(90deg,#b91c1c,#4f7cff)';
+    banner.style.color = '#fff';
+    banner.style.fontWeight = 'bold';
+    banner.style.fontSize = '1.1rem';
+    banner.style.zIndex = '9999';
+    banner.style.padding = '1rem 2rem 1rem 1.5rem';
+    banner.style.display = 'flex';
+    banner.style.justifyContent = 'space-between';
+    banner.style.alignItems = 'center';
+    banner.style.boxShadow = '0 2px 12px rgba(31,60,136,0.12)';
+    banner.style.transform = 'translateY(-100%)';
+    banner.style.transition = 'transform 0.5s';
+    banner.innerHTML = `<span>Important Church Notice: ${high.title} — ${high.message}</span><button aria-label="Dismiss notice" style="background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;margin-left:2rem;">&times;</button>`;
+    document.body.appendChild(banner);
+    setTimeout(() => {
+      banner.style.transform = 'translateY(0)';
+    }, 50);
+    banner.querySelector('button').onclick = function() {
+      banner.style.transform = 'translateY(-100%)';
+      localStorage.setItem('alertBannerDismissed', high.date);
+      setTimeout(() => banner.remove(), 500);
+    };
+  }
+
+  // Init announcements on homepage only
+  if (document.getElementById('notice-board')) fetchAnnouncements();
+
   // Log for debugging (remove in production)
   console.log("TAC Stadium JS loaded successfully.");
 });

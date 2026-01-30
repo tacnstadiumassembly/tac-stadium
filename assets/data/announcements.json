@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Church Convention Week",
+    "date": "2026-02-10",
+    "type": "event",
+    "priority": "high",
+    "message": "Annual Apostolic Convention starts next week. All members should prepare prayerfully."
+  },
+  {
+    "title": "Midweek Service Reminder",
+    "date": "2026-02-05",
+    "type": "reminder",
+    "priority": "normal",
+    "message": "Wednesday service begins at 5PM. Invite someone."
+  }
+]
