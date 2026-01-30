@@ -9,6 +9,7 @@
     It's the first page visitors see.
 
     Created: January 29, 2026
+    Updated: Phase 11 - SEO, Accessibility & Performance
     ============================================
     -->
 
@@ -19,13 +20,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Page title - appears in the browser tab -->
-    <title>Home | The Apostolic Church Nigeria – Stadium Assembly</title>
+    <title>
+      The Apostolic Church Nigeria – Stadium Assembly | Ogbomosho, Oyo State
+    </title>
 
     <!-- Description for search engines like Google -->
     <meta
       name="description"
-      content="Welcome to The Apostolic Church Nigeria – Stadium Assembly in Ogbomosho, Oyo State. Join us for Sunday worship services."
+      content="Welcome to The Apostolic Church Nigeria – Stadium Assembly in Ogbomosho, Oyo State. A Christ-centered church committed to worship, discipleship, and community. Join us for Sunday worship services."
     />
+
+    <!-- Keywords for search engines -->
+    <meta
+      name="keywords"
+      content="TACN, The Apostolic Church Nigeria, Stadium Assembly, Ogbomosho church, Christian church Nigeria, Sunday worship, Bible-believing church, Oyo State"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://tacnstadiumassembly.org/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="The Apostolic Church Nigeria – Stadium Assembly | Ogbomosho"
+    />
+    <meta
+      property="og:description"
+      content="A Christ-centered church committed to worship, discipleship, and community. Join us for Sunday worship services in Ogbomosho."
+    />
+    <meta property="og:url" content="https://tacnstadiumassembly.org/" />
+    <meta
+      property="og:image"
+      content="https://tacnstadiumassembly.org/assets/images/hero-worship.jpg"
+    />
+    <meta property="og:site_name" content="TACN Stadium Assembly" />
+    <meta property="og:locale" content="en_NG" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="The Apostolic Church Nigeria – Stadium Assembly"
+    />
+    <meta
+      name="twitter:description"
+      content="A Christ-centered church in Ogbomosho committed to worship, discipleship, and community."
+    />
+    <meta
+      name="twitter:image"
+      content="https://tacnstadiumassembly.org/assets/images/hero-worship.jpg"
+    />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#1f3c88" />
+    <meta name="msapplication-TileColor" content="#1f3c88" />
+
     <!-- Favicon - TACN church icon -->
     <link rel="icon" href="assets/images/favicon.png" type="image/png" />
     <link
@@ -33,14 +83,20 @@
       href="assets/images/favicon.ico"
       type="image/x-icon"
     />
+    <link rel="apple-touch-icon" href="assets/images/favicon.png" />
+
     <!-- Google Fonts preconnect for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- CSS stylesheet -->
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
 
   <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!--
     ============================================
     HEADER SECTION
@@ -49,18 +105,18 @@
     Appears at the top of every page
     ============================================
     -->
-    <header>
+    <header role="banner">
       <!-- Church name / Logo area -->
       <div>
-        <a href="index.html">
+        <a href="index.html" aria-label="TACN Stadium Assembly - Home">
           The Apostolic Church Nigeria – Stadium Assembly
         </a>
       </div>
 
       <!-- Navigation menu -->
-      <nav>
+      <nav role="navigation" aria-label="Main navigation">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" aria-current="page">Home</a></li>
           <li><a href="pages/about.html">About</a></li>
           <li><a href="pages/sermons.html">Sermons</a></li>
           <li><a href="pages/events.html">Events</a></li>
@@ -78,7 +134,7 @@
     Everything between header and footer
     ============================================
     -->
-    <main>
+    <main id="main-content" role="main">
       <!--
         ============================================
         HERO SECTION
@@ -90,6 +146,7 @@
         -->
       <section
         class="section-dark section-hero-bg"
+        aria-label="Welcome to Stadium Assembly"
         style="
           background-image: url(&quot;assets/images/hero-worship.jpg&quot;);
         "
@@ -585,15 +642,15 @@
     Appears at the bottom of every page
     ============================================
     -->
-    <footer>
+    <footer role="contentinfo">
       <!-- Church name and location -->
       <div>
         <p>The Apostolic Church Nigeria – Stadium Assembly</p>
-        <p>Ogbomosho, Oyo State, Nigeria</p>
+        <address>Ogbomosho, Oyo State, Nigeria</address>
       </div>
 
       <!-- Quick links -->
-      <nav>
+      <nav aria-label="Footer navigation">
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="pages/about.html">About</a></li>
@@ -605,12 +662,14 @@
 
       <!-- Copyright notice -->
       <p>
-        © 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
-        reserved.
+        <small
+          >© 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
+          reserved.</small
+        >
       </p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="assets/js/main.js"></script>
+    <!-- JavaScript - deferred for performance -->
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>

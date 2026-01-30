@@ -12,6 +12,7 @@
     Note: This is UI only - no payment integration.
 
     Created: January 29, 2026
+    Updated: Phase 11 - SEO, Accessibility & Performance
     ============================================
     -->
 
@@ -29,8 +30,36 @@
     <!-- Description for search engines like Google -->
     <meta
       name="description"
-      content="Support the work of God through tithes, offerings, and donations at The Apostolic Church Nigeria – Stadium Assembly."
+      content="Support the work of God through tithes, offerings, and donations at The Apostolic Church Nigeria – Stadium Assembly. Learn how to give and honor God through faithful stewardship."
     />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://tacnstadiumassembly.org/pages/giving.html"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Giving & Donations | TACN Stadium Assembly"
+    />
+    <meta
+      property="og:description"
+      content="Support the work of God through tithes, offerings, and donations. Learn how to give at Stadium Assembly."
+    />
+    <meta
+      property="og:url"
+      content="https://tacnstadiumassembly.org/pages/giving.html"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Giving | TACN Stadium Assembly" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#1f3c88" />
 
     <!-- Favicon - TACN church icon -->
     <link rel="icon" href="../assets/images/favicon.png" type="image/png" />
@@ -49,6 +78,9 @@
   </head>
 
   <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!--
     ============================================
     HEADER SECTION
@@ -57,22 +89,22 @@
     Appears at the top of every page
     ============================================
     -->
-    <header>
+    <header role="banner">
       <!-- Church name / Logo area -->
       <div>
-        <a href="../index.html">
+        <a href="../index.html" aria-label="TACN Stadium Assembly - Home">
           The Apostolic Church Nigeria – Stadium Assembly
         </a>
       </div>
 
       <!-- Navigation menu -->
-      <nav>
+      <nav role="navigation" aria-label="Main navigation">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="sermons.html">Sermons</a></li>
           <li><a href="events.html">Events</a></li>
-          <li><a href="giving.html">Giving</a></li>
+          <li><a href="giving.html" aria-current="page">Giving</a></li>
           <li><a href="plan-a-visit.html">Plan a Visit</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -86,7 +118,7 @@
     Everything between header and footer
     ============================================
     -->
-    <main>
+    <main id="main-content" role="main">
       <!--
         ============================================
         PAGE HEADER / HERO SECTION
@@ -94,7 +126,10 @@
         Title and subtitle for the giving page
         ============================================
         -->
-      <section class="section-dark section-page-header">
+      <section
+        class="section-dark section-page-header"
+        aria-label="Giving introduction"
+      >
         <h1>Giving & Donations</h1>
         <p>Honoring God through faithful stewardship.</p>
       </section>
@@ -319,15 +354,15 @@
     Appears at the bottom of every page
     ============================================
     -->
-    <footer>
+    <footer role="contentinfo">
       <!-- Church name and location -->
       <div>
         <p>The Apostolic Church Nigeria – Stadium Assembly</p>
-        <p>Ogbomosho, Oyo State, Nigeria</p>
+        <address>Ogbomosho, Oyo State, Nigeria</address>
       </div>
 
       <!-- Quick links -->
-      <nav>
+      <nav aria-label="Footer navigation">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -339,12 +374,14 @@
 
       <!-- Copyright notice -->
       <p>
-        © 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
-        reserved.
+        <small
+          >© 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
+          reserved.</small
+        >
       </p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../assets/js/main.js"></script>
+    <!-- JavaScript - deferred for performance -->
+    <script src="../assets/js/main.js" defer></script>
   </body>
 </html>

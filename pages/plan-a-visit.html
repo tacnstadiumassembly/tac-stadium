@@ -9,6 +9,7 @@
     It prepares first-time visitors.
 
     Created: January 29, 2026
+    Updated: Phase 11 - SEO, Accessibility & Performance
     ============================================
     -->
 
@@ -20,14 +21,46 @@
 
     <!-- Page title - appears in the browser tab -->
     <title>
-      Plan Your Visit | The Apostolic Church Nigeria – Stadium Assembly
+      Plan Your Visit | The Apostolic Church Nigeria – Stadium Assembly,
+      Ogbomosho
     </title>
 
     <!-- Description for search engines like Google -->
     <meta
       name="description"
-      content="Plan your visit to The Apostolic Church Nigeria – Stadium Assembly. Service times, what to expect, directions, and more."
+      content="Plan your visit to The Apostolic Church Nigeria – Stadium Assembly in Ogbomosho. Find service times, what to expect, directions, parking, and everything first-time visitors need to know."
     />
+
+    <!-- Canonical URL -->
+    <link
+      rel="canonical"
+      href="https://tacnstadiumassembly.org/pages/plan-a-visit.html"
+    />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Plan Your Visit | TACN Stadium Assembly"
+    />
+    <meta
+      property="og:description"
+      content="Find service times, what to expect, and directions. We can't wait to meet you!"
+    />
+    <meta
+      property="og:url"
+      content="https://tacnstadiumassembly.org/pages/plan-a-visit.html"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Plan Your Visit | TACN Stadium Assembly"
+    />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#1f3c88" />
 
     <!-- Favicon - TACN church icon -->
     <link rel="icon" href="../assets/images/favicon.png" type="image/png" />
@@ -46,6 +79,9 @@
   </head>
 
   <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!--
     ============================================
     HEADER SECTION
@@ -54,23 +90,25 @@
     Appears at the top of every page
     ============================================
     -->
-    <header>
+    <header role="banner">
       <!-- Church name / Logo area -->
       <div>
-        <a href="../index.html">
+        <a href="../index.html" aria-label="TACN Stadium Assembly - Home">
           The Apostolic Church Nigeria – Stadium Assembly
         </a>
       </div>
 
       <!-- Navigation menu -->
-      <nav>
+      <nav role="navigation" aria-label="Main navigation">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="sermons.html">Sermons</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="giving.html">Giving</a></li>
-          <li><a href="plan-a-visit.html">Plan a Visit</a></li>
+          <li>
+            <a href="plan-a-visit.html" aria-current="page">Plan a Visit</a>
+          </li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
@@ -83,7 +121,7 @@
     Everything between header and footer
     ============================================
     -->
-    <main>
+    <main id="main-content" role="main">
       <!--
         ============================================
         PAGE HEADER SECTION
@@ -91,7 +129,7 @@
         Welcoming message for first-time visitors
         ============================================
         -->
-      <section>
+      <section aria-label="Welcome to Stadium Assembly">
         <h1>We Can't Wait to Meet You</h1>
 
         <p>
@@ -358,15 +396,15 @@
     Appears at the bottom of every page
     ============================================
     -->
-    <footer>
+    <footer role="contentinfo" aria-label="Site footer">
       <!-- Church name and location -->
       <div>
         <p>The Apostolic Church Nigeria – Stadium Assembly</p>
-        <p>Ogbomosho, Oyo State, Nigeria</p>
+        <address>Ogbomosho, Oyo State, Nigeria</address>
       </div>
 
       <!-- Quick links -->
-      <nav>
+      <nav aria-label="Footer navigation">
         <ul>
           <li><a href="../index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
@@ -377,12 +415,14 @@
 
       <!-- Copyright notice -->
       <p>
-        © 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
-        reserved.
+        <small
+          >© 2026 The Apostolic Church Nigeria – Stadium Assembly. All rights
+          reserved.</small
+        >
       </p>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="../assets/js/main.js"></script>
+    <!-- JavaScript - defer for performance -->
+    <script src="../assets/js/main.js" defer></script>
   </body>
 </html>

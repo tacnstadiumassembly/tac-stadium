@@ -2218,6 +2218,27 @@ Call to action section
   border: 0;
 }
 
+/* Skip to main content link (accessibility) */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background: var(--faith-blue);
+  color: #ffffff;
+  padding: 12px 24px;
+  z-index: 10000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 0;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid var(--soft-sky-blue);
+  outline-offset: 2px;
+}
+
 /* ============================================
    10. MOBILE RESPONSIVE STYLES
    ============================================
