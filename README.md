@@ -263,6 +263,45 @@ Comprehensive brand-aligned UI overhaul with animations.
   - Reusable animation classes
   - Clean, documented code structure
 
+### Phase 10.1: High-Readability Apostolic UI Refinement
+
+Refined color system for maximum text visibility and calm aesthetics.
+
+- **New Apostolic Color Direction**:
+  - Soft Royal Blue (#2d4a6f) - calmer, lighter, NOT heavy navy
+  - Muted Wine Red (#a63d3d) - not aggressive, calm emphasis
+  - Charcoal/Slate text (#2c3e50) - NOT pure black
+  - Near-white text on blue (0.97 opacity)
+- **Text Readability Priority #1**:
+  - WCAG-friendly contrast ratios throughout
+  - Lightened dark backgrounds for better text visibility
+  - Reduced overlay opacity for hero sections
+  - Removed text floating directly on blurred backgrounds
+  - Elderly-friendly - readable without squinting
+- **Safe Glassmorphism**:
+  - Very high opacity (0.96) for card backgrounds
+  - Reduced blur (10px) behind text areas
+  - Clear inner borders for definition
+  - Glass only on cards, forms, navigation - NOT paragraphs
+- **Softer Animations**:
+  - Slower, gentler motion (0.6-0.8s duration)
+  - Smaller translate distances (12-20px)
+  - Spiritual, calm easing curves
+  - No aggressive or dramatic effects
+- **Refined Page Transitions**:
+  - Smaller translateY (-12px) - like turning a book page
+  - Slower, gentler easing
+  - Subtle fade-in effect
+- **Mobile Readability Boost**:
+  - Larger hero text on small screens
+  - Increased line-height (1.7)
+  - Better font sizing at 480px breakpoint
+  - High-contrast mobile navigation
+- **Code Cleanup**:
+  - Removed unused color variables from Phase 10
+  - Clear comments explaining color choices
+  - Consistent naming conventions
+
 ---
 
 ## Design Principles
@@ -292,14 +331,14 @@ The codebase includes extensive comments explaining:
 
 ## Current Status
 
-| Aspect         | Status                       |
-| -------------- | ---------------------------- |
-| Project        | Active                       |
-| HTML Structure | Complete                     |
-| CSS Styling    | Complete                     |
-| JavaScript     | Complete (progressive)       |
-| UI/UX          | Complete (Phase 10)          |
-| Content        | Placeholder content in place |
+| Aspect         | Status                          |
+| -------------- | ------------------------------- |
+| Project        | Active                          |
+| HTML Structure | Complete                        |
+| CSS Styling    | Complete                        |
+| JavaScript     | Complete (progressive)          |
+| UI/UX          | Finalized (Phase 10.1)          |
+| Content        | Placeholder content in place    |
 
 ---
 

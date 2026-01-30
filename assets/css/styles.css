@@ -31,59 +31,68 @@ TABLE OF CONTENTS:
 
 :root {
   /* ============================================
-     PHASE 10: APOSTOLIC BRAND COLOR SYSTEM
-     Red = Emphasis, CTAs, Active states
-     Blue = Authority, Faith, Primary backgrounds
-     White = Clean, Contrast, Readability
+     PHASE 10.1: HIGH-READABILITY APOSTOLIC BRAND
+     ============================================
+     A calmer, lighter, high-contrast color system
+     optimized for readability (especially for elderly).
+
+     Colors:
+     - Soft Royal Blue: Backgrounds, headers, footers
+     - Muted Wine Red: Accent ONLY (buttons, active states)
+     - White/Off-White: Text on blue, card surfaces
+     - Charcoal/Slate: Dark text (NOT pure black)
      ============================================ */
 
   /*
     PRIMARY BLUE COLORS
-    Deep, calm navy/royal blue representing authority & faith.
+    Soft royal blue / midnight blue - NOT too dark.
+    Calm, spiritual, easy on the eyes.
     */
-  --color-primary: #1a365d; /* Deep royal blue - faith, depth */
-  --color-primary-dark: #0f2442; /* Darker navy - for hover states */
-  --color-primary-light: #2c4a7c; /* Lighter royal blue - for accents */
-  --color-primary-vivid: #2563eb; /* Vivid blue for highlights */
+  --color-primary: #2d4a6f; /* Soft royal blue - main brand */
+  --color-primary-dark: #1e3a5f; /* Slightly darker - hover states */
+  --color-primary-light: #4a6b8a; /* Lighter blue - accents */
+  --color-primary-soft: #3d5a7a; /* Softer variant */
 
   /*
-    APOSTOLIC RED ACCENT
-    Used sparingly for emphasis, CTAs, and important elements.
+    APOSTOLIC RED ACCENT (USED SPARINGLY)
+    Muted crimson / wine red - NOT aggressive.
+    Only for: Buttons, active states, icons, emphasis.
     */
-  --color-accent: #b91c1c; /* Apostolic red - emphasis */
-  --color-accent-dark: #991b1b; /* Darker red - for hover */
-  --color-accent-light: #dc2626; /* Lighter red - for highlights */
-  --color-accent-glow: rgba(185, 28, 28, 0.4); /* Red glow for buttons */
+  --color-accent: #a63d3d; /* Muted wine red - calm emphasis */
+  --color-accent-dark: #8b3232; /* Darker wine - for hover */
+  --color-accent-light: #c25454; /* Lighter crimson - highlights */
+  --color-accent-glow: rgba(166, 61, 61, 0.3); /* Soft red glow */
 
   /*
-    NEUTRAL COLORS
-    For backgrounds, text, and borders.
+    NEUTRAL COLORS - HIGH CONTRAST
+    Clear separation between text and backgrounds.
     */
   --color-white: #ffffff;
-  --color-off-white: #f8fafc; /* Very light gray-blue background */
-  --color-light-gray: #e2e8f0; /* Light gray for borders */
-  --color-gray: #64748b; /* Medium gray for secondary text */
-  --color-dark-gray: #1e293b; /* Dark slate for text */
-  --color-black: #0f172a; /* Near black for headings */
+  --color-off-white: #f7f9fc; /* Very soft gray-blue */
+  --color-cream: #fafbfd; /* Warm off-white for cards */
+  --color-light-gray: #e5e9f0; /* Light gray for borders */
+  --color-gray: #5a6b7d; /* Medium gray - NOT too light */
+  --color-dark-gray: #2c3e50; /* Charcoal - primary text */
+  --color-black: #1a2634; /* Deep slate - headings */
 
   /*
-    DARK SECTION COLORS
-    For the modern dark church aesthetic.
+    DARK SECTION COLORS - READABLE
+    Lighter than before for better text contrast.
     */
-  --color-dark-bg: #1a365d; /* Deep royal blue background */
+  --color-dark-bg: #2d4a6f; /* Soft royal blue background */
   --color-dark-overlay: rgba(
-    26,
-    54,
-    93,
-    0.92
-  ); /* Dark blue overlay - high opacity for readability */
-  --color-dark-text: #ffffff; /* White text on dark backgrounds */
+    45,
+    74,
+    111,
+    0.88
+  ); /* Lighter overlay - text visible */
+  --color-dark-text: #ffffff; /* Pure white text */
   --color-dark-text-muted: rgba(
     255,
     255,
     255,
-    0.95
-  ); /* Very high contrast for readability */
+    0.97
+  ); /* Near-white - very readable */
 
   /*
     FONTS
@@ -121,45 +130,46 @@ TABLE OF CONTENTS:
   --radius-xl: 16px;
 
   /*
-    SHADOWS
-    Subtle shadows for depth.
+    SHADOWS - SOFTER
+    Gentle shadows for depth without harshness.
     */
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
-  --shadow-md: 0 4px 6px rgba(15, 23, 42, 0.1);
-  --shadow-lg: 0 10px 25px rgba(15, 23, 42, 0.12);
-  --shadow-xl: 0 20px 40px rgba(15, 23, 42, 0.15);
+  --shadow-sm: 0 1px 3px rgba(44, 62, 80, 0.06);
+  --shadow-md: 0 4px 8px rgba(44, 62, 80, 0.08);
+  --shadow-lg: 0 10px 25px rgba(44, 62, 80, 0.1);
+  --shadow-xl: 0 20px 40px rgba(44, 62, 80, 0.12);
 
   /*
-    PHASE 10: ENHANCED GLASSMORPHISM VARIABLES
-    Higher opacity for better text readability.
+    PHASE 10.1: SAFE GLASSMORPHISM
+    Very high opacity for crystal-clear text.
+    Minimal blur behind text areas.
     */
-  --glass-bg: rgba(255, 255, 255, 0.92);
-  --glass-bg-dark: rgba(26, 54, 93, 0.88);
-  --glass-border: rgba(255, 255, 255, 0.25);
-  --glass-border-light: rgba(255, 255, 255, 0.4);
-  --glass-border-inner: rgba(255, 255, 255, 0.15);
-  --glass-blur: blur(16px);
-  --glass-blur-strong: blur(20px);
+  --glass-bg: rgba(255, 255, 255, 0.96);
+  --glass-bg-dark: rgba(45, 74, 111, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-border-light: rgba(255, 255, 255, 0.5);
+  --glass-border-inner: rgba(255, 255, 255, 0.2);
+  --glass-blur: blur(10px); /* Reduced blur for readability */
+  --glass-blur-strong: blur(14px);
 
   /*
-    PHASE 10: ELEVATION LEVELS
-    Consistent elevation for hover states.
+    PHASE 10.1: ELEVATION LEVELS
+    Softer elevation for calm aesthetics.
     */
-  --elevation-1: 0 2px 8px rgba(15, 23, 42, 0.06);
-  --elevation-2: 0 4px 16px rgba(15, 23, 42, 0.08);
-  --elevation-3: 0 8px 30px rgba(15, 23, 42, 0.1);
-  --elevation-hover: 0 12px 40px rgba(15, 23, 42, 0.14);
+  --elevation-1: 0 2px 6px rgba(44, 62, 80, 0.05);
+  --elevation-2: 0 4px 12px rgba(44, 62, 80, 0.07);
+  --elevation-3: 0 8px 24px rgba(44, 62, 80, 0.09);
+  --elevation-hover: 0 10px 30px rgba(44, 62, 80, 0.11);
 
   /*
-    PHASE 10: ANIMATION TIMING
-    Smooth, calm, purposeful motion.
+    PHASE 10.1: SOFTER ANIMATION TIMING
+    Slower, calmer, more spiritual motion.
     */
-  --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
-  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  --animation-duration: 0.6s;
-  --animation-stagger: 0.1s;
+  --transition-fast: 0.25s ease;
+  --transition-normal: 0.4s ease;
+  --transition-slow: 0.6s ease;
+  --transition-gentle: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 0.8s;
+  --animation-stagger: 0.12s;
 }
 
 /* ============================================
@@ -3133,26 +3143,27 @@ Uses solid backgrounds instead of glass effect.
 }
 
 /* ============================================
-   SECTION 13: PHASE 10 - BRAND UI, MOTION
-   & PAGE TRANSITIONS
+   SECTION 13: PHASE 10.1 - HIGH-READABILITY
+   BRAND UI REFINEMENT
    ============================================
-   Apostolic Red, Blue & White brand system
-   Micro-animations & page transitions
-   Enhanced readability & glassmorphism
+   Calmer, lighter, high-contrast color system
+   Softer animations & page transitions
+   Maximum text readability (elderly-friendly)
    ============================================ */
 
 /* -------------------------------------------
-   13A. PAGE TRANSITION ANIMATION
+   13A. PAGE TRANSITION ANIMATION (SOFTER)
    ------------------------------------------- */
 
 /*
 Page enter animation.
-Content gracefully arrives from above.
+Content gracefully arrives - like turning a book page.
+Smaller distance, slower easing.
 */
 @keyframes pageEnter {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-12px);
   }
   to {
     opacity: 1;
@@ -3162,10 +3173,10 @@ Content gracefully arrives from above.
 
 /*
 Apply to main content.
-Page content slides in gently.
+Page content fades in gently.
 */
 main {
-  animation: pageEnter var(--animation-duration) ease-out;
+  animation: pageEnter var(--animation-duration) var(--transition-gentle);
 }
 
 /*
@@ -3183,18 +3194,19 @@ Respect reduced motion preference.
 }
 
 /* -------------------------------------------
-   13B. SCROLL REVEAL ANIMATIONS
+   13B. SCROLL REVEAL ANIMATIONS (SOFTER)
    ------------------------------------------- */
 
 /*
 Base state for animated elements.
-Elements start invisible and below.
+Smaller translate distance for subtlety.
 */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity var(--animation-duration) ease-out,
-    transform var(--animation-duration) ease-out;
+  transform: translateY(20px);
+  transition:
+    opacity var(--animation-duration) var(--transition-gentle),
+    transform var(--animation-duration) var(--transition-gentle);
 }
 
 /*
@@ -3208,7 +3220,7 @@ Applied by JavaScript when element enters viewport.
 
 /*
 Staggered animation delays for grid items.
-Creates a wave effect as cards appear.
+Creates a gentle wave effect.
 */
 .animate-on-scroll:nth-child(1) {
   transition-delay: 0s;
@@ -3230,16 +3242,18 @@ Creates a wave effect as cards appear.
 }
 
 /* -------------------------------------------
-   13C. SECTION HEADER ANIMATIONS
+   13C. SECTION HEADER ANIMATIONS (GENTLER)
    ------------------------------------------- */
 
 /*
-Section headings slide up on scroll.
+Section headings slide up gently on scroll.
 */
 .section-heading-animate {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  transform: translateY(15px);
+  transition:
+    opacity 0.6s var(--transition-gentle),
+    transform 0.6s var(--transition-gentle);
 }
 
 .section-heading-animate.is-visible {
@@ -3248,19 +3262,21 @@ Section headings slide up on scroll.
 }
 
 /* -------------------------------------------
-   13D. CARD MICRO-ANIMATIONS
+   13D. CARD MICRO-ANIMATIONS (SOFTER LIFT)
    ------------------------------------------- */
 
 /*
-Enhanced card hover with lift and glow.
+Gentle card hover with soft lift.
 */
 .sermon-card,
 .event-card,
 .ministry-card,
 .giving-card,
 .contact-info-card {
-  transition: transform var(--transition-normal),
-    box-shadow var(--transition-normal), border-color var(--transition-normal);
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
 }
 
 .sermon-card:hover,
@@ -3268,7 +3284,7 @@ Enhanced card hover with lift and glow.
 .ministry-card:hover,
 .giving-card:hover,
 .contact-info-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
   box-shadow: var(--elevation-hover);
 }
 
@@ -3277,7 +3293,7 @@ Card inner content subtle scale.
 */
 .ministry-card:hover .ministry-icon,
 .giving-card:hover svg {
-  transform: scale(1.1);
+  transform: scale(1.05);
   transition: transform var(--transition-normal);
 }
 
@@ -3287,12 +3303,12 @@ Card inner content subtle scale.
 }
 
 /* -------------------------------------------
-   13E. BUTTON ANIMATIONS - APOSTOLIC RED
+   13E. BUTTON ANIMATIONS - MUTED WINE RED
    ------------------------------------------- */
 
 /*
-Primary button with Apostolic red.
-Used for CTAs and important actions.
+Primary button with muted wine red.
+Calm, not aggressive. Subtle glow on hover.
 */
 .btn-primary {
   background-color: var(--color-accent);
@@ -3302,40 +3318,30 @@ Used for CTAs and important actions.
   position: relative;
   overflow: hidden;
   transition: all var(--transition-normal);
-  box-shadow: 0 4px 15px var(--color-accent-glow);
+  box-shadow: 0 3px 12px var(--color-accent-glow);
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--color-accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--color-accent-glow);
 }
 
 .btn-primary:active {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px var(--color-accent-glow);
+  transform: translateY(0);
+  box-shadow: 0 2px 8px var(--color-accent-glow);
 }
 
 /*
-Button pulse glow effect (subtle).
+Focus state for accessibility.
 */
-@keyframes buttonGlow {
-  0%,
-  100% {
-    box-shadow: 0 4px 15px var(--color-accent-glow);
-  }
-  50% {
-    box-shadow: 0 6px 20px rgba(185, 28, 28, 0.5);
-  }
-}
-
 .btn-primary:focus {
-  outline: 3px solid rgba(185, 28, 28, 0.3);
+  outline: 3px solid rgba(166, 61, 61, 0.25);
   outline-offset: 2px;
 }
 
 /*
-Filter buttons with active red state.
+Filter buttons with active wine red state.
 */
 .filter-btn.active {
   background-color: var(--color-accent);
@@ -3360,16 +3366,16 @@ Submit button styling.
 .btn-submit:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(26, 54, 93, 0.3);
+  box-shadow: 0 5px 15px rgba(45, 74, 111, 0.25);
 }
 
 /* -------------------------------------------
-   13F. ENHANCED GLASSMORPHISM
+   13F. SAFE GLASSMORPHISM (HIGH READABILITY)
    ------------------------------------------- */
 
 /*
-Cards with improved glass effect.
-Higher opacity for better readability.
+Cards with very high opacity glass effect.
+Minimal blur to keep text crystal clear.
 */
 .sermon-card,
 .event-card,
@@ -3379,11 +3385,13 @@ Higher opacity for better readability.
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: var(--elevation-2), inset 0 1px 0 var(--glass-border-inner);
+  box-shadow:
+    var(--elevation-2),
+    inset 0 1px 0 var(--glass-border-inner);
 }
 
 /*
-Form container glass effect.
+Form container - very solid for readability.
 */
 .form-container {
   background: var(--glass-bg);
@@ -3405,17 +3413,18 @@ Contact info cards.
 
 /*
 Service time cards on dark background.
+High opacity, minimal blur.
 */
 .service-time-card {
   background: var(--glass-bg-dark);
-  backdrop-filter: var(--glass-blur-strong);
-  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border-light);
   box-shadow: inset 0 1px 0 var(--glass-border-inner);
 }
 
 /*
-Bank details glass styling.
+Bank details - solid background for clarity.
 */
 .giving-bank-details {
   background: var(--glass-bg-dark);
@@ -3425,39 +3434,48 @@ Bank details glass styling.
 }
 
 /* -------------------------------------------
-   13G. TEXT READABILITY FIXES
+   13G. TEXT READABILITY - PRIORITY #1
    ------------------------------------------- */
 
 /*
-Hero section text - maximum clarity.
+Hero section text - MAXIMUM CLARITY.
+White text on lighter blue overlay.
+No squinting required.
 */
 .section-hero-bg h1 {
   color: var(--color-white);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.2);
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15);
   letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 .section-hero-bg p {
-  color: var(--color-dark-text);
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  color: var(--color-white);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  font-size: 1.2rem;
+  line-height: 1.7;
 }
 
 /*
-Dark section text.
+Dark section text - READABLE AT A GLANCE.
 */
 .section-dark h2,
 .section-dark h3 {
   color: var(--color-white);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .section-dark p,
 .section-dark li {
   color: var(--color-dark-text-muted);
+  line-height: 1.7;
 }
 
 /*
 Card text on white/glass backgrounds.
+Charcoal text, NOT pure black.
 */
 .sermon-card h4,
 .event-card h4,
@@ -3465,6 +3483,7 @@ Card text on white/glass backgrounds.
 .giving-card h3,
 .contact-info-card h4 {
   color: var(--color-black);
+  font-weight: 600;
 }
 
 .sermon-card p,
@@ -3473,10 +3492,12 @@ Card text on white/glass backgrounds.
 .giving-card p,
 .contact-info-card p {
   color: var(--color-dark-gray);
+  line-height: 1.65;
 }
 
 /*
 Card metadata (dates, categories).
+NOT too light - still readable.
 */
 .sermon-meta,
 .event-category {
@@ -3499,40 +3520,41 @@ footer a:hover {
 }
 
 /*
-Navigation text clarity.
+Navigation text - CLEAR VISIBILITY.
 */
 header nav a {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.95);
   font-weight: 500;
 }
 
 header nav a:hover {
   color: var(--color-white);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 /* -------------------------------------------
-   13H. ENHANCED HERO OVERLAY
+   13H. HERO OVERLAY - LIGHTER FOR READABILITY
    ------------------------------------------- */
 
 /*
-Improved gradient overlay for better text contrast.
+Lighter gradient overlay - text doesn't fight background.
 */
 .section-hero-bg::before {
   background: linear-gradient(
     to bottom,
-    rgba(26, 54, 93, 0.85) 0%,
-    rgba(26, 54, 93, 0.92) 50%,
-    rgba(15, 36, 66, 0.95) 100%
+    rgba(45, 74, 111, 0.82) 0%,
+    rgba(45, 74, 111, 0.88) 50%,
+    rgba(30, 58, 95, 0.9) 100%
   );
 }
 
 /* -------------------------------------------
-   13I. FORM INPUT ANIMATIONS
+   13I. FORM INPUT STYLING
    ------------------------------------------- */
 
 /*
 Smooth focus transitions for inputs.
+Clear, high-contrast form fields.
 */
 .form-group input,
 .form-group select,
@@ -3540,21 +3562,24 @@ Smooth focus transitions for inputs.
   border: 2px solid var(--color-light-gray);
   background-color: var(--color-white);
   color: var(--color-dark-gray);
-  transition: border-color var(--transition-fast),
-    box-shadow var(--transition-fast), background-color var(--transition-fast);
+  font-size: 1rem;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background-color var(--transition-fast);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 4px rgba(26, 54, 93, 0.15);
+  box-shadow: 0 0 0 4px rgba(45, 74, 111, 0.12);
   background-color: var(--color-white);
   outline: none;
 }
 
 /*
-Input placeholder text.
+Input placeholder text - NOT too light.
 */
 .form-group input::placeholder,
 .form-group textarea::placeholder {
@@ -3562,31 +3587,35 @@ Input placeholder text.
 }
 
 /*
-Form labels.
+Form labels - clear and readable.
 */
 .form-group label {
   color: var(--color-dark-gray);
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
 /* -------------------------------------------
-   13J. MOBILE MENU ANIMATION
+   13J. MOBILE MENU (SOFTER ANIMATION)
    ------------------------------------------- */
 
 @media screen and (max-width: 768px) {
   /*
-  Enhanced mobile nav glass effect.
+  Mobile nav - solid background for readability.
+  Softer animation, less dramatic.
   */
   header nav {
-    background: rgba(26, 54, 93, 0.98);
-    backdrop-filter: var(--glass-blur-strong);
-    -webkit-backdrop-filter: var(--glass-blur-strong);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    transform: translateY(-10px);
+    background: rgba(45, 74, 111, 0.98);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    transform: translateY(-8px);
     opacity: 0;
     visibility: hidden;
-    transition: transform var(--transition-normal),
-      opacity var(--transition-normal), visibility var(--transition-normal);
+    transition:
+      transform var(--transition-slow),
+      opacity var(--transition-slow),
+      visibility var(--transition-slow);
   }
 
   header nav.nav-open {
@@ -3596,13 +3625,15 @@ Form labels.
   }
 
   /*
-  Mobile nav link styling.
+  Mobile nav links - HIGH CONTRAST.
   */
   header nav a {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.97);
     padding: var(--spacing-md);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color var(--transition-fast),
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition:
+      background-color var(--transition-fast),
       color var(--transition-fast);
   }
 
@@ -3618,12 +3649,12 @@ Form labels.
 }
 
 /* -------------------------------------------
-   13K. TAP FEEDBACK & MOBILE UI
+   13K. TAP FEEDBACK & MOBILE READABILITY
    ------------------------------------------- */
 
 @media screen and (max-width: 768px) {
   /*
-  Tap feedback for interactive elements.
+  Tap feedback - muted wine red.
   */
   .btn,
   .filter-btn,
@@ -3632,7 +3663,7 @@ Form labels.
   .event-card,
   .ministry-card,
   .giving-card {
-    -webkit-tap-highlight-color: rgba(185, 28, 28, 0.2);
+    -webkit-tap-highlight-color: rgba(166, 61, 61, 0.15);
   }
 
   /*
@@ -3727,7 +3758,8 @@ Enhanced hamburger animation.
   height: 2px;
   background-color: var(--color-white);
   border-radius: 2px;
-  transition: transform var(--transition-normal),
+  transition:
+    transform var(--transition-normal),
     opacity var(--transition-normal);
 }
 
@@ -3754,11 +3786,11 @@ Hamburger to X animation.
 }
 
 /* -------------------------------------------
-   13M. FOOTER ENHANCEMENTS
+   13M. FOOTER - READABLE ON SOFT BLUE
    ------------------------------------------- */
 
 /*
-Footer with brand colors.
+Footer with soft royal blue.
 */
 footer {
   background-color: var(--color-primary-dark);
@@ -3767,7 +3799,8 @@ footer {
 
 footer p,
 footer address {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
 }
 
 footer a {
@@ -3780,11 +3813,11 @@ footer a:hover {
 }
 
 /* -------------------------------------------
-   13N. DATE BADGE - RED ACCENT
+   13N. DATE BADGE - MUTED WINE RED
    ------------------------------------------- */
 
 /*
-Event date badges with Apostolic red.
+Event date badges with muted wine red.
 */
 .event-date-badge {
   background: linear-gradient(
@@ -3793,11 +3826,12 @@ Event date badges with Apostolic red.
     var(--color-accent-dark) 100%
   );
   color: var(--color-white);
-  box-shadow: 0 4px 12px var(--color-accent-glow);
+  box-shadow: 0 3px 10px var(--color-accent-glow);
 }
 
 .event-date-badge .month {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
 }
 
 .event-date-badge .day {
@@ -3806,15 +3840,15 @@ Event date badges with Apostolic red.
 }
 
 .event-date-badge .year {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* -------------------------------------------
-   13O. SMALL BUTTON STYLING
+   13O. SMALL BUTTON - MUTED WINE RED
    ------------------------------------------- */
 
 /*
-Small red buttons for "Watch" / "Listen".
+Small wine red buttons for "Watch" / "Listen".
 */
 .btn-small {
   background-color: var(--color-accent);
@@ -3825,11 +3859,79 @@ Small red buttons for "Watch" / "Listen".
 
 .btn-small:hover {
   background-color: var(--color-accent-dark);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 /* -------------------------------------------
-   13P. REDUCED MOTION MEDIA QUERY
+   13P. MOBILE TEXT READABILITY BOOST
+   ------------------------------------------- */
+
+@media screen and (max-width: 768px) {
+  /*
+  Larger hero text on mobile.
+  */
+  .section-hero-bg h1 {
+    font-size: 1.85rem;
+    line-height: 1.3;
+  }
+
+  .section-hero-bg p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  /*
+  Card text sizing.
+  */
+  .ministry-card h3,
+  .giving-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .ministry-card p,
+  .giving-card p,
+  .sermon-card p,
+  .event-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  /*
+  Section headings on mobile.
+  */
+  main section h2 {
+    font-size: 1.5rem;
+    line-height: 1.35;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /*
+  Even smaller screens - prioritize readability.
+  */
+  .section-hero-bg h1 {
+    font-size: 1.6rem;
+  }
+
+  .section-hero-bg p {
+    font-size: 1rem;
+  }
+
+  main section h2 {
+    font-size: 1.35rem;
+  }
+
+  /*
+  Increase line height for small text.
+  */
+  p,
+  li {
+    line-height: 1.7;
+  }
+}
+
+/* -------------------------------------------
+   13Q. REDUCED MOTION PREFERENCE
    ------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
@@ -3858,11 +3960,11 @@ Small red buttons for "Watch" / "Listen".
 }
 
 /* -------------------------------------------
-   13Q. GRACEFUL DEGRADATION UPDATE
+   13R. GRACEFUL DEGRADATION
    ------------------------------------------- */
 
 /*
-Updated fallback for Phase 10 colors.
+Fallback for browsers without backdrop-filter.
 */
 @supports not (backdrop-filter: blur(10px)) {
   .sermon-card,
