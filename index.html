@@ -479,6 +479,108 @@
 
       <!--
         ============================================
+        MEDIA HIGHLIGHT SECTION
+        ============================================
+        Featured YouTube video embed
+        ============================================
+        -->
+      <section class="section-media-highlight">
+        <h2><span aria-hidden="true">🎬</span> Watch Our Services</h2>
+        <p>
+          Can't join us in person? Experience our worship and messages online.
+          Subscribe to our YouTube channel for weekly updates.
+        </p>
+
+        <div class="video-embed-container">
+          <div class="video-embed-wrapper">
+            <iframe
+              src="https://www.youtube.com/embed?listType=user_uploads&list=tacn.stadium"
+              title="TACN Stadium Assembly - Latest Service"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+              "
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="video-subscribe-cta">
+          <a
+            href="https://www.youtube.com/@tacn.stadium?sub_confirmation=1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-youtube"
+            aria-label="Subscribe to our YouTube channel"
+          >
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+            Subscribe on YouTube
+          </a>
+        </div>
+      </section>
+
+      <!--
+        ============================================
+        LIVESTREAM SECTION
+        ============================================
+        Join live service component
+        ============================================
+        -->
+      <section class="section-livestream">
+        <h2><span aria-hidden="true">📡</span> Join Live Service</h2>
+        <p>
+          Worship with us in real-time from anywhere in the world. Our Sunday
+          services are streamed live.
+        </p>
+
+        <div class="livestream-status">
+          <span class="livestream-indicator offline"></span>
+          <span class="livestream-text">Next Service: Sunday 9:00 AM</span>
+        </div>
+
+        <div class="countdown-placeholder">
+          <div class="countdown-label">Countdown to next service:</div>
+          <div class="countdown-display">
+            <div class="countdown-item">
+              <span class="countdown-number">--</span>
+              <span class="countdown-unit">Days</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number">--</span>
+              <span class="countdown-unit">Hours</span>
+            </div>
+            <div class="countdown-item">
+              <span class="countdown-number">--</span>
+              <span class="countdown-unit">Mins</span>
+            </div>
+          </div>
+        </div>
+
+        <a
+          href="https://www.youtube.com/@tacn.stadium/live"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-livestream"
+          aria-label="Join our live service on YouTube"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          Watch Live
+        </a>
+      </section>
+
+      <!--
+        ============================================
         EVENTS PREVIEW SECTION
         ============================================
         Upcoming events to encourage attendance.
@@ -577,6 +679,92 @@
         </p>
 
         <a href="pages/plan-a-visit.html">Plan Your Visit</a>
+      </section>
+
+      <!--
+        ============================================
+        TESTIMONY & HIGHLIGHTS SECTION
+        ============================================
+        Member testimonies and church highlights
+        ============================================
+        -->
+      <section class="section-testimonies">
+        <h2><span aria-hidden="true">🙏</span> Testimonies &amp; Highlights</h2>
+        <p>
+          Hear from members of our church family about how God is working in
+          their lives. These stories of faith, hope, and transformation
+          encourage us all.
+        </p>
+
+        <div class="testimony-grid">
+          <!-- Testimony 1 -->
+          <article class="testimony-card">
+            <p class="testimony-quote">
+              Stadium Assembly has become my spiritual home. The love and
+              genuine care from the members made me feel welcome from my very
+              first visit. I've grown so much in my faith here.
+            </p>
+            <div class="testimony-author">
+              <div class="testimony-avatar">AO</div>
+              <div class="testimony-info">
+                <strong>Adebayo Olumide</strong>
+                <span>Member since 2020</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimony 2 -->
+          <article class="testimony-card">
+            <p class="testimony-quote">
+              After years of searching, I found a church that truly preaches the
+              Word of God without compromise. The teachings here have
+              transformed my understanding of Scripture.
+            </p>
+            <div class="testimony-author">
+              <div class="testimony-avatar">FE</div>
+              <div class="testimony-info">
+                <strong>Folake Emmanuel</strong>
+                <span>Member since 2018</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimony 3 -->
+          <article class="testimony-card">
+            <p class="testimony-quote">
+              The youth ministry has been such a blessing to my children.
+              They've found godly friends and mentors who are helping shape
+              their character and faith.
+            </p>
+            <div class="testimony-author">
+              <div class="testimony-avatar">KA</div>
+              <div class="testimony-info">
+                <strong>Kehinde Ajayi</strong>
+                <span>Member since 2015</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Ministry Highlights -->
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <span class="highlight-number">50+</span>
+            <span class="highlight-label">Years of Ministry</span>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-number">200+</span>
+            <span class="highlight-label">Active Members</span>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-number">5</span>
+            <span class="highlight-label">Ministry Groups</span>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-number">Weekly</span>
+            <span class="highlight-label">Live Streaming</span>
+          </div>
+        </div>
       </section>
 
       <!--
@@ -774,6 +962,41 @@
             />
           </svg>
         </a>
+      </div>
+
+      <!-- Facebook share block -->
+      <div class="footer-facebook-block">
+        <p>Share this page with friends &amp; family</p>
+        <div class="share-buttons">
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://tacnstadiumassembly.github.io/tac-stadium/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-share"
+            aria-label="Share on Facebook"
+          >
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+              />
+            </svg>
+            Share on Facebook
+          </a>
+          <a
+            href="https://twitter.com/intent/tweet?url=https://tacnstadiumassembly.github.io/tac-stadium/&text=Visit%20The%20Apostolic%20Church%20Nigeria%20-%20Stadium%20Assembly"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-share"
+            aria-label="Share on Twitter"
+          >
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+              />
+            </svg>
+            Share on X
+          </a>
+        </div>
       </div>
 
       <!-- Copyright notice -->

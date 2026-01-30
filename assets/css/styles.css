@@ -1,3 +1,81 @@
+/* ============================================
+   PHASE 14: GLOBAL TEXT READABILITY ENFORCEMENT PATCH
+   ============================================
+   Enforces strict text color rules for readability on all backgrounds.
+   - Light/glass/card backgrounds: #1f2933 text
+   - Dark/hero/header/footer: #ffffff text
+   - Headings in light: var(--faith-blue)
+   - Headings in dark: .white-heading = #fff
+   - Button text: primary = #fff, secondary = faith blue
+   - Form fields: #1f2933 text, #fff bg
+   - Removes color: white/#fff/inherit from cards
+   - No layout or palette changes
+*/
+
+/* Glass, card, and form containers: readable text */
+.glass,
+.card,
+.sermon-card,
+.event-card,
+.giving-card,
+.contact-card,
+.form-container {
+  color: #1f2933 !important;
+  text-shadow: none !important;
+}
+.glass *,
+.card *,
+.sermon-card *,
+.event-card *,
+.giving-card *,
+.contact-card *,
+.form-container * {
+  color: #1f2933 !important;
+  text-shadow: none !important;
+}
+
+/* Headings in light sections */
+main section:not(.section-dark):not(.section-hero-bg) h1,
+main section:not(.section-dark):not(.section-hero-bg) h2,
+main section:not(.section-dark):not(.section-hero-bg) h3,
+main section:not(.section-dark):not(.section-hero-bg) h4 {
+  color: var(--faith-blue, #1f3c88) !important;
+}
+
+/* Headings in dark sections */
+.white-heading {
+  color: #ffffff !important;
+}
+
+/* Button text enforcement */
+.btn,
+.btn-primary,
+.btn-small {
+  color: #ffffff !important;
+}
+.btn-secondary {
+  color: #1f3c88 !important;
+}
+
+/* Form field text and background */
+input,
+textarea,
+select {
+  color: #1f2933 !important;
+  background: #ffffff !important;
+}
+
+/* Hero, header, footer, and dark sections: keep white text */
+header,
+header *,
+footer,
+footer *,
+.section-hero-bg,
+.section-hero-bg *,
+.section-dark,
+.section-dark * {
+  color: #ffffff !important;
+}
 /*
 ============================================
 TAC STADIUM - MAIN STYLESHEET
@@ -302,7 +380,7 @@ We'll add them back where needed.
 */
 a {
   text-decoration: none;
-  color: inherit;
+
 }
 
 /* ============================================
@@ -4312,6 +4390,651 @@ Fallback for browsers without backdrop-filter.
 .section-youtube-cta .btn-primary:hover {
   background: #7a1616;
   border-color: #7a1616;
+}
+
+/* ============================================
+   15. PHASE 13B: MEDIA & MINISTRY FEATURES
+   ============================================
+   YouTube embeds, Facebook integration, livestream,
+   testimonies, and upgraded sermon cards.
+   ============================================ */
+
+/* -------------------------------------------
+   15A. YOUTUBE EMBED SECTION
+   ------------------------------------------- */
+
+.section-media-highlight {
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.section-media-highlight h2 {
+  color: var(--faith-blue);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-media-highlight > p {
+  color: var(--deep-charcoal);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.video-embed-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto var(--spacing-md);
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(31, 60, 136, 0.15);
+  border: 1px solid rgba(31, 60, 136, 0.1);
+}
+
+.video-embed-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-subscribe-cta {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+  margin-top: var(--spacing-md);
+}
+
+.btn-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #c4302b;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-youtube:hover {
+  background: #a02722;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(196, 48, 43, 0.4);
+}
+
+.btn-youtube svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* -------------------------------------------
+   15B. FACEBOOK INTEGRATION
+   ------------------------------------------- */
+
+.facebook-follow-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
+  padding: 20px 28px;
+  border-radius: 12px;
+  border: 1px solid rgba(31, 60, 136, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 400px;
+  margin: var(--spacing-md) auto;
+}
+
+.facebook-follow-card svg {
+  width: 36px;
+  height: 36px;
+  fill: #1877f2;
+  flex-shrink: 0;
+}
+
+.facebook-follow-card .follow-text {
+  text-align: left;
+}
+
+.facebook-follow-card .follow-text strong {
+  display: block;
+  color: var(--deep-charcoal);
+  font-size: 1rem;
+}
+
+.facebook-follow-card .follow-text span {
+  color: var(--soft-gray);
+  font-size: 0.875rem;
+}
+
+.btn-facebook {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1877f2;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.btn-facebook:hover {
+  background: #1565c0;
+  transform: translateY(-2px);
+}
+
+.btn-facebook svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Footer Facebook Block */
+.footer-facebook-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: var(--spacing-md) 0;
+  padding: var(--spacing-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-facebook-block p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-share:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-share svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* -------------------------------------------
+   15C. SERMON MEDIA BUTTONS
+   ------------------------------------------- */
+
+.sermon-media-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-sm);
+}
+
+.btn-media {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-watch {
+  background: var(--apostolic-red);
+  color: #ffffff;
+}
+
+.btn-watch:hover {
+  background: #7a1616;
+  transform: translateY(-2px);
+}
+
+.btn-listen {
+  background: var(--faith-blue);
+  color: #ffffff;
+}
+
+.btn-listen:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn-media svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* -------------------------------------------
+   15D. LIVESTREAM SECTION
+   ------------------------------------------- */
+
+.section-livestream {
+  background: linear-gradient(135deg, var(--faith-blue) 0%, #2a4a9e 100%);
+  color: #ffffff;
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-livestream::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.section-livestream h2 {
+  color: #ffffff;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+}
+
+.section-livestream > p {
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-md);
+  position: relative;
+}
+
+.livestream-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  margin-bottom: var(--spacing-md);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.livestream-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse-live 2s ease-in-out infinite;
+}
+
+.livestream-indicator.offline {
+  background: #94a3b8;
+  animation: none;
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.livestream-text {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.countdown-placeholder {
+  background: rgba(0, 0, 0, 0.2);
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  margin: var(--spacing-md) auto;
+  max-width: 400px;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 8px;
+}
+
+.countdown-display {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.countdown-item {
+  text-align: center;
+}
+
+.countdown-number {
+  font-size: 2rem;
+  font-weight: 700;
+  display: block;
+  font-family: var(--font-heading);
+}
+
+.countdown-unit {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.btn-livestream {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--apostolic-red);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.btn-livestream:hover {
+  background: #7a1616;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(155, 28, 28, 0.4);
+}
+
+.btn-livestream svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* -------------------------------------------
+   15E. TESTIMONY / HIGHLIGHTS SECTION
+   ------------------------------------------- */
+
+.section-testimonies {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: var(--spacing-xl) var(--spacing-md);
+  text-align: center;
+}
+
+.section-testimonies h2 {
+  color: var(--faith-blue);
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-testimonies > p {
+  color: var(--deep-charcoal);
+  max-width: 700px;
+  margin: 0 auto var(--spacing-lg);
+}
+
+.testimony-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimony-card {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
+  padding: var(--spacing-md);
+  border-radius: 16px;
+  border: 1px solid rgba(31, 60, 136, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.testimony-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.testimony-quote {
+  font-style: italic;
+  color: var(--deep-charcoal);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  padding-left: 24px;
+}
+
+.testimony-quote::before {
+  content: """;
+  position: absolute;
+  left: 0;
+  top: -8px;
+  font-size: 3rem;
+  color: var(--faith-blue);
+  opacity: 0.3;
+  font-family: var(--font-heading);
+}
+
+.testimony-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimony-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--faith-blue) 0%, var(--soft-sky-blue) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.testimony-info strong {
+  display: block;
+  color: var(--deep-charcoal);
+  font-size: 0.95rem;
+}
+
+.testimony-info span {
+  color: var(--soft-gray);
+  font-size: 0.85rem;
+}
+
+/* Ministry Highlights Grid */
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  max-width: 900px;
+  margin: var(--spacing-lg) auto 0;
+}
+
+.highlight-card {
+  background: linear-gradient(135deg, var(--faith-blue) 0%, var(--soft-sky-blue) 100%);
+  color: #ffffff;
+  padding: var(--spacing-md);
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(31, 60, 136, 0.3);
+}
+
+.highlight-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  display: block;
+}
+
+.highlight-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* -------------------------------------------
+   15F. FEATURED SERMON EMBED (SERMONS PAGE)
+   ------------------------------------------- */
+
+.section-featured-sermon {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
+  padding: var(--spacing-lg);
+  border-radius: 20px;
+  margin: var(--spacing-lg) auto;
+  max-width: 900px;
+  border: 1px solid rgba(31, 60, 136, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+.section-featured-sermon h2 {
+  color: var(--faith-blue);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.featured-sermon-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.featured-sermon-video {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.featured-sermon-info {
+  text-align: left;
+}
+
+.featured-sermon-info h3 {
+  color: var(--deep-charcoal);
+  margin-bottom: var(--spacing-xs);
+}
+
+.featured-sermon-info .sermon-meta {
+  color: var(--soft-gray);
+  margin-bottom: var(--spacing-sm);
+}
+
+.featured-sermon-info p {
+  color: var(--deep-charcoal);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .featured-sermon-content {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-sermon-info {
+    text-align: center;
+  }
+}
+
+/* -------------------------------------------
+   15G. RESPONSIVE ADJUSTMENTS
+   ------------------------------------------- */
+
+@media (max-width: 768px) {
+  .facebook-follow-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .facebook-follow-card .follow-text {
+    text-align: center;
+  }
+
+  .countdown-number {
+    font-size: 1.5rem;
+  }
+
+  .testimony-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .video-subscribe-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn-youtube,
+  .btn-facebook {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .highlights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .livestream-status {
+    padding: 10px 20px;
+  }
 }
 
 /* ============================================

@@ -546,6 +546,89 @@ Integrated official social media platforms with elegant, non-intrusive design.
   - pages/contact.html ✅ (header, footer, social links section)
   - assets/css/styles.css ✅ (Section 14 added)
 
+### Phase 13B: Media & Ministry Features
+
+**✅ YOUTUBE EMBEDS, LIVESTREAM & SERMON UPGRADES COMPLETE**
+
+Extended media integration with video embeds, livestream section, and enhanced sermon cards.
+
+- **🎬 YouTube Embed Sections**:
+  - Homepage: "Watch Our Services" section with responsive 16:9 iframe embed
+  - Sermons page: "Featured Sermon" section with video embed and description
+  - Subscribe CTA button linking to channel with sub_confirmation
+  - Accessible iframe with title attribute for screen readers
+  - Lazy loading for performance optimization
+
+- **📡 Livestream Ready Section (Homepage)**:
+  - "Join Live Service" section with gradient background
+  - Livestream status indicator (online/offline states)
+  - Countdown placeholder for next service
+  - Pulse animation for live indicator
+  - Direct link to YouTube live stream
+  - Reusable component structure
+
+- **📺 Sermon Media Card Upgrades**:
+  - All 9 sermon cards upgraded with dual media buttons
+  - "Watch" button (Apostolic Red) - links to YouTube
+  - "Listen" button (Faith Blue) - placeholder for audio
+  - SVG media icons (play and music note)
+  - Accessible aria-labels on all buttons
+  - Hover animations and transitions
+
+- **👥 Facebook Integration Enhanced**:
+  - Homepage footer: Share buttons (Facebook, Twitter/X)
+  - Contact page footer: Facebook follow card with CTA
+  - Social sharing URLs configured for site
+  - Glassmorphism styling on follow cards
+
+- **🙏 Testimony & Highlights Section (Homepage)**:
+  - 3 member testimony cards with quotes
+  - Avatar initials with gradient background
+  - Quote styling with decorative quotation mark
+  - Ministry highlights grid (4 stats cards)
+  - Stats: 50+ Years, 200+ Members, 5 Ministry Groups, Weekly Streaming
+
+- **🎨 New CSS Styles Added (Section 15)**:
+  - `.section-media-highlight` - YouTube embed section
+  - `.video-embed-container`, `.video-embed-wrapper` - Responsive video
+  - `.btn-youtube`, `.btn-facebook` - Platform-branded buttons
+  - `.section-livestream` - Livestream section with animations
+  - `.livestream-status`, `.livestream-indicator` - Status badges
+  - `.countdown-placeholder` - Countdown display
+  - `.sermon-media-buttons`, `.btn-media` - Watch/Listen buttons
+  - `.section-testimonies`, `.testimony-card` - Testimony layout
+  - `.testimony-quote`, `.testimony-author` - Quote styling
+  - `.highlights-grid`, `.highlight-card` - Stats cards
+  - `.section-featured-sermon` - Featured sermon embed
+  - `.footer-facebook-block`, `.share-buttons` - Share UI
+  - Full responsive adjustments at 768px and 480px
+
+- **♿ Accessibility Features**:
+  - All iframes have descriptive `title` attributes
+  - All media buttons have `aria-label` descriptions
+  - Keyboard-focusable media CTAs
+  - `target="_blank"` with `rel="noopener noreferrer"`
+  - Decorative emojis wrapped in `aria-hidden="true"`
+
+- **✨ Glassmorphism Rules Applied**:
+  - Card backgrounds: rgba(255, 255, 255, 0.97)
+  - Blur: 6px (within 8px limit)
+  - Text always on solid overlay layer
+  - Visible borders with subtle shadows
+
+- **🎞️ Animation Rules Followed**:
+  - Used existing scroll reveal system
+  - Gentle slide-up for new sections
+  - Pulse animation for live indicator
+  - No spinner loaders
+  - Page transitions remain coming-from-top
+
+- **📄 Pages Updated**:
+  - index.html ✅ (YouTube embed, Livestream, Testimonies, Share buttons)
+  - pages/sermons.html ✅ (Featured sermon embed, upgraded sermon cards)
+  - pages/contact.html ✅ (Facebook follow card in footer)
+  - assets/css/styles.css ✅ (Section 15 added)
+
 ---
 
 ## Design Principles
@@ -575,25 +658,56 @@ The codebase includes extensive comments explaining:
 
 ## Current Status
 
-| Aspect           | Status                            |
-| ---------------- | --------------------------------- |
-| Project          | Active                            |
-| HTML Structure   | Complete                          |
-| CSS Styling      | Complete                          |
-| JavaScript       | Complete (progressive)            |
-| UI/UX/Brand      | ✅ COMPLETE & STABLE (Phase 10.4) |
-| SEO              | ✅ COMPLETE (Phase 11)            |
-| Accessibility    | ✅ WCAG 2.1 AA (Phase 11)         |
-| Performance      | ✅ OPTIMIZED (Phase 11)           |
-| Content          | ✅ COMPLETE (Phase 12)            |
-| Emoji System     | ✅ APPROVED (Phase 12)            |
-| Social Media     | ✅ COMPLETE (Phase 13)            |
+| Aspect            | Status                            |
+| ----------------- | --------------------------------- |
+| Project           | Active                            |
+| HTML Structure    | Complete                          |
+| CSS Styling       | Complete                          |
+| JavaScript        | Complete (progressive)            |
+| UI/UX/Brand       | ✅ COMPLETE & STABLE (Phase 10.4) |
+| SEO               | ✅ COMPLETE (Phase 11)            |
+| Accessibility     | ✅ WCAG 2.1 AA (Phase 11)         |
+| Performance       | ✅ OPTIMIZED (Phase 11)           |
+| Content           | ✅ COMPLETE (Phase 12)            |
+| Emoji System      | ✅ APPROVED (Phase 12)            |
+| Media Integration | ✅ COMPLETE (Phase 13B)           |
+
+---
+
+
+## Phase 14 — Readability Enforcement Patch
+
+**✅ GLOBAL TEXT READABILITY PATCH APPLIED**
+
+Strict, production-wide enforcement of text color rules for maximum readability and accessibility. No UI redesign, only text color and contrast fixes.
+
+- **Glass & Card Text Fixes:**
+  - All glass, card, and form backgrounds now force #1f2933 (Deep Charcoal) text for body, paragraph, and labels.
+  - Text-shadow removed from all card/glass components for clarity.
+  - No more white/inherit text on light or glass backgrounds.
+
+- **Heading Contrast Rules:**
+  - Headings (h1–h4) in light sections: Faith Blue (`#1f3c88`)
+  - Headings in dark/hero/footer: pure white (`#ffffff`)
+  - `.white-heading` class for white headings in dark sections only.
+
+- **White Text Restriction:**
+  - White text (`#fff`/`white`/`inherit`) is now allowed ONLY in hero, header, footer, and dark sections.
+  - All other areas (cards, glass, forms, light backgrounds) use #1f2933 for text.
+
+- **Button & Form Field Enforcement:**
+  - Primary buttons: white text on red/blue background
+  - Secondary buttons: Faith Blue text on white background
+  - Form fields: #1f2933 text, #fff background
+
+- **No Layout or Palette Changes:**
+  - No redesign, no color palette changes, no UI shifts. Strictly readability and accessibility.
 
 ---
 
 ## Next Phase
 
-### Phase 14: Media & Backend Integration
+### Phase 15: Backend Integration & Optimization
 
 - Add real photos of the church and congregation
 - Optimize images (WebP format, lazy loading)
