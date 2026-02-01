@@ -1,3 +1,183 @@
+### Phase 17: Content Governance & Maintenance
+
+This section ensures the TACN Stadium Assembly website remains orderly, doctrinally safe, and easy to update for years to come.
+
+---
+
+#### 📌 Content Governance Rules
+
+All content on this website must:
+
+1. **Be Scripture-Centered**
+   - Every sermon, announcement, and teaching must align with Biblical doctrine.
+   - Reference Scripture where appropriate.
+
+2. **Use Respectful, Reverent Language**
+   - Avoid slang, informal tone, or casual expressions.
+   - Write as if addressing the congregation in a formal church setting.
+
+3. **Content-Specific Guidelines:**
+
+   | Content Type  | Guidelines                                                                                       |
+   | ------------- | ------------------------------------------------------------------------------------------------ |
+   | Sermons       | Title, preacher name, date, Scripture reference, brief summary. No profane or unvetted messages. |
+   | Events        | Event name, date, time, location, brief description. No secular or non-church events.            |
+   | Announcements | Clear, concise, dated. High-priority notices should be marked appropriately.                     |
+   | Leadership    | Full name, title, brief bio. Only approved leadership should be listed.                          |
+
+---
+
+#### 📁 Folder Structure & Usage Guide
+
+```
+tac-stadium/
+├── index.html              # Homepage (edit cautiously)
+├── sitemap.xml             # SEO sitemap (update when adding pages)
+├── robots.txt              # Search engine rules (rarely edit)
+├── README.md               # Project documentation
+├── pages/                  # All inner pages
+│   ├── about.html          # Church history, mission, leadership
+│   ├── sermons.html        # Sermon listings
+│   ├── events.html         # Upcoming events
+│   ├── giving.html         # Giving information
+│   ├── plan-a-visit.html   # First-time visitor info
+│   ├── contact.html        # Contact form and info
+│   ├── prayer.html         # Prayer request form
+│   ├── testimony.html      # Testimony submission form
+│   └── members.html        # Members portal
+├── assets/
+│   ├── css/
+│   │   └── styles.css      # Main stylesheet (DO NOT edit unless developer)
+│   ├── js/
+│   │   └── main.js         # JavaScript (DO NOT edit unless developer)
+│   ├── images/             # All images (add new images here)
+│   └── data/               # JSON data files
+│       ├── sermons.json    # Sermon data (Media Team edits)
+│       ├── events.json     # Event data (Media Team edits)
+│       ├── announcements.json # Notices (Media Team edits)
+│       └── church-info.json   # Service times, contact info
+```
+
+**⚠️ What NOT to Edit Casually:**
+
+- `styles.css` — Only developers should modify
+- `main.js` — Only developers should modify
+- `index.html` — Core structure; content changes only with approval
+- Any file with `<!-- DO NOT EDIT -->` comments
+
+---
+
+#### 📝 Content Templates
+
+**New Sermon Entry (in sermons.json):**
+
+```json
+{
+  "id": 10,
+  "title": "Sermon Title Here",
+  "preacher": "Pastor Name",
+  "date": "2026-02-01",
+  "category": "sunday",
+  "scripture": "John 3:16",
+  "summary": "Brief summary of the message.",
+  "videoUrl": "https://www.youtube.com/watch?v=VIDEO_ID"
+}
+```
+
+**New Event Entry (in events.json):**
+
+```json
+{
+  "id": 5,
+  "title": "Event Name",
+  "date": "2026-03-15",
+  "time": "10:00 AM",
+  "location": "Church Auditorium",
+  "category": "special",
+  "description": "Brief description of the event."
+}
+```
+
+**New Announcement (in announcements.json):**
+
+```json
+{
+  "id": 3,
+  "title": "Important Notice Title",
+  "date": "2026-02-01",
+  "message": "Full announcement message here.",
+  "priority": "normal"
+}
+```
+
+_Set `"priority": "high"` for urgent alerts that display as banners._
+
+---
+
+#### 🔁 Update Workflow
+
+**Safe Update Process:**
+
+1. **Edit Content**
+   - Modify only the appropriate JSON file or HTML section.
+   - Follow the content templates above.
+
+2. **Test Locally**
+   - Open the site in a browser before pushing.
+   - Verify content displays correctly.
+   - Check mobile view.
+
+3. **Commit with Clear Message**
+
+   ```bash
+   git add -A
+   git commit -m "Added new sermon: [Title] - [Date]"
+   ```
+
+4. **Push to Main**
+   ```bash
+   git push origin main
+   ```
+
+**🔄 Rollback Guidance:**
+If something breaks after an update:
+
+```bash
+# View recent commits
+git log --oneline -5
+
+# Revert to previous commit
+git revert HEAD
+
+# Or reset to a specific commit (use with caution)
+git reset --hard [commit-hash]
+git push --force origin main
+```
+
+---
+
+#### 🔐 Role Guidance
+
+| Role                    | Responsibilities                            | Can Edit                      |
+| ----------------------- | ------------------------------------------- | ----------------------------- |
+| **Pastor / Leadership** | Content approval, doctrinal review          | Final approval on all content |
+| **Media Team**          | Weekly updates, sermon uploads, event posts | JSON data files, images       |
+| **Developer**           | Structural changes, bug fixes, new features | CSS, JS, HTML structure       |
+| **Volunteers**          | Content drafting                            | Submit drafts for review only |
+
+**Approval Flow:**
+
+1. Media Team drafts content
+2. Pastor/Leadership approves
+3. Media Team publishes
+4. Developer assists only if structural changes needed
+
+---
+
+**STATUS: MAINTAINABLE & FUTURE-READY 🛠️**
+
+---
+
 ### Phase 21: Members Portal & Ministry Resources
 
 - Created `pages/members.html` with hero, intro, and glass-card grid for ministry resources.
