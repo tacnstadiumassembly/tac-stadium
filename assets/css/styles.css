@@ -295,7 +295,7 @@ main section:not(.section-dark):not(.section-hero-bg) h4 {
   color: #ffffff !important;
 }
 .btn-secondary {
-  color: #1f3c88 !important;
+  color: #ffffff !important;
 }
 
 /* Form field text and background */
@@ -5988,10 +5988,10 @@ main section.section-intro::before {
    ============================================
    Production-quality polish. No redesign.
    Typography locked, layout unified, responsive verified.
-   
+
    RULES FOLLOWED:
    ✗ NO redesign
-   ✗ NO brand color changes  
+   ✗ NO brand color changes
    ✗ NO new sections or animations
    ✓ ONLY normalize, align, and finalize
    ============================================ */
@@ -6456,13 +6456,13 @@ select:focus {
   header nav {
     transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
   }
-  
+
   header nav.nav-open {
     max-height: 500px;
     opacity: 1;
     visibility: visible;
   }
-  
+
   header nav:not(.nav-open) {
     max-height: 0;
     opacity: 0;
@@ -6478,11 +6478,11 @@ select:focus {
   .giving-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .contact-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .service-times-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -6493,19 +6493,19 @@ select:focus {
   h1 {
     font-size: 2rem;
   }
-  
+
   h2 {
     font-size: 1.5rem;
   }
-  
+
   h3 {
     font-size: 1.25rem;
   }
-  
+
   h4 {
     font-size: 1.125rem;
   }
-  
+
   /* Grids to 2 columns */
   .ministry-grid,
   .sermon-grid,
@@ -6514,11 +6514,11 @@ select:focus {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
-  
+
   .service-times-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* Card padding reduction */
   .ministry-card,
   .sermon-card,
@@ -6534,15 +6534,15 @@ select:focus {
   h1 {
     font-size: 1.75rem;
   }
-  
+
   h2 {
     font-size: 1.375rem;
   }
-  
+
   h3 {
     font-size: 1.125rem;
   }
-  
+
   /* Single column grids */
   .ministry-grid,
   .sermon-grid,
@@ -6551,7 +6551,7 @@ select:focus {
   .contact-info-grid {
     grid-template-columns: 1fr;
   }
-  
+
   /* Full width buttons */
   .btn,
   .btn-primary,
@@ -6559,13 +6559,13 @@ select:focus {
   .btn-submit {
     width: 100%;
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
     max-width: 300px;
   }
-  
+
   .hero-buttons .btn {
     width: 100%;
   }
@@ -6575,11 +6575,11 @@ select:focus {
   h1 {
     font-size: 1.5rem;
   }
-  
+
   h2 {
     font-size: 1.25rem;
   }
-  
+
   .btn,
   .btn-primary,
   .btn-secondary {
@@ -6690,19 +6690,19 @@ img {
   .hero-buttons {
     display: none;
   }
-  
+
   body {
     font-size: 12pt;
     line-height: 1.5;
     color: #000;
     background: #fff;
   }
-  
+
   main {
     max-width: 100%;
     padding: 0;
   }
-  
+
   main section {
     page-break-inside: avoid;
     padding: 1em 0;
