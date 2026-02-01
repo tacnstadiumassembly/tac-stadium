@@ -6,56 +6,56 @@ const ministryResources = [
     title: "Bible Study Guide: Romans",
     desc: "A 12-week guide for in-depth study of the Book of Romans.",
     category: "bible",
-    link: "#"
+    link: "#",
   },
   {
     id: 2,
     title: "Workers Manual 2026",
     desc: "Official manual for church workers and leaders.",
     category: "workers",
-    link: "#"
+    link: "#",
   },
   {
     id: 3,
     title: "Choir Rehearsal Materials Q1",
     desc: "Sheet music and practice tracks for choir members.",
     category: "choir",
-    link: "#"
+    link: "#",
   },
   {
     id: 4,
     title: "Youth Study: Faith Foundations",
     desc: "Youth-focused study resource on Christian foundations.",
     category: "youth",
-    link: "#"
+    link: "#",
   },
   {
     id: 5,
     title: "Convention Materials 2025",
     desc: "All handouts and guides for the annual convention.",
     category: "conventions",
-    link: "#"
+    link: "#",
   },
   {
     id: 6,
     title: "Bible Study Guide: Acts",
     desc: "A 10-week guide for the Book of Acts.",
     category: "bible",
-    link: "#"
+    link: "#",
   },
   {
     id: 7,
     title: "Workers Orientation Handbook",
     desc: "Quick-start guide for new church workers.",
     category: "workers",
-    link: "#"
+    link: "#",
   },
   {
     id: 8,
     title: "Youth Study: Living for Christ",
     desc: "Discussion guide for youth fellowship.",
     category: "youth",
-    link: "#"
+    link: "#",
   },
 ];
 
@@ -84,11 +84,14 @@ function renderResourceGrid(filter) {
   grid.querySelectorAll(".resource-card").forEach((card, i) => {
     card.style.opacity = 0;
     card.style.transform = "translateY(24px)";
-    setTimeout(() => {
-      card.style.transition = "opacity 0.5s, transform 0.5s";
-      card.style.opacity = 1;
-      card.style.transform = "translateY(0)";
-    }, 100 + i * 80);
+    setTimeout(
+      () => {
+        card.style.transition = "opacity 0.5s, transform 0.5s";
+        card.style.opacity = 1;
+        card.style.transform = "translateY(0)";
+      },
+      100 + i * 80,
+    );
   });
 }
 

@@ -16,6 +16,51 @@
 - Navigation updated: "Members Portal" link in header and footer of all relevant pages.
 - All color, gradient, readability, glass, and animation rules strictly enforced.
 - Resource data is placeholder (can be moved to JSON later).
+
+### Phase 14: Visual Polish & Consistency
+
+- **Unified Heading System:**
+  - All H2 headings share consistent font-size, color, and margin-bottom (16px).
+  - Apostolic Red underline accent applied to H2 only.
+
+- **Paragraph Polish:**
+  - Line-height: 1.7 for comfortable reading.
+  - Max-width: 70ch for long text blocks.
+
+- **Glassmorphism Refinement (Safe Mode):**
+  - Background opacity: 0.97 for all glass cards.
+  - Blur: 6px max (safe, readable).
+  - Soft inner border: 1px solid rgba(255,255,255,0.25).
+  - Heavy shadows removed, subtle elevation applied.
+
+- **Navigation & Header Polish:**
+  - Increased nav link spacing.
+  - Subtle hover underline animation.
+  - Active page indicator visible and clear.
+  - Header never overlaps page content.
+
+- **Button System Standardized:**
+  - Primary: Apostolic Red background, white text, consistent radius.
+  - Secondary: Faith Blue background, white text.
+  - Hover: scale(1.02) + subtle glow.
+  - All one-off button styles removed.
+
+- **Micro-Interactions:**
+  - Button hover: scale(1.02).
+  - Card hover: lift 4px max.
+  - Links: underline slide-in animation.
+  - No page-shifting animations.
+
+- **Trust & Reverence Enhancements:**
+  - Scripture-style quote block design (blockquote).
+  - Gentle divider lines between major sections.
+  - Footer clarity and spacing improved.
+
+- **Mobile Interaction Polish:**
+  - Larger tap spacing.
+  - Cards not cramped.
+  - Buttons full-width where appropriate.
+
 # TACN Stadium Branch Website
 
 A clean, static HTML/CSS website for The Apostolic Church Nigeria (TACN), Stadium Branch. This project prioritizes clarity, accessibility, and simplicity — making it easy to maintain and beginner-friendly to understand.
