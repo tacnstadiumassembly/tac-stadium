@@ -5477,14 +5477,14 @@ select {
    PHASE 18: UI STABILITY, SPACING & PERFORMANCE CLEANUP
    ============================================
    Audit and fix all UI issues across the website.
-   
+
    RULES FOLLOWED:
    ✗ NO redesign
-   ✗ NO brand color changes  
+   ✗ NO brand color changes
    ✗ NO new layouts
    ✗ NO new animations
    ✓ ONLY fix broken/unreadable elements
-   
+
    FIXES INCLUDED:
    - Section vertical spacing (sections no longer "joined")
    - Consistent margins/padding
@@ -5692,11 +5692,11 @@ main section h2 {
   .event-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .giving-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .contact-info-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -5709,16 +5709,16 @@ main section h2 {
     overflow-x: hidden;
     max-width: 100vw;
   }
-  
+
   main {
     overflow-x: hidden;
   }
-  
+
   /* Section padding reduction */
   main section {
     padding: var(--spacing-lg) var(--spacing-md);
   }
-  
+
   .section-intro,
   .section-ministries,
   .section-sermons-preview,
@@ -5726,60 +5726,60 @@ main section h2 {
   .section-giving {
     padding: var(--spacing-xl) var(--spacing-md);
   }
-  
+
   /* Navigation - prevent overlap */
   header nav ul {
     flex-direction: column;
     gap: 0;
   }
-  
+
   header nav a {
     display: block;
     width: 100%;
     padding: var(--spacing-sm);
     text-align: center;
   }
-  
+
   /* Grid to single column or 2-col */
   .ministry-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
-  
+
   .sermon-grid,
   .event-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
-  
+
   .giving-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-md);
   }
-  
+
   .service-times-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
   }
-  
+
   /* Footer - prevent crowding */
   footer {
     padding: var(--spacing-xl) var(--spacing-md);
   }
-  
+
   footer nav ul {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
   }
-  
+
   /* Text overflow prevention */
   h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
   }
-  
+
   p {
     max-width: 100%;
   }
@@ -5791,7 +5791,7 @@ main section h2 {
   main section {
     padding: var(--spacing-md) var(--spacing-sm);
   }
-  
+
   /* Single column grids */
   .ministry-grid,
   .sermon-grid,
@@ -5801,7 +5801,7 @@ main section h2 {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
   }
-  
+
   /* Button full width - prevent cutoff */
   .btn,
   .btn-primary,
@@ -5813,7 +5813,7 @@ main section h2 {
     text-align: center;
     padding: var(--spacing-sm) var(--spacing-md);
   }
-  
+
   /* Hero buttons stack */
   .hero-buttons {
     flex-direction: column;
@@ -5823,28 +5823,28 @@ main section h2 {
     margin-left: auto;
     margin-right: auto;
   }
-  
+
   .hero-buttons .btn {
     width: 100%;
   }
-  
+
   /* Card padding reduction */
   .ministry-card,
   .giving-card {
     padding: var(--spacing-md);
   }
-  
+
   .sermon-content,
   .event-content {
     padding: var(--spacing-sm);
   }
-  
+
   /* Form container */
   .form-container {
     padding: var(--spacing-md);
     margin: var(--spacing-sm);
   }
-  
+
   /* Footer cleanup */
   footer {
     padding: var(--spacing-lg) var(--spacing-sm);
@@ -5857,18 +5857,18 @@ main section h2 {
   main section {
     padding: var(--spacing-sm);
   }
-  
+
   /* Prevent text overflow */
   .section-hero-bg h1,
   main section:first-child h1 {
     font-size: 1.5rem;
     line-height: 1.3;
   }
-  
+
   .section-hero-bg p {
     font-size: 0.95rem;
   }
-  
+
   /* Very tight button styling */
   .btn,
   .btn-primary,
@@ -5876,7 +5876,7 @@ main section h2 {
     padding: 0.75rem 1rem;
     font-size: 0.9rem;
   }
-  
+
   /* Card text size */
   .ministry-card h3,
   .sermon-card h3,
@@ -5884,20 +5884,20 @@ main section h2 {
   .giving-card h3 {
     font-size: 1rem;
   }
-  
+
   .ministry-card p,
   .sermon-card p,
   .event-card p,
   .giving-card p {
     font-size: 0.875rem;
   }
-  
+
   /* Header church name */
   header > div:first-child > a {
     font-size: 0.85rem;
     line-height: 1.2;
   }
-  
+
   /* Navigation links smaller */
   header nav a {
     font-size: 0.85rem;
@@ -5982,3 +5982,733 @@ main section.section-intro::before {
 /* -------------------------------------------
    END PHASE 18
    ------------------------------------------- */
+/* ============================================
+   PHASE 19: FINAL VISUAL NORMALIZATION
+   & DEPLOYMENT READINESS
+   ============================================
+   Production-quality polish. No redesign.
+   Typography locked, layout unified, responsive verified.
+   
+   RULES FOLLOWED:
+   ✗ NO redesign
+   ✗ NO brand color changes  
+   ✗ NO new sections or animations
+   ✓ ONLY normalize, align, and finalize
+   ============================================ */
+
+/* -------------------------------------------
+   19A. GLOBAL TYPOGRAPHY LOCK
+   -------------------------------------------
+   Normalized heading sizes, font-weights,
+   line-heights across ALL pages.
+   ------------------------------------------- */
+
+/* Heading hierarchy - LOCKED SIZES */
+h1 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+h5 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h6 {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* Body text - LOCKED STYLES */
+body,
+p,
+li,
+td,
+th,
+label,
+span:not(.highlight-number):not(.service-icon):not(.countdown-number) {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* Meta/secondary text - LOCKED STYLES */
+.sermon-date,
+.event-meta,
+.section-subtitle,
+small,
+.form-privacy,
+figcaption,
+.testimony-info span {
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-gray);
+}
+
+/* -------------------------------------------
+   19B. BUTTON SYSTEM NORMALIZATION
+   -------------------------------------------
+   All buttons look identical everywhere.
+   Same radius, padding, shadows, transitions.
+   ------------------------------------------- */
+
+/* Base button - LOCKED STYLE */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-small,
+.btn-submit,
+.filter-btn,
+.btn-media,
+.btn-youtube,
+.btn-facebook,
+.btn-livestream {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.5rem;
+  min-height: 48px; /* Touch target requirement */
+  transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+}
+
+/* Primary button (Apostolic Red) */
+.btn,
+.btn-primary {
+  background-color: #9b1c1c;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(155, 28, 28, 0.2);
+}
+
+.btn:hover,
+.btn-primary:hover {
+  background-color: #7f1818;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(155, 28, 28, 0.25);
+}
+
+/* Secondary button (Faith Blue) */
+.btn-secondary {
+  background-color: #1f3c88;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(31, 60, 136, 0.2);
+}
+
+.btn-secondary:hover {
+  background-color: #162c66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(31, 60, 136, 0.25);
+}
+
+/* Small button */
+.btn-small {
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  min-height: 40px;
+}
+
+/* Submit button */
+.btn-submit {
+  background-color: #1f3c88;
+  color: #ffffff !important;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(31, 60, 136, 0.2);
+}
+
+.btn-submit:hover {
+  background-color: #162c66;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(31, 60, 136, 0.25);
+}
+
+/* Filter button */
+.filter-btn {
+  background-color: var(--color-off-white);
+  color: #1f2933;
+  border: 1px solid var(--color-light-gray);
+  padding: 0.5rem 1rem;
+  min-height: 44px;
+}
+
+.filter-btn:hover {
+  background-color: #1f3c88;
+  color: #ffffff;
+  border-color: #1f3c88;
+}
+
+.filter-btn.active {
+  background-color: #9b1c1c;
+  color: #ffffff;
+  border-color: #9b1c1c;
+}
+
+/* -------------------------------------------
+   19C. CARD SYSTEM NORMALIZATION
+   -------------------------------------------
+   All cards share unified styling.
+   Same radius, shadow, padding, borders.
+   ------------------------------------------- */
+
+/* Unified card base */
+.ministry-card,
+.sermon-card,
+.event-card,
+.giving-card,
+.contact-info-card,
+.testimony-card,
+.resource-card,
+.highlight-card,
+.social-link-card {
+  background: var(--glass-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-1);
+  padding: var(--spacing-lg);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Card hover state - unified */
+.ministry-card:hover,
+.sermon-card:hover,
+.event-card:hover,
+.giving-card:hover,
+.contact-info-card:hover,
+.testimony-card:hover,
+.resource-card:hover,
+.highlight-card:hover,
+.social-link-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--elevation-hover);
+}
+
+/* Card headings - unified */
+.ministry-card h3,
+.sermon-card h3,
+.event-card h3,
+.giving-card h3,
+.contact-info-card h3,
+.testimony-card h3,
+.resource-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f3c88;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+/* Card body text - unified */
+.ministry-card p,
+.sermon-card p,
+.event-card p,
+.giving-card p,
+.contact-info-card p,
+.testimony-card p,
+.resource-card p {
+  font-size: 0.9375rem;
+  color: #1f2933;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Card with image - content area */
+.sermon-card .sermon-content,
+.event-card .event-content {
+  padding: var(--spacing-md);
+}
+
+/* -------------------------------------------
+   19D. ICON ALIGNMENT NORMALIZATION
+   -------------------------------------------
+   Ensure icons align vertically with text.
+   ------------------------------------------- */
+
+/* Icon containers */
+.ministry-icon,
+.giving-icon,
+.contact-icon,
+.social-icon svg,
+.btn svg,
+.btn-media svg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+/* Ministry icons */
+.ministry-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--spacing-md);
+  color: #9b1c1c;
+}
+
+/* Giving icons */
+.giving-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto var(--spacing-md);
+  background-color: var(--color-off-white);
+  border-radius: 50%;
+}
+
+/* Button icons */
+.btn svg,
+.btn-media svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Social icons */
+.social-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.social-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* -------------------------------------------
+   19E. LAYOUT CONSISTENCY LOCK
+   -------------------------------------------
+   Identical header height, footer spacing,
+   container max-width across ALL pages.
+   ------------------------------------------- */
+
+/* Header - LOCKED HEIGHT */
+header {
+  min-height: 64px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Footer - LOCKED SPACING */
+footer {
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+/* Container - LOCKED MAX-WIDTH */
+.container,
+main section,
+header > *,
+footer > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Full-width sections still constrain inner content */
+.section-dark,
+.section-hero-bg,
+main section:nth-child(even) {
+  max-width: 100%;
+}
+
+.section-dark > *,
+.section-hero-bg > *,
+main section:nth-child(even) > * {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* -------------------------------------------
+   19F. GRID ALIGNMENT NORMALIZATION
+   -------------------------------------------
+   All grids align vertically, consistent gaps.
+   ------------------------------------------- */
+
+/* Unified grid gaps */
+.ministry-grid,
+.sermon-grid,
+.event-grid,
+.giving-grid,
+.contact-info-grid,
+.service-times-grid,
+.testimony-grid,
+.highlights-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+/* 3-column grids */
+.sermon-grid,
+.event-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* 4-column grids */
+.giving-grid,
+.contact-info-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 2-column grids */
+.ministry-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* 3-column service times */
+.service-times-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* -------------------------------------------
+   19G. FINAL RESPONSIVE LOCK
+   -------------------------------------------
+   Touch targets ≥48px, menu smooth,
+   forms usable, no visual jumps.
+   ------------------------------------------- */
+
+/* Touch target enforcement */
+button,
+a.btn,
+.btn,
+.filter-btn,
+input[type="submit"],
+input[type="button"] {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Small buttons still meet touch target */
+.btn-small {
+  min-height: 44px;
+}
+
+/* Form inputs - touch friendly */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+  min-height: 48px;
+  padding: 0.75rem 1rem;
+  font-size: 16px; /* Prevents iOS zoom */
+  border-radius: var(--radius-md);
+  border: 2px solid var(--color-light-gray);
+  width: 100%;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #1f3c88;
+  box-shadow: 0 0 0 3px rgba(31, 60, 136, 0.15);
+}
+
+/* Mobile menu smooth transition */
+@media screen and (max-width: 768px) {
+  header nav {
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  header nav.nav-open {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  header nav:not(.nav-open) {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+}
+
+/* Responsive grid adjustments - LOCKED */
+@media screen and (max-width: 1024px) {
+  .sermon-grid,
+  .event-grid,
+  .giving-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .service-times-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Typography scale down */
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  h4 {
+    font-size: 1.125rem;
+  }
+  
+  /* Grids to 2 columns */
+  .ministry-grid,
+  .sermon-grid,
+  .event-grid,
+  .giving-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .service-times-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Card padding reduction */
+  .ministry-card,
+  .sermon-card,
+  .event-card,
+  .giving-card,
+  .contact-info-card {
+    padding: var(--spacing-md);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Typography scale down further */
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.375rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  /* Single column grids */
+  .ministry-grid,
+  .sermon-grid,
+  .event-grid,
+  .giving-grid,
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Full width buttons */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-submit {
+    width: 100%;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  
+  h2 {
+    font-size: 1.25rem;
+  }
+  
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.625rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* -------------------------------------------
+   19H. IMAGE & MEDIA NORMALIZATION
+   -------------------------------------------
+   Consistent aspect ratios, no stretching.
+   ------------------------------------------- */
+
+/* Prevent image stretching */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Video containers */
+.sermon-video,
+.video-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  border-radius: var(--radius-lg);
+}
+
+.sermon-video iframe,
+.video-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Thumbnail images */
+.sermon-thumbnail,
+.event-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1f3c88 0%, #4f7cff 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.sermon-thumbnail img,
+.event-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -------------------------------------------
+   19I. BORDER CONSISTENCY
+   -------------------------------------------
+   Unified border usage across components.
+   ------------------------------------------- */
+
+/* Form field borders */
+.form-group input,
+.form-group textarea,
+.form-group select {
+  border: 2px solid var(--color-light-gray);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: #1f3c88;
+}
+
+/* Card borders - subtle */
+.ministry-card,
+.sermon-card,
+.event-card,
+.giving-card,
+.contact-info-card,
+.form-container {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Dark section borders - none */
+.section-dark,
+.section-hero-bg {
+  border: none;
+}
+
+/* -------------------------------------------
+   19J. PRINT STYLES (OPTIONAL)
+   ------------------------------------------- */
+
+@media print {
+  header,
+  footer,
+  nav,
+  .btn,
+  .filter-btn,
+  .hero-buttons {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+  
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  main section {
+    page-break-inside: avoid;
+    padding: 1em 0;
+  }
+}
+
+/* -------------------------------------------
+   END PHASE 19
+   ============================================ */
