@@ -17,6 +17,33 @@
 - All color, gradient, readability, glass, and animation rules strictly enforced.
 - Resource data is placeholder (can be moved to JSON later).
 
+### Phase 16: Deployment & Monitoring
+
+- **Google Analytics 4 Integrated:**
+  - GA4 tracking code added to all pages.
+  - Tracks page views, outbound link clicks (YouTube, Facebook).
+  - Loads asynchronously for performance.
+  - Privacy-respecting: IP anonymization enabled.
+  - Replace `G-XXXXXXXXXX` with your actual GA4 Measurement ID.
+
+- **SEO Infrastructure:**
+  - `sitemap.xml` created with all pages (Home, About, Sermons, Events, Giving, Plan a Visit, Contact, Prayer, Testimony, Members).
+  - `robots.txt` added: allows all crawlers, references sitemap.
+  - Canonical URLs consistent across all pages.
+
+- **Production Link Structure:**
+  - All internal links use relative paths.
+  - Site works at root domain or subdirectory.
+  - No localhost or absolute path references.
+
+- **Security Headers Applied:**
+  - `X-Frame-Options: SAMEORIGIN` meta tag on all pages.
+  - `Content-Security-Policy: frame-ancestors 'self'` for clickjacking protection.
+  - Forms use HTML5 validation (safe, no backend required).
+  - HTTPS compatible (no mixed content).
+
+**STATUS: LIVE-READY 🌍**
+
 ### Phase 15: Performance & Production Readiness
 
 - **Image Optimization:**

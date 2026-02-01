@@ -1,0 +1,11 @@
+# Robots.txt for TACN Stadium Assembly Website
+# https://tacnstadiumassembly.org
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tacnstadiumassembly.org/sitemap.xml
+
+# Disallow admin or private areas (none currently)
+# Disallow: /admin/

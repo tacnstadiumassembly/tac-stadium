@@ -62,6 +62,19 @@
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#1f3c88" />
 
+    <!-- Security: Prevent iframe embedding -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'self'" />
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', { 'anonymize_ip': true });
+    </script>
+
     <!-- Favicon - TACN church icon -->
     <link rel="icon" href="../assets/images/favicon.png" type="image/png" />
     <link
