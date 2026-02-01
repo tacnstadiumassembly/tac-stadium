@@ -1,3 +1,74 @@
+### Phase 18: UI Stability, Spacing & Performance Cleanup
+
+This phase audits and fixes all UI issues across the TACN Stadium Assembly website to ensure a stable, readable, and production-safe experience.
+
+---
+
+#### 🧹 Issues Fixed
+
+| Issue                             | Fix Applied                                                                  |
+| --------------------------------- | ---------------------------------------------------------------------------- |
+| Sections appearing "joined"       | Added consistent `margin-bottom`, `padding`, and subtle section borders      |
+| Missing vertical spacing          | Standardized section padding with CSS variables                              |
+| Overlapping elements (mobile)     | Fixed nav overlap, button cutoff, text overflow at all breakpoints           |
+| Inconsistent padding/margins      | Consolidated spacing rules using `--spacing-*` variables                     |
+| Cards touching headers            | Added `margin-bottom` to section headings                                    |
+| Hero pushing content incorrectly  | Added bottom margin to hero sections                                         |
+| White text on light backgrounds   | Enforced Deep Charcoal (#1f2933) for all light-background text               |
+| Contrast issues on cards/forms    | Applied proper text colors to all card and form elements                     |
+
+---
+
+#### 📖 Readability Enforcement
+
+- **Body text**: Deep Charcoal (#1f2933) on all light/glass backgrounds
+- **Headings**: Faith Blue (#1f3c88) on light backgrounds
+- **White text**: ONLY on dark backgrounds with overlay (hero, header, footer, dark sections)
+- **Secondary text**: Soft Gray (#4b5563) for meta/dates - still readable
+- **No text shadows** on light backgrounds (removed for clarity)
+
+---
+
+#### 📱 Mobile Audit (Confirmed Working)
+
+| Breakpoint | Fixes Applied                                                             |
+| ---------- | ------------------------------------------------------------------------- |
+| 360px      | Smaller hero text, compact buttons, single-column grids                   |
+| 414px      | Full-width buttons, stacked hero CTAs, reduced card padding               |
+| 768px      | 2-column grids, stacked nav, prevent horizontal scroll                    |
+| 1024px     | 2-column grids for larger tablets                                         |
+
+**Horizontal scrolling**: Prevented with `overflow-x: hidden` on html/body/main
+**Text overflow**: Fixed with `word-wrap`, `overflow-wrap`, and `hyphens`
+**Button cutoff**: Full-width buttons on mobile with proper padding
+**Navigation overlap**: Stacked vertical nav on mobile
+**Footer crowding**: Proper spacing and stacked links
+
+---
+
+#### ⚙️ CSS Cleanup Performed
+
+- ✅ Ensured consistent `box-sizing: border-box` on all elements
+- ✅ Consolidated spacing rules using CSS variables
+- ✅ Added clear comments explaining spacing standards (Phase 18 section)
+- ✅ Removed conflicting section divider rules
+- ✅ Standardized grid gaps across all card grids
+
+---
+
+#### 🚀 Performance Notes
+
+- Background images use CSS (no `<img>` tags to add attributes)
+- Font loading via Google Fonts with `preconnect` already optimized
+- No JS changes required for layout stability
+- Lazy loading CSS transitions preserved
+
+---
+
+**STATUS: STABLE, READABLE & PRODUCTION-SAFE ✅**
+
+---
+
 ### Phase 17: Content Governance & Maintenance
 
 This section ensures the TACN Stadium Assembly website remains orderly, doctrinally safe, and easy to update for years to come.

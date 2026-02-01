@@ -5473,3 +5473,512 @@ select {
 .btn-secondary {
   color: var(--faith-blue) !important;
 }
+/* ============================================
+   PHASE 18: UI STABILITY, SPACING & PERFORMANCE CLEANUP
+   ============================================
+   Audit and fix all UI issues across the website.
+   
+   RULES FOLLOWED:
+   ✗ NO redesign
+   ✗ NO brand color changes  
+   ✗ NO new layouts
+   ✗ NO new animations
+   ✓ ONLY fix broken/unreadable elements
+   
+   FIXES INCLUDED:
+   - Section vertical spacing (sections no longer "joined")
+   - Consistent margins/padding
+   - Text readability enforcement
+   - Mobile responsive stability
+   - CSS cleanup and consolidation
+   ============================================ */
+
+/* -------------------------------------------
+   18A. SECTION SPACING SYSTEM (CRITICAL FIX)
+   -------------------------------------------
+   Standardized vertical spacing between sections
+   to prevent "joined" appearance.
+   ------------------------------------------- */
+
+/* Base section spacing - breathing room between sections */
+main section {
+  margin-bottom: 0; /* Reset any conflicting margin */
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Add clear vertical gap between adjacent sections */
+main section + section {
+  margin-top: 0;
+  border-top: 1px solid rgba(31, 60, 136, 0.06);
+}
+
+/* Remove border from sections with their own backgrounds */
+main section.section-dark + section,
+main section.section-hero-bg + section,
+main section:nth-child(even) + section:nth-child(odd) {
+  border-top: none;
+}
+
+/* Hero section - extra bottom spacing */
+main section.section-hero-bg,
+main section.section-dark:first-child {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Page header sections need bottom margin */
+.section-page-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Intro sections */
+.section-intro {
+  padding-top: var(--spacing-xxl);
+  padding-bottom: var(--spacing-xxl);
+}
+
+/* Ministry/card sections */
+.section-ministries,
+.section-sermons-preview,
+.section-events-preview,
+.section-giving {
+  padding-top: var(--spacing-xxl);
+  padding-bottom: var(--spacing-xxl);
+}
+
+/* -------------------------------------------
+   18B. CONTAINER & GRID STANDARDIZATION
+   ------------------------------------------- */
+
+/* Consistent container widths */
+.container,
+main section > *:not(.ministry-grid):not(.sermon-grid):not(.event-grid):not(.giving-grid):not(.hero-buttons) {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Standard grid gaps */
+.ministry-grid,
+.sermon-grid,
+.event-grid,
+.giving-grid,
+.contact-info-grid,
+.service-times-grid {
+  gap: var(--spacing-lg);
+}
+
+/* -------------------------------------------
+   18C. TEXT READABILITY ENFORCEMENT (MANDATORY)
+   -------------------------------------------
+   Deep Charcoal (#1f2933) for body text on light backgrounds
+   White (#ffffff) ONLY on dark backgrounds with overlay
+   ------------------------------------------- */
+
+/* LIGHT BACKGROUNDS - Deep Charcoal text */
+main section:not(.section-dark):not(.section-hero-bg):not(.section-page-header) p,
+main section:not(.section-dark):not(.section-hero-bg):not(.section-page-header) li,
+main section:not(.section-dark):not(.section-hero-bg):not(.section-page-header) span:not(.service-icon):not(.highlight-number),
+main section:not(.section-dark):not(.section-hero-bg):not(.section-page-header) address,
+.section-intro p,
+.section-ministries p,
+.section-sermons-preview p,
+.section-events-preview p,
+.section-giving p {
+  color: #1f2933;
+  text-shadow: none;
+}
+
+/* Card text - Deep Charcoal on glass/white backgrounds */
+.ministry-card p,
+.sermon-card p,
+.sermon-card .sermon-preacher,
+.event-card p,
+.event-card .event-description,
+.giving-card p,
+.contact-info-card p,
+.form-container p,
+.form-container label,
+.form-intro {
+  color: #1f2933;
+  text-shadow: none;
+}
+
+/* Card headings - Faith Blue */
+.ministry-card h3,
+.sermon-card h3,
+.event-card h3,
+.giving-card h3,
+.contact-info-card h3 {
+  color: #1f3c88;
+}
+
+/* Secondary/meta text - Soft Gray (still readable) */
+.sermon-date,
+.event-meta,
+.section-subtitle {
+  color: #4b5563;
+}
+
+/* DARK BACKGROUNDS - White text ONLY */
+.section-dark p,
+.section-dark li,
+.section-dark span,
+.section-hero-bg p,
+.section-hero-bg span,
+.section-page-header p,
+header *,
+footer *,
+footer address {
+  color: #ffffff;
+}
+
+/* Service time cards (on dark background) */
+.service-time-card h3,
+.service-time-card p {
+  color: #ffffff;
+}
+
+/* Bank details on dark section */
+.giving-bank-details,
+.giving-bank-details .bank-label,
+.giving-bank-details .bank-value {
+  color: #ffffff;
+}
+
+/* -------------------------------------------
+   18D. CARD SPACING & OVERLAP FIXES
+   ------------------------------------------- */
+
+/* Prevent cards from touching headers */
+main section h2 {
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Card internal spacing consistency */
+.ministry-card,
+.giving-card {
+  padding: var(--spacing-lg);
+}
+
+.sermon-card .sermon-content,
+.event-card .event-content {
+  padding: var(--spacing-md);
+}
+
+/* Card bottom margin in grids */
+.ministry-grid .ministry-card,
+.sermon-grid .sermon-card,
+.event-grid .event-card,
+.giving-grid .giving-card {
+  margin-bottom: 0; /* Grid gap handles spacing */
+}
+
+/* Form container spacing */
+.form-container {
+  padding: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* -------------------------------------------
+   18E. MOBILE RESPONSIVE FIXES (360px-1024px)
+   ------------------------------------------- */
+
+/* 1024px - Tablets landscape */
+@media screen and (max-width: 1024px) {
+  .ministry-grid,
+  .sermon-grid,
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .giving-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 768px - Tablets portrait */
+@media screen and (max-width: 768px) {
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  main {
+    overflow-x: hidden;
+  }
+  
+  /* Section padding reduction */
+  main section {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .section-intro,
+  .section-ministries,
+  .section-sermons-preview,
+  .section-events-preview,
+  .section-giving {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  /* Navigation - prevent overlap */
+  header nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  header nav a {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-sm);
+    text-align: center;
+  }
+  
+  /* Grid to single column or 2-col */
+  .ministry-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .sermon-grid,
+  .event-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .giving-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+  
+  .service-times-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* Footer - prevent crowding */
+  footer {
+    padding: var(--spacing-xl) var(--spacing-md);
+  }
+  
+  footer nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  /* Text overflow prevention */
+  h1, h2, h3, h4, h5, h6 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  p {
+    max-width: 100%;
+  }
+}
+
+/* 414px - Large phones */
+@media screen and (max-width: 414px) {
+  /* Section padding */
+  main section {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  /* Single column grids */
+  .ministry-grid,
+  .sermon-grid,
+  .event-grid,
+  .giving-grid,
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* Button full width - prevent cutoff */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-small,
+  .btn-submit {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+  
+  /* Hero buttons stack */
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  
+  /* Card padding reduction */
+  .ministry-card,
+  .giving-card {
+    padding: var(--spacing-md);
+  }
+  
+  .sermon-content,
+  .event-content {
+    padding: var(--spacing-sm);
+  }
+  
+  /* Form container */
+  .form-container {
+    padding: var(--spacing-md);
+    margin: var(--spacing-sm);
+  }
+  
+  /* Footer cleanup */
+  footer {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+}
+
+/* 360px - Small phones */
+@media screen and (max-width: 360px) {
+  /* Extra small padding */
+  main section {
+    padding: var(--spacing-sm);
+  }
+  
+  /* Prevent text overflow */
+  .section-hero-bg h1,
+  main section:first-child h1 {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .section-hero-bg p {
+    font-size: 0.95rem;
+  }
+  
+  /* Very tight button styling */
+  .btn,
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Card text size */
+  .ministry-card h3,
+  .sermon-card h3,
+  .event-card h3,
+  .giving-card h3 {
+    font-size: 1rem;
+  }
+  
+  .ministry-card p,
+  .sermon-card p,
+  .event-card p,
+  .giving-card p {
+    font-size: 0.875rem;
+  }
+  
+  /* Header church name */
+  header > div:first-child > a {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+  
+  /* Navigation links smaller */
+  header nav a {
+    font-size: 0.85rem;
+    padding: var(--spacing-xs);
+  }
+}
+
+/* -------------------------------------------
+   18F. BOX-SIZING CONSISTENCY
+   ------------------------------------------- */
+
+/* Ensure all elements use border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* -------------------------------------------
+   18G. CTA SECTION CONTRAST FIX
+   ------------------------------------------- */
+
+/* CTA sections on dark backgrounds */
+.section-giving-cta,
+.section-giving-info {
+  padding: var(--spacing-xxl) var(--spacing-md);
+}
+
+.section-giving-cta h2,
+.section-giving-cta p {
+  color: #1f2933;
+}
+
+/* -------------------------------------------
+   18H. NOTICE BOARD SPACING FIX
+   ------------------------------------------- */
+
+#notice-board {
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+#notice-board h2 {
+  margin-bottom: var(--spacing-md);
+}
+
+/* -------------------------------------------
+   18I. FILTER BUTTONS SPACING
+   ------------------------------------------- */
+
+.section-sermon-filters,
+.section-event-filters {
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-buttons {
+  gap: var(--spacing-sm);
+}
+
+/* -------------------------------------------
+   18J. FEATURED SERMON SECTION SPACING
+   ------------------------------------------- */
+
+.section-featured-sermon {
+  margin: var(--spacing-xl) auto;
+  padding: var(--spacing-lg);
+}
+
+/* -------------------------------------------
+   18K. REMOVE DUPLICATE SECTION DIVIDERS
+   ------------------------------------------- */
+
+/* The Phase 14 section dividers can conflict - disable when not needed */
+main section.section-dark + section::before,
+main section.section-hero-bg + section::before,
+main section.section-intro::before {
+  display: none;
+}
+
+/* -------------------------------------------
+   END PHASE 18
+   ------------------------------------------- */
