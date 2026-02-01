@@ -5302,6 +5302,118 @@ select {
   color: #1f2933 !important;
 }
 
+/* ============================================
+   PHASE 15: PERFORMANCE & PRODUCTION READINESS
+   ============================================
+   Cross-browser safety, page load animation,
+   image handling, and production polish.
+   ============================================ */
+
+/* --- PAGE LOAD REVEAL ANIMATION --- */
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+  animation: pageReveal 0.5s ease-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
+
+/* --- CROSS-BROWSER IMAGE HANDLING --- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.sermon-thumbnail img,
+.event-card img,
+.ministry-card img,
+.giving-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+/* --- CONSISTENT CARD HEIGHT --- */
+.sermon-card,
+.event-card,
+.giving-card,
+.ministry-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+.sermon-content,
+.event-content,
+.giving-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- HERO TEXT READABILITY SAFETY --- */
+.section-hero-bg h1,
+.section-hero-bg p,
+.section-dark h1,
+.section-dark p {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+/* --- CROSS-BROWSER FLEX/GRID FALLBACKS --- */
+.ministry-grid,
+.sermon-grid,
+.event-grid,
+.giving-grid,
+.service-times-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+@supports (display: grid) {
+  .ministry-grid,
+  .sermon-grid,
+  .event-grid,
+  .giving-grid,
+  .service-times-grid {
+    display: grid;
+  }
+}
+
+/* --- PREVENT LAYOUT SHIFT ON MOBILE --- */
+header, footer {
+  position: relative;
+  z-index: 100;
+}
+main {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- LAZY LOAD IMAGE FADE-IN --- */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+img[loading="lazy"].loaded,
+img[loading="lazy"]:not([src=""]) {
+  opacity: 1;
+}
+
 /* 2. GLASS + CARD TEXT FIX */
 .glass,
 .card,

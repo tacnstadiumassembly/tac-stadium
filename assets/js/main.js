@@ -1295,7 +1295,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Init announcements on homepage only
   if (document.getElementById("notice-board")) fetchAnnouncements();
-
-  // Log for debugging (remove in production)
-  console.log("TAC Stadium JS loaded successfully.");
 });
